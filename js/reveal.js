@@ -13,6 +13,9 @@ var Reveal = (function(){
 		HORIZONTAL_SLIDES_SELECTOR = '.reveal .slides>section',
 		VERTICAL_SLIDES_SELECTOR = '.reveal .slides>section.present>section',
 		HOME_SLIDE_SELECTOR = '.reveal .slides>section:first-of-type',
+		FRAGMENT_SELECTOR = '*[data-seq], *[data-anim], .fragment',
+		VISIBLE_FRAGMENT_SELECTOR = FRAGMENT_SELECTOR.replace(/,|$/g, '.visible$&'),
+		INVISIBLE_FRAGMENT_SELECTOR = FRAGMENT_SELECTOR.replace(/,|$/g, ':not(.visible)$&'),
 
 		// Configurations defaults, can be overridden at initialization time
 		config = {
@@ -1648,11 +1651,11 @@ var Reveal = (function(){
 			var verticalSlides = toArray( horizontalSlide.querySelectorAll( 'section' ) );
 			verticalSlides.forEach( function( verticalSlide, y ) {
 
-				sortFragments( verticalSlide.querySelectorAll( '.fragment' ) );
+				sortFragments( verticalSlide.querySelectorAll( FRAGMENT_SELECTOR ) );
 
 			} );
 
-			if( verticalSlides.length === 0 ) sortFragments( horizontalSlide.querySelectorAll( '.fragment' ) );
+			if( verticalSlides.length === 0 ) sortFragments( horizontalSlide.querySelectorAll( FRAGMENT_SELECTOR ) );
 
 		} );
 
@@ -1708,7 +1711,7 @@ var Reveal = (function(){
 					// Any element previous to index is given the 'past' class
 					element.classList.add( reverse ? 'future' : 'past' );
 
-					var pastFragments = toArray( element.querySelectorAll( '.fragment' ) );
+					var pastFragments = toArray( element.querySelectorAll( FRAGMENT_SELECTOR ) );
 
 					// Show all fragments on prior slides
 					while( pastFragments.length ) {
@@ -1721,7 +1724,7 @@ var Reveal = (function(){
 					// Any element subsequent to index is given the 'future' class
 					element.classList.add( reverse ? 'past' : 'future' );
 
-					var futureFragments = toArray( element.querySelectorAll( '.fragment.visible' ) );
+					var futureFragments = toArray( element.querySelectorAll( VISIBLE_FRAGMENT_SELECTOR ) );
 
 					// No fragments in future slides should be visible ahead of time
 					while( futureFragments.length ) {
@@ -2077,8 +2080,8 @@ var Reveal = (function(){
 	function availableFragments() {
 
 		if( currentSlide && config.fragments ) {
-			var fragments = currentSlide.querySelectorAll( '.fragment' );
-			var hiddenFragments = currentSlide.querySelectorAll( '.fragment:not(.visible)' );
+			var fragments = currentSlide.querySelectorAll( FRAGMENT_SELECTOR );
+			var hiddenFragments = currentSlide.querySelectorAll( INVISIBLE_FRAGMENT_SELECTOR );
 
 			return {
 				prev: fragments.length - hiddenFragments.length > 0,
@@ -2270,9 +2273,9 @@ var Reveal = (function(){
 		}
 
 		if( !slide && currentSlide ) {
-			var hasFragments = currentSlide.querySelectorAll( '.fragment' ).length > 0;
+			var hasFragments = currentSlide.querySelectorAll( FRAGMENT_SELECTOR ).length > 0;
 			if( hasFragments ) {
-				var visibleFragments = currentSlide.querySelectorAll( '.fragment.visible' );
+				var visibleFragments = currentSlide.querySelectorAll( VISIBLE_FRAGMENT_SELECTOR );
 				f = visibleFragments.length - 1;
 			}
 		}
@@ -2281,16 +2284,24 @@ var Reveal = (function(){
 
 	}
 
+	function getFragmentIndex(fragment) {
+		if (!fragment.hasAttribute('data-seq')) {
+			return -1;
+		}
+
+		return Number(fragment.getAttribute('data-seq')) || 0;
+	}
+
 	/**
 	 * Return a sorted fragments list, ordered by an increasing
-	 * "data-fragment-index" attribute.
+	 * "data-seq" attribute.
 	 *
 	 * Fragments will be revealed in the order that they are returned by
 	 * this function, so you can use the index attributes to control the
 	 * order of fragment appearance.
 	 *
 	 * To maintain a sensible default fragment order, fragments are presumed
-	 * to be passed in document order. This function adds a "fragment-index"
+	 * to be passed in document order. This function adds a "seq"
 	 * attribute to each node if such an attribute is not already present,
 	 * and sets that attribute to an integer value which is the position of
 	 * the fragment within the fragments list.
@@ -2299,14 +2310,24 @@ var Reveal = (function(){
 
 		fragments = toArray( fragments );
 
+		// Compatibility layer with traditional attribute name
+		fragments.forEach(function(f) {
+			if (!f.hasAttribute('data-fragment-index')) {
+				return;
+			}
+
+			f.setAttribute('data-seq', f.getAttribute('data-fragment-index'));
+			f.removeAttribute('data-fragment-index');
+		});
+
 		var ordered = [],
 			unordered = [],
 			sorted = [];
 
 		// Group ordered and unordered elements
 		fragments.forEach( function( fragment, i ) {
-			if( fragment.hasAttribute( 'data-fragment-index' ) ) {
-				var index = parseInt( fragment.getAttribute( 'data-fragment-index' ), 10 );
+			if( fragment.hasAttribute( 'data-seq' ) ) {
+				var index = Number(fragment.getAttribute( 'data-seq' )) || 0;
 
 				if( !ordered[index] ) {
 					ordered[index] = [];
@@ -2332,7 +2353,7 @@ var Reveal = (function(){
 		ordered.forEach( function( group ) {
 			group.forEach( function( fragment ) {
 				sorted.push( fragment );
-				fragment.setAttribute( 'data-fragment-index', index );
+				fragment.setAttribute( 'data-seq', index );
 			} );
 
 			index ++;
@@ -2340,6 +2361,93 @@ var Reveal = (function(){
 
 		return sorted;
 
+	}
+
+	// As per http://davidwalsh.name/vendor-prefix
+	var vendorPrefix = (function () {
+		var styles = window.getComputedStyle(document.documentElement, ''),
+		pre = (Array.prototype.slice
+			.call(styles)
+			.join('')
+			.match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o'])
+			)[1],
+		dom = ('WebKit|Moz|MS|O').match(new RegExp('(' + pre + ')', 'i'))[1];
+		return {
+			dom: dom,
+			lowercase: pre,
+			css: '-' + pre + '-',
+			js: pre[0].toUpperCase() + pre.substr(1)
+		};
+	})();
+
+	/**
+	 * Ensures proper CSS styles and classes on a fragment with a `data-anim=` attribute.
+	 *
+	 * Such an attribute can contain either a single animation name, or a value of the form
+	 * `animationName[, styleProp: value [...]]`.  Style properties can be any unprefixed
+	 * CSS property names, without the `animation-` prefix, either in CamelCase or hyphenized,
+	 * and their values are direct appropriate CSS values.  Such style properties are applied
+	 * ahead of animation through the DOM Stylesheet interface, then the animation is triggered
+	 * by adding the proper classes.
+   *
+	 * A simplified syntax for `iteration-count: infinite` exists: `loop: true`.  Also, animations
+	 * are normally auto-disabled when moving on to the next fragment, but they can persit if you
+	 * specify the `persistent: true` property.
+	 *
+	 * Animation names can be any animation supported by
+	 * [Animate.css](https://github.com/daneden/animate.css).
+	 *
+	 * Example values:
+	 *
+	 *     <span data-anim="bounce">
+	 *     <span data-anim="fadeInRightBig, duration: 3s, loop: true">
+	 */
+	function ensureFragmentAnimation(fragment, enable) {
+		var anim = fragment.getAttribute('data-anim');
+		if (!anim) {
+			return;
+		}
+		var props = anim.trim().split(/\s*,\s*/), name = props.shift();
+
+		if (undefined === enable) {
+			enable = true;
+		}
+
+		// Ensure style properties, if any
+		var persistent = false;
+		props.forEach(function(prop) {
+			var comps = prop.match(/^(\S+)\s*:\s*(.+)$/);
+			if (!comps) {
+				return;
+			}
+
+			if ('persistent' === comps[1]) {
+				persistent = Boolean(comps[2]);
+				return;
+			}
+
+			if ('loop' === comps[1] && Boolean(comps[2])) {
+				comps[1] = 'iterationCount';
+				comps[2] = 'infinite';
+			}
+
+			var propName = 'animation' + comps[1].replace(/\b\w/g, function(initial) {
+				return initial.toLocaleUpperCase();
+			});
+
+			if (vendorPrefix.lowercase) {
+				propName = vendorPrefix.lowercase + propName[0].toLocaleUpperCase() + propName.slice(1);
+			}
+			fragment.style[propName] = comps[2];
+		});
+
+		if (enable) {
+			fragment.classList.add('animated');
+			fragment.classList.add(name);
+		} else if (!persistent) {
+			fragment.classList.remove('animated');
+			fragment.classList.remove(name);
+		}
 	}
 
 	/**
@@ -2357,15 +2465,15 @@ var Reveal = (function(){
 
 		if( currentSlide && config.fragments ) {
 
-			var fragments = sortFragments( currentSlide.querySelectorAll( '.fragment' ) );
+			var fragments = sortFragments( currentSlide.querySelectorAll( FRAGMENT_SELECTOR ) );
 			if( fragments.length ) {
 
 				// If no index is specified, find the current
 				if( typeof index !== 'number' ) {
-					var lastVisibleFragment = sortFragments( currentSlide.querySelectorAll( '.fragment.visible' ) ).pop();
+					var lastVisibleFragment = sortFragments( currentSlide.querySelectorAll( VISIBLE_FRAGMENT_SELECTOR ) ).pop();
 
 					if( lastVisibleFragment ) {
-						index = parseInt( lastVisibleFragment.getAttribute( 'data-fragment-index' ) || 0, 10 );
+						index = getFragmentIndex(lastVisibleFragment);
 					}
 					else {
 						index = -1;
@@ -2382,23 +2490,27 @@ var Reveal = (function(){
 
 				toArray( fragments ).forEach( function( element, i ) {
 
-					if( element.hasAttribute( 'data-fragment-index' ) ) {
-						i = parseInt( element.getAttribute( 'data-fragment-index' ), 10 );
+					if( element.hasAttribute( 'data-seq' ) ) {
+						i = getFragmentIndex(element);
 					}
 
 					// Visible fragments
 					if( i <= index ) {
 						if( !element.classList.contains( 'visible' ) ) fragmentsShown.push( element );
+						ensureFragmentAnimation(element);
 						element.classList.add( 'visible' );
 						element.classList.remove( 'current-fragment' );
 
 						if( i === index ) {
 							element.classList.add( 'current-fragment' );
+						} else {
+							ensureFragmentAnimation(element, false);
 						}
 					}
 					// Hidden fragments
 					else {
 						if( element.classList.contains( 'visible' ) ) fragmentsHidden.push( element );
+						// ensureFragmentAnimation(element, false);
 						element.classList.remove( 'visible' );
 						element.classList.remove( 'current-fragment' );
 					}

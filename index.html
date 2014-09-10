@@ -15,6 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/animate.min.css">
 		<link rel="stylesheet" href="css/theme/default.css" id="theme">
 
 		<!-- For syntax highlighting -->
@@ -289,10 +290,10 @@ function linkify( selector ) {
 					<section id="fragments">
 						<h2>Fragmented Views</h2>
 						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
+						<p class="fragment" data-anim="bounce">... to step through ...</p>
 						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
+							<li class="fragment" data-anim="rubberBand, duration: 2s, loop: true, persistent: true"><code>any type</code></li>
+							<li class="fragment" data-anim="tada, loop: true"><em>of view</em></li>
 							<li class="fragment"><strong>fragments</strong></li>
 						</ol>
 
@@ -358,7 +359,7 @@ function linkify( selector ) {
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+		<script src="js/reveal.js"></script>
 
 		<script>
 
