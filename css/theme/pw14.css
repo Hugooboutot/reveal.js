@@ -144,10 +144,12 @@
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985)
 }
 
-/* COLOR BLUE YELLOW */
+/* BLUE YELLOW */
 
 .theme-color-blue-yellow {
-  background: #44a0dd
+  background-image: url(patterns/congruent_outline.png);
+  background-color: #44a0dd;
+  background-blend-mode: soft-light;
 }
 
 .theme-color-blue-yellow body {
@@ -225,7 +227,9 @@
 /* FOREST YELLOW */
 
 .theme-color-forest-yellow {
-  background: #2ba056
+  background-image: url(patterns/shattered.png);
+  background-color: #2ba056;
+  background-blend-mode: multiply;
 }
 
 .theme-color-forest-yellow body {
@@ -303,9 +307,14 @@
 /* ASPHALT ORANGE */
 
 .theme-color-asphalt-orange {
+  background-image:
+    -webkit-radial-gradient(center, circle farthest-corner, #415b77 0%, #2c3e50 100%),
+    url(patterns/shattered.png);
+  background-image:
+    radial-gradient(circle farthest-corner at center, #415b77 0%, #2c3e50 100%),
+    url(patterns/shattered.png);
   background-color: #2c3e50;
-  background-image: -webkit-radial-gradient(center, circle farthest-corner, #415b77 0%, #2c3e50 100%);
-  background-image: radial-gradient(circle farthest-corner at center, #415b77 0%, #2c3e50 100%)
+  background-blend-mode: soft-light;
 }
 
 .theme-color-asphalt-orange body {
@@ -383,9 +392,13 @@
 /* MINT BEIGE */
 
 .theme-color-mint-beige {
+  background-image:
+    -webkit-radial-gradient(center, circle farthest-corner, #2aa57e 0%, #207c5f 100%),
+    url(patterns/congruent_outline.png);
+  background-image: radial-gradient(circle farthest-corner at center, #2aa57e 0%, #207c5f 100%),
+    url(patterns/congruent_outline.png);
   background-color: #207c5f;
-  background-image: -webkit-radial-gradient(center, circle farthest-corner, #2aa57e 0%, #207c5f 100%);
-  background-image: radial-gradient(circle farthest-corner at center, #2aa57e 0%, #207c5f 100%)
+  background-blend-mode: soft-light;
 }
 
 .theme-color-mint-beige body {
@@ -463,9 +476,9 @@
 /* CORAL BLUE */
 
 .theme-color-coral-blue {
-  background-color: #c97150;
   background-image: -webkit-radial-gradient(center, circle farthest-corner, #d59177 0%, #c97150 100%);
-  background-image: radial-gradient(circle farthest-corner at center, #d59177 0%, #c97150 100%)
+  background-image: radial-gradient(circle farthest-corner at center, #d59177 0%, #c97150 100%);
+  background-color: #c97150;
 }
 
 .theme-color-coral-blue body {
