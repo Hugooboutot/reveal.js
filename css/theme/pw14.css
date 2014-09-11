@@ -1,3 +1,69 @@
+@font-face {
+  font-family: 'Canter';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Canter Light"), url("../fonts/Canter Light.otf");
+}
+
+@font-face {
+  font-family: 'Canter';
+  font-style: normal;
+  font-weight: bold;
+  src: local("Canter Bold"), url("../fonts/Canter Bold.otf");
+}
+
+@font-face {
+  font-family: 'Canter Shadow';
+  font-style: normal;
+  src: local("Canter Bold Shadow"), url("../fonts/Canter Bold Shadow.otf");
+}
+
+@font-face {
+  font-family: 'Canter Strips';
+  font-style: normal;
+  src: local("Canter Bold Strips"), url("../fonts/Canter Bold Strips.otf");
+}
+
+@font-face {
+  font-family: 'Dense';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Dense"), local("Dense-Regular"), url("../fonts/Dense-Regular.otf");
+}
+
+@font-face {
+  font-family: 'Sabado';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Sabado"), local("Sabado Regular"), url("../fonts/Sabado Regular.otf");
+}
+
+@font-face {
+  font-family: 'Sabado';
+  font-style: italic;
+  font-weight: 400;
+  src: local("Sabado Italic"), url("../fonts/Sabado Italic.otf");
+}
+
+@font-face {
+  font-family: 'Track';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Track"), url("../fonts/Track.otf");
+}
+
+@font-face {
+  font-family: 'Track';
+  font-style: italic;
+  font-weight: 400;
+  src: local("Track Italic"), url("../fonts/Track Italic.otf");
+}
+
+.reveal h1, .reveal h2, .reveal h3 {
+  font-family: Track;
+  letter-spacing: 0.01em;
+}
+
 /* SILVER GREEN */
 
 .theme-color-silver-green {
