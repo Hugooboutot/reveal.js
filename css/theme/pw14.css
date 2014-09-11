@@ -1,0 +1,475 @@
+/* SILVER GREEN */
+
+.theme-color-silver-green {
+  background-color: #ddd;
+  background-image: -webkit-radial-gradient(center, circle farthest-corner, #fff 0%, #ddd 100%);
+  background-image: radial-gradient(circle farthest-corner at center, #fff 0%, #ddd 100%)
+}
+
+.theme-color-silver-green body {
+  background: transparent
+}
+
+.theme-color-silver-green .theme-body-color-block {
+  background: #111
+}
+
+.theme-color-silver-green .theme-link-color-block {
+  background: #039426
+}
+
+.theme-color-silver-green .themed,.theme-color-silver-green .reveal {
+  color: #111
+}
+
+.theme-color-silver-green .themed a,.theme-color-silver-green .reveal a,
+.theme-color-silver-green .reveal h1,
+.theme-color-silver-green .reveal h2,
+.theme-color-silver-green .reveal h3,
+.theme-color-silver-green .reveal h4,
+.theme-color-silver-green .reveal h5,
+.theme-color-silver-green .reveal h6 {
+  color: #039426
+}
+
+.theme-color-silver-green .themed a:hover,.theme-color-silver-green .reveal a:hover {
+  color: #04c633
+}
+
+.theme-color-silver-green .themed .controls div.navigate-left,.theme-color-silver-green .themed .controls div.navigate-left.enabled,.theme-color-silver-green .reveal .controls div.navigate-left,.theme-color-silver-green .reveal .controls div.navigate-left.enabled {
+  border-right-color: #039426
+}
+
+.theme-color-silver-green .themed .controls div.navigate-right,.theme-color-silver-green .themed .controls div.navigate-right.enabled,.theme-color-silver-green .reveal .controls div.navigate-right,.theme-color-silver-green .reveal .controls div.navigate-right.enabled {
+  border-left-color: #039426
+}
+
+.theme-color-silver-green .themed .controls div.navigate-up,.theme-color-silver-green .themed .controls div.navigate-up.enabled,.theme-color-silver-green .reveal .controls div.navigate-up,.theme-color-silver-green .reveal .controls div.navigate-up.enabled {
+  border-bottom-color: #039426
+}
+
+.theme-color-silver-green .themed .controls div.navigate-down,.theme-color-silver-green .themed .controls div.navigate-down.enabled,.theme-color-silver-green .reveal .controls div.navigate-down,.theme-color-silver-green .reveal .controls div.navigate-down.enabled {
+  border-top-color: #039426
+}
+
+.theme-color-silver-green .themed .controls div.navigate-left.enabled:hover,.theme-color-silver-green .reveal .controls div.navigate-left.enabled:hover {
+  border-right-color: #04c633
+}
+
+.theme-color-silver-green .themed .controls div.navigate-right.enabled:hover,.theme-color-silver-green .reveal .controls div.navigate-right.enabled:hover {
+  border-left-color: #04c633
+}
+
+.theme-color-silver-green .themed .controls div.navigate-up.enabled:hover,.theme-color-silver-green .reveal .controls div.navigate-up.enabled:hover {
+  border-bottom-color: #04c633
+}
+
+.theme-color-silver-green .themed .controls div.navigate-down.enabled:hover,.theme-color-silver-green .reveal .controls div.navigate-down.enabled:hover {
+  border-top-color: #04c633
+}
+
+.theme-color-silver-green .themed .progress,.theme-color-silver-green .reveal .progress {
+  background: rgba(0,0,0,0.2)
+}
+
+.theme-color-silver-green .themed .progress span,.theme-color-silver-green .reveal .progress span {
+  background: #039426;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985)
+}
+
+/* COLOR BLUE YELLOW */
+
+.theme-color-blue-yellow {
+  background: #44a0dd
+}
+
+.theme-color-blue-yellow body {
+  background: transparent
+}
+
+.theme-color-blue-yellow .theme-body-color-block {
+  background: #fff
+}
+
+.theme-color-blue-yellow .theme-link-color-block {
+  background: #ecec6a
+}
+
+.theme-color-blue-yellow .themed,.theme-color-blue-yellow .reveal {
+  color: #fff
+}
+
+.theme-color-blue-yellow .themed a,.theme-color-blue-yellow .reveal a,
+.theme-color-blue-yellow .reveal h1,
+.theme-color-blue-yellow .reveal h2,
+.theme-color-blue-yellow .reveal h3,
+.theme-color-blue-yellow .reveal h4,
+.theme-color-blue-yellow .reveal h5,
+.theme-color-blue-yellow .reveal h6 {
+  color: #ecec6a
+}
+
+.theme-color-blue-yellow .themed a:hover,.theme-color-blue-yellow .reveal a:hover {
+  color: #f8f8c4
+}
+
+.theme-color-blue-yellow .themed .controls div.navigate-left,.theme-color-blue-yellow .themed .controls div.navigate-left.enabled,.theme-color-blue-yellow .reveal .controls div.navigate-left,.theme-color-blue-yellow .reveal .controls div.navigate-left.enabled {
+  border-right-color: #ecec6a
+}
+
+.theme-color-blue-yellow .themed .controls div.navigate-right,.theme-color-blue-yellow .themed .controls div.navigate-right.enabled,.theme-color-blue-yellow .reveal .controls div.navigate-right,.theme-color-blue-yellow .reveal .controls div.navigate-right.enabled {
+  border-left-color: #ecec6a
+}
+
+.theme-color-blue-yellow .themed .controls div.navigate-up,.theme-color-blue-yellow .themed .controls div.navigate-up.enabled,.theme-color-blue-yellow .reveal .controls div.navigate-up,.theme-color-blue-yellow .reveal .controls div.navigate-up.enabled {
+  border-bottom-color: #ecec6a
+}
+
+.theme-color-blue-yellow .themed .controls div.navigate-down,.theme-color-blue-yellow .themed .controls div.navigate-down.enabled,.theme-color-blue-yellow .reveal .controls div.navigate-down,.theme-color-blue-yellow .reveal .controls div.navigate-down.enabled {
+  border-top-color: #ecec6a
+}
+
+.theme-color-blue-yellow .themed .controls div.navigate-left.enabled:hover,.theme-color-blue-yellow .reveal .controls div.navigate-left.enabled:hover {
+  border-right-color: #f8f8c4
+}
+
+.theme-color-blue-yellow .themed .controls div.navigate-right.enabled:hover,.theme-color-blue-yellow .reveal .controls div.navigate-right.enabled:hover {
+  border-left-color: #f8f8c4
+}
+
+.theme-color-blue-yellow .themed .controls div.navigate-up.enabled:hover,.theme-color-blue-yellow .reveal .controls div.navigate-up.enabled:hover {
+  border-bottom-color: #f8f8c4
+}
+
+.theme-color-blue-yellow .themed .controls div.navigate-down.enabled:hover,.theme-color-blue-yellow .reveal .controls div.navigate-down.enabled:hover {
+  border-top-color: #f8f8c4
+}
+
+.theme-color-blue-yellow .themed .progress,.theme-color-blue-yellow .reveal .progress {
+  background: rgba(0,0,0,0.2)
+}
+
+.theme-color-blue-yellow .themed .progress span,.theme-color-blue-yellow .reveal .progress span {
+  background: #ecec6a;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985)
+}
+
+/* FOREST YELLOW */
+
+.theme-color-forest-yellow {
+  background: #2ba056
+}
+
+.theme-color-forest-yellow body {
+  background: transparent
+}
+
+.theme-color-forest-yellow .theme-body-color-block {
+  background: #fff
+}
+
+.theme-color-forest-yellow .theme-link-color-block {
+  background: #ecec6a
+}
+
+.theme-color-forest-yellow .themed,.theme-color-forest-yellow .reveal {
+  color: #fff
+}
+
+.theme-color-forest-yellow .themed a,.theme-color-forest-yellow .reveal a,
+.theme-color-forest-yellow .reveal h1,
+.theme-color-forest-yellow .reveal h2,
+.theme-color-forest-yellow .reveal h3,
+.theme-color-forest-yellow .reveal h4,
+.theme-color-forest-yellow .reveal h5,
+.theme-color-forest-yellow .reveal h6 {
+  color: #ecec6a
+}
+
+.theme-color-forest-yellow .themed a:hover,.theme-color-forest-yellow .reveal a:hover {
+  color: #f8f8c4
+}
+
+.theme-color-forest-yellow .themed .controls div.navigate-left,.theme-color-forest-yellow .themed .controls div.navigate-left.enabled,.theme-color-forest-yellow .reveal .controls div.navigate-left,.theme-color-forest-yellow .reveal .controls div.navigate-left.enabled {
+  border-right-color: #ecec6a
+}
+
+.theme-color-forest-yellow .themed .controls div.navigate-right,.theme-color-forest-yellow .themed .controls div.navigate-right.enabled,.theme-color-forest-yellow .reveal .controls div.navigate-right,.theme-color-forest-yellow .reveal .controls div.navigate-right.enabled {
+  border-left-color: #ecec6a
+}
+
+.theme-color-forest-yellow .themed .controls div.navigate-up,.theme-color-forest-yellow .themed .controls div.navigate-up.enabled,.theme-color-forest-yellow .reveal .controls div.navigate-up,.theme-color-forest-yellow .reveal .controls div.navigate-up.enabled {
+  border-bottom-color: #ecec6a
+}
+
+.theme-color-forest-yellow .themed .controls div.navigate-down,.theme-color-forest-yellow .themed .controls div.navigate-down.enabled,.theme-color-forest-yellow .reveal .controls div.navigate-down,.theme-color-forest-yellow .reveal .controls div.navigate-down.enabled {
+  border-top-color: #ecec6a
+}
+
+.theme-color-forest-yellow .themed .controls div.navigate-left.enabled:hover,.theme-color-forest-yellow .reveal .controls div.navigate-left.enabled:hover {
+  border-right-color: #f8f8c4
+}
+
+.theme-color-forest-yellow .themed .controls div.navigate-right.enabled:hover,.theme-color-forest-yellow .reveal .controls div.navigate-right.enabled:hover {
+  border-left-color: #f8f8c4
+}
+
+.theme-color-forest-yellow .themed .controls div.navigate-up.enabled:hover,.theme-color-forest-yellow .reveal .controls div.navigate-up.enabled:hover {
+  border-bottom-color: #f8f8c4
+}
+
+.theme-color-forest-yellow .themed .controls div.navigate-down.enabled:hover,.theme-color-forest-yellow .reveal .controls div.navigate-down.enabled:hover {
+  border-top-color: #f8f8c4
+}
+
+.theme-color-forest-yellow .themed .progress,.theme-color-forest-yellow .reveal .progress {
+  background: rgba(0,0,0,0.2)
+}
+
+.theme-color-forest-yellow .themed .progress span,.theme-color-forest-yellow .reveal .progress span {
+  background: #ecec6a;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985)
+}
+
+/* ASPHALT ORANGE */
+
+.theme-color-asphalt-orange {
+  background-color: #2c3e50;
+  background-image: -webkit-radial-gradient(center, circle farthest-corner, #415b77 0%, #2c3e50 100%);
+  background-image: radial-gradient(circle farthest-corner at center, #415b77 0%, #2c3e50 100%)
+}
+
+.theme-color-asphalt-orange body {
+  background: transparent
+}
+
+.theme-color-asphalt-orange .theme-body-color-block {
+  background: #fff
+}
+
+.theme-color-asphalt-orange .theme-link-color-block {
+  background: #ffc200
+}
+
+.theme-color-asphalt-orange .themed,.theme-color-asphalt-orange .reveal {
+  color: #fff
+}
+
+.theme-color-asphalt-orange .themed a,.theme-color-asphalt-orange .reveal a,
+.theme-color-asphalt-orange .reveal h1,
+.theme-color-asphalt-orange .reveal h2,
+.theme-color-asphalt-orange .reveal h3,
+.theme-color-asphalt-orange .reveal h4,
+.theme-color-asphalt-orange .reveal h5,
+.theme-color-asphalt-orange .reveal h6 {
+  color: #ffc200
+}
+
+.theme-color-asphalt-orange .themed a:hover,.theme-color-asphalt-orange .reveal a:hover {
+  color: #ffda66
+}
+
+.theme-color-asphalt-orange .themed .controls div.navigate-left,.theme-color-asphalt-orange .themed .controls div.navigate-left.enabled,.theme-color-asphalt-orange .reveal .controls div.navigate-left,.theme-color-asphalt-orange .reveal .controls div.navigate-left.enabled {
+  border-right-color: #ffc200
+}
+
+.theme-color-asphalt-orange .themed .controls div.navigate-right,.theme-color-asphalt-orange .themed .controls div.navigate-right.enabled,.theme-color-asphalt-orange .reveal .controls div.navigate-right,.theme-color-asphalt-orange .reveal .controls div.navigate-right.enabled {
+  border-left-color: #ffc200
+}
+
+.theme-color-asphalt-orange .themed .controls div.navigate-up,.theme-color-asphalt-orange .themed .controls div.navigate-up.enabled,.theme-color-asphalt-orange .reveal .controls div.navigate-up,.theme-color-asphalt-orange .reveal .controls div.navigate-up.enabled {
+  border-bottom-color: #ffc200
+}
+
+.theme-color-asphalt-orange .themed .controls div.navigate-down,.theme-color-asphalt-orange .themed .controls div.navigate-down.enabled,.theme-color-asphalt-orange .reveal .controls div.navigate-down,.theme-color-asphalt-orange .reveal .controls div.navigate-down.enabled {
+  border-top-color: #ffc200
+}
+
+.theme-color-asphalt-orange .themed .controls div.navigate-left.enabled:hover,.theme-color-asphalt-orange .reveal .controls div.navigate-left.enabled:hover {
+  border-right-color: #ffda66
+}
+
+.theme-color-asphalt-orange .themed .controls div.navigate-right.enabled:hover,.theme-color-asphalt-orange .reveal .controls div.navigate-right.enabled:hover {
+  border-left-color: #ffda66
+}
+
+.theme-color-asphalt-orange .themed .controls div.navigate-up.enabled:hover,.theme-color-asphalt-orange .reveal .controls div.navigate-up.enabled:hover {
+  border-bottom-color: #ffda66
+}
+
+.theme-color-asphalt-orange .themed .controls div.navigate-down.enabled:hover,.theme-color-asphalt-orange .reveal .controls div.navigate-down.enabled:hover {
+  border-top-color: #ffda66
+}
+
+.theme-color-asphalt-orange .themed .progress,.theme-color-asphalt-orange .reveal .progress {
+  background: rgba(0,0,0,0.2)
+}
+
+.theme-color-asphalt-orange .themed .progress span,.theme-color-asphalt-orange .reveal .progress span {
+  background: #ffc200;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985)
+}
+
+/* MINT BEIGE */
+
+.theme-color-mint-beige {
+  background-color: #207c5f;
+  background-image: -webkit-radial-gradient(center, circle farthest-corner, #2aa57e 0%, #207c5f 100%);
+  background-image: radial-gradient(circle farthest-corner at center, #2aa57e 0%, #207c5f 100%)
+}
+
+.theme-color-mint-beige body {
+  background: transparent
+}
+
+.theme-color-mint-beige .theme-body-color-block {
+  background: #fff
+}
+
+.theme-color-mint-beige .theme-link-color-block {
+  background: #ecec6a
+}
+
+.theme-color-mint-beige .themed,.theme-color-mint-beige .reveal {
+  color: #fff
+}
+
+.theme-color-mint-beige .themed a,.theme-color-mint-beige .reveal a,
+.theme-color-mint-beige .reveal h1,
+.theme-color-mint-beige .reveal h2,
+.theme-color-mint-beige .reveal h3,
+.theme-color-mint-beige .reveal h4,
+.theme-color-mint-beige .reveal h5,
+.theme-color-mint-beige .reveal h6 {
+  color: #ecec6a
+}
+
+.theme-color-mint-beige .themed a:hover,.theme-color-mint-beige .reveal a:hover {
+  color: #f8f8c4
+}
+
+.theme-color-mint-beige .themed .controls div.navigate-left,.theme-color-mint-beige .themed .controls div.navigate-left.enabled,.theme-color-mint-beige .reveal .controls div.navigate-left,.theme-color-mint-beige .reveal .controls div.navigate-left.enabled {
+  border-right-color: #ecec6a
+}
+
+.theme-color-mint-beige .themed .controls div.navigate-right,.theme-color-mint-beige .themed .controls div.navigate-right.enabled,.theme-color-mint-beige .reveal .controls div.navigate-right,.theme-color-mint-beige .reveal .controls div.navigate-right.enabled {
+  border-left-color: #ecec6a
+}
+
+.theme-color-mint-beige .themed .controls div.navigate-up,.theme-color-mint-beige .themed .controls div.navigate-up.enabled,.theme-color-mint-beige .reveal .controls div.navigate-up,.theme-color-mint-beige .reveal .controls div.navigate-up.enabled {
+  border-bottom-color: #ecec6a
+}
+
+.theme-color-mint-beige .themed .controls div.navigate-down,.theme-color-mint-beige .themed .controls div.navigate-down.enabled,.theme-color-mint-beige .reveal .controls div.navigate-down,.theme-color-mint-beige .reveal .controls div.navigate-down.enabled {
+  border-top-color: #ecec6a
+}
+
+.theme-color-mint-beige .themed .controls div.navigate-left.enabled:hover,.theme-color-mint-beige .reveal .controls div.navigate-left.enabled:hover {
+  border-right-color: #f8f8c4
+}
+
+.theme-color-mint-beige .themed .controls div.navigate-right.enabled:hover,.theme-color-mint-beige .reveal .controls div.navigate-right.enabled:hover {
+  border-left-color: #f8f8c4
+}
+
+.theme-color-mint-beige .themed .controls div.navigate-up.enabled:hover,.theme-color-mint-beige .reveal .controls div.navigate-up.enabled:hover {
+  border-bottom-color: #f8f8c4
+}
+
+.theme-color-mint-beige .themed .controls div.navigate-down.enabled:hover,.theme-color-mint-beige .reveal .controls div.navigate-down.enabled:hover {
+  border-top-color: #f8f8c4
+}
+
+.theme-color-mint-beige .themed .progress,.theme-color-mint-beige .reveal .progress {
+  background: rgba(0,0,0,0.2)
+}
+
+.theme-color-mint-beige .themed .progress span,.theme-color-mint-beige .reveal .progress span {
+  background: #ecec6a;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985)
+}
+
+/* CORAL BLUE */
+
+.theme-color-coral-blue {
+  background-color: #c97150;
+  background-image: -webkit-radial-gradient(center, circle farthest-corner, #d59177 0%, #c97150 100%);
+  background-image: radial-gradient(circle farthest-corner at center, #d59177 0%, #c97150 100%)
+}
+
+.theme-color-coral-blue body {
+  background: transparent
+}
+
+.theme-color-coral-blue .theme-body-color-block {
+  background: #fff
+}
+
+.theme-color-coral-blue .theme-link-color-block {
+  background: #3a65c0
+}
+
+.theme-color-coral-blue .themed,.theme-color-coral-blue .reveal {
+  color: #fff
+}
+
+.theme-color-coral-blue .themed a,.theme-color-coral-blue .reveal a,
+.theme-color-coral-blue .reveal h1,
+.theme-color-coral-blue .reveal h2,
+.theme-color-coral-blue .reveal h3,
+.theme-color-coral-blue .reveal h4,
+.theme-color-coral-blue .reveal h5,
+.theme-color-coral-blue .reveal h6 {
+  color: #3a65c0
+}
+
+.theme-color-coral-blue .themed a:hover,.theme-color-coral-blue .reveal a:hover {
+  color: #86a1da
+}
+
+.theme-color-coral-blue .themed .controls div.navigate-left,.theme-color-coral-blue .themed .controls div.navigate-left.enabled,.theme-color-coral-blue .reveal .controls div.navigate-left,.theme-color-coral-blue .reveal .controls div.navigate-left.enabled {
+  border-right-color: #3a65c0
+}
+
+.theme-color-coral-blue .themed .controls div.navigate-right,.theme-color-coral-blue .themed .controls div.navigate-right.enabled,.theme-color-coral-blue .reveal .controls div.navigate-right,.theme-color-coral-blue .reveal .controls div.navigate-right.enabled {
+  border-left-color: #3a65c0
+}
+
+.theme-color-coral-blue .themed .controls div.navigate-up,.theme-color-coral-blue .themed .controls div.navigate-up.enabled,.theme-color-coral-blue .reveal .controls div.navigate-up,.theme-color-coral-blue .reveal .controls div.navigate-up.enabled {
+  border-bottom-color: #3a65c0
+}
+
+.theme-color-coral-blue .themed .controls div.navigate-down,.theme-color-coral-blue .themed .controls div.navigate-down.enabled,.theme-color-coral-blue .reveal .controls div.navigate-down,.theme-color-coral-blue .reveal .controls div.navigate-down.enabled {
+  border-top-color: #3a65c0
+}
+
+.theme-color-coral-blue .themed .controls div.navigate-left.enabled:hover,.theme-color-coral-blue .reveal .controls div.navigate-left.enabled:hover {
+  border-right-color: #86a1da
+}
+
+.theme-color-coral-blue .themed .controls div.navigate-right.enabled:hover,.theme-color-coral-blue .reveal .controls div.navigate-right.enabled:hover {
+  border-left-color: #86a1da
+}
+
+.theme-color-coral-blue .themed .controls div.navigate-up.enabled:hover,.theme-color-coral-blue .reveal .controls div.navigate-up.enabled:hover {
+  border-bottom-color: #86a1da
+}
+
+.theme-color-coral-blue .themed .controls div.navigate-down.enabled:hover,.theme-color-coral-blue .reveal .controls div.navigate-down.enabled:hover {
+  border-top-color: #86a1da
+}
+
+.theme-color-coral-blue .themed .progress,.theme-color-coral-blue .reveal .progress {
+  background: rgba(0,0,0,0.2)
+}
+
+.theme-color-coral-blue .themed .progress span,.theme-color-coral-blue .reveal .progress span {
+  background: #3a65c0;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985)
+}
