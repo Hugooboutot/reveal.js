@@ -211,7 +211,7 @@ foo.prototype // => Object {}
 function Talk(options) {
   // définition des « attributs », puis :
 
-  <b class="wrong">this.run = function run() { … };
+<b class="wrong">  this.run = function run() { … };
   this.toPDF = function toPDF() { … };</b>
   …
 }
@@ -316,7 +316,7 @@ function Workshop(options) {
 function Workshop(options) { … }
 <b class="wrong">Workshop.prototype = new Talk();</b>
 
-$.extend(Talk.prototype, {
+$.extend(Workshop.prototype, {
   run: function runWorkshop() { … }
   …
 });
@@ -346,10 +346,10 @@ $.extend(Talk.prototype, {
 
             <pre><code data-noescape data-trim class="javascript">
 function inherit(Child, Parent) {
-  var Synth = function() {};           <u>// cons synthétique…</u>
-  synth.prototype = Parent.prototype;  <u>// …connecté au bon prototype</u>
-  Child.prototype = new Synth();       <u>// …le proto fils l’instancie</u>
-  Child.prototype.constructor = Child; <u>// …mais on recale constructor</u>
+  var Synth = function() {};           <u>// constructeur synthétique…</u>
+  synth.prototype = Parent.prototype;  <u>// connecté au bon prototype…</u>
+  Child.prototype = new Synth();       <u>// le proto fils l’instancie…</u>
+  Child.prototype.constructor = Child; <u>// mais on recale constructor</u>
 }
 
 <b class="right">inherit(Workshop, Talk);</b>
@@ -419,7 +419,7 @@ var obj = { yo: foo };
             <h4>à la base, sont juste des <span lang="en">closures</span></h4>
 
             <pre><code data-noescape data-trim class="javascript">
-(function($) {
+<u>(function($) {</u>
   var widgets = {}, wId = 0;
 
   $(init);
@@ -433,7 +433,7 @@ var obj = { yo: foo };
     elt.id = elt.id || ('__widget' + (++wId));
     widgets[elt.id] = widgets[elt.id] || new Widget(elt);
   }
-})(jQuery);
+<u>})(jQuery);</u>
             </code></pre>
 
             <p>Tout le contenu de ce module (cette <span lang="en">closure</span>) est <strong>100% privé</strong>.</p>
@@ -445,7 +445,6 @@ var obj = { yo: foo };
 
             <pre><code data-noescape data-trim class="javascript">
 <span class="implied fragment" data-fragment-index="0">function yourModule(require, module, exports) {</span>
-
   var widgets = {};
   var util = require('util');
   var Widget = require('widgets/base');
@@ -462,8 +461,8 @@ var obj = { yo: foo };
           <section id="closures-amd">
             <h2>Genre, AMD…</h2>
 
-            <pre><code data-trim class="javascript">
-define('widgets/cool', ['util', 'widgets/base'], function(util, Widget) {
+            <pre><code data-noescape data-trim class="javascript">
+<u>define('widgets/cool', ['util', 'widgets/base'], function(util, Widget) {</u>
   var widgets = {};
 
   function CoolWidget(elt) { … }
@@ -471,7 +470,7 @@ define('widgets/cool', ['util', 'widgets/base'], function(util, Widget) {
   // …
 
   return Widget;
-});
+<u>});</u>
             </code></pre>
           </section>
 
@@ -500,8 +499,8 @@ define('widgets/cool', ['util', 'widgets/base'], function(util, Widget) {
             <p>Pour qu’une <span lang="en">closure</span> existe, il faut que :</p>
 
             <ol>
-              <li>une fonction soit imbriquée dans une autre ;</li>
-              <li>l’imbriquée utilise au moins une partie de la portée imbriquante ;</li>
+              <li>une fonction soit <strong>imbriquée</strong> dans une autre ;</li>
+              <li>l’imbriquée utilise au moins une <strong>partie de la portée imbriquante</strong> ;</li>
               <li>l’imbriquée <strong>échappe à sa portée</strong>.</li>
             </ol>
 
@@ -692,8 +691,6 @@ $.ajax('/api/v1/ohai', <u>{</u>
 var abrasiveGuy = {
   name: 'Linus',
   review: function review() {
-    'use strict';
-
     console.log("I am " + this.name + " and I say your code is shit!");
   }
 };
@@ -720,7 +717,7 @@ harshReview() // => "I am a troll and I say your code is shit!"
 // => "I am a troll and I say your code is shit!"</span>
 
 <span class="fragment">$(document).on('click', <u>abrasiveGuy.review</u>);
-// => "I am a troll and I say your code is shit!"</span>
+// => "I am undefined and I say your code is shit!"</span>
 
 <span class="fragment">// Si la fonction review avait été définie en mode strict :
 // => Uncaught TypeError: Cannot read property 'name' of undefined</span>
@@ -868,7 +865,7 @@ this.review = Y.<u>bind</u>(this.review, this);
 this.review = dojo.<u>hitch</u>(this, 'review'); // module lang si > 1.7
 
 // ES6
-review: <u>=></u> console.log(`I am ${this.name} and I say your code is shit!`)
+review: <u>=></u> console.log(`I am ${this.name} and I say your code is …!`)
             </code></pre>
           </section>
 
