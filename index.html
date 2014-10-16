@@ -607,7 +607,7 @@ function throttle(<u>fx, minInterval</u>) {
 
   <u>return function</u> throttled() {
     var now = Date.now();
-    if (now + <u>minInterval</u> &lt; <u>latestCall</u>) {
+    if (<u>latestCall</u> + <u>minInterval</u> &gt; <u>now</u>) {
       return;
     }
     latestCall = now;
