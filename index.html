@@ -619,7 +619,7 @@ function throttle(<u>fx, minInterval</u>) {
 
 function hiCoquine() { console.log(Date.now(), 'Hiiii…'); }
 
-setInterval(hiCoquine.throttle(1000), 50);
+setInterval(throttle(hiCoquine, 1000), 50);
 // => Seulement un Hiiii toutes les 1000+ ms, pas toutes les 50.
             </code></pre>
           </section>
