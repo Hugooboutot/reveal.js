@@ -283,7 +283,7 @@ roiDeLaClasse.toString() // => '#Person&lt;George Abitbol>'</span>
 Workshop.prototype.run = function runWorkshop() {
   // Pré-code
 
-  <u>Talk.prototype.apply(this, arguments);</u> // "super()"
+  <u>Talk.prototype.run.apply(this, arguments);</u> // "super()"
   <span class="fragment">// ou plus spécifique, par exemple :
   <u>Talk.prototype.call</u>(this, this.attendees); // "super(this.attendees)"</span>
 
