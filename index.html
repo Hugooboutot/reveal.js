@@ -347,7 +347,7 @@ $.extend(Workshop.prototype, {
             <pre><code data-noescape data-trim class="javascript">
 function inherit(Child, Parent) {
   var Synth = function() {};           <u>// constructeur synthétique…</u>
-  synth.prototype = Parent.prototype;  <u>// connecté au bon prototype…</u>
+  Synth.prototype = Parent.prototype;  <u>// connecté au bon prototype…</u>
   Child.prototype = new Synth();       <u>// le proto fils l’instancie…</u>
   Child.prototype.constructor = Child; <u>// mais on recale constructor</u>
 }
