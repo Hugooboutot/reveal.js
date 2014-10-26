@@ -65,48 +65,342 @@
 				<section id="whoami">
 					<h2>TÉKITOA</h2>
 
-					<pre><code data-trim class="javascript">
+					<pre><code data-noescape data-trim class="javascript">
 var christophe = {
-  age:        36.94794520547945,
+  age:        36.9863013698630136,
   city:       'Paris',
   company:    'Delicious Insights',
-  trainings:  ['JS Total', 'Node.js', 'Git Total'],
-  jsSince:    1995,
-  claimsToFame: [
-    'Prototype.js',
-    'Ruby On Rails',
-    'Bien Développer pour le Web 2.0',
-    'Prototype and Script.aculo.us',
-    'Paris Web'
-  ]
+  trainings:  ['Git Total', 'JS Total', 'Node.js'],
+  gitSince:   '2008-03-28'
 };
           </code></pre>
+
+          <p><a href="https://github.com/tdd/">github/tdd</a></p>
 				</section>
 
-        <section id="abstract">
-          <h2>FIXME:Abstract</h2>
-          <h3>FIXME:subtitle</h3>
-
-          <p>FIXME:intro</p>
-        </section>
-
 				<section data-state="theme-color-blue-yellow">
-					<section id="fixme-0">
-						<h1>FIXME:SECTION</h1>
-            <h3>FIXME:subtitle</h3>
+					<section id="commits">
+            <h1>Des commits atomiques</h1>
+            <h3>qui chatoyent</h3>
 					</section>
 
-          <section id="fixme-1">
-            <h2>FIXME:Titre</h2>
+          <section id="commits-why-atomicity">
+            <h2>Atomiques pourquoi ?</h2>
 
-            <p>FIXME:par</p>
 
-            <pre><code data-trim data-noescape class="javascript">
+            <p>Arrêtez de foutre n’importe quoi dans vos commits.</p>
+            <p>1 commit = 1 périmètre réduit, d’un coup, ni plus, ni moins.</p>
+            <p class="breathing">Pour y arriver, il faut maîtriser <code>add</code> et <code>reset</code>, mais aussi <code>diff</code>, <code>show</code> et bien entendu <code>commit</code>.</p>
+          </section>
+
+          <section id="commits-status-untracked" data-duration="45s">
+            <h2>Un statut détaillé</h2>
+
+            <p>Voyez le détail des nouveaux fichiers, en profondeur.</p>
+
+            <pre><code data-trim data-noescape class="bash">
+$ git status
+…
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+  <u>vendor/</u>
+…
+            </code></pre>
+            <pre><code data-trim data-noescape class="bash">
+$ <b class="right">git config --global status.showUntrackedFiles all</b>
+$ git status
+…
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+<u>  vendor/scripts/bootstrap.min.js
+  vendor/scripts/jquery.min.js
+  vendor/scripts/underscore.js</u>
+…
+            </code></pre>
+          </section>
+
+          <section id="commits-stage" data-duration="1m">
+            <h2>Comprendre le <span lang="en">stage</span></h2>
+
+            <p>Le <span lang="en">stage</span> ou l’index : ce qui est validé pour partir au commit.</p>
+            <p>Permet de sculpter finement le commit à venir.</p>
+            <p class="breathing"><code>git add <em>pathspec…</em></code> = « prends <em>pathspec</em> en photo et mets ça dans le colis du prochain commit ».</p>
+            <p>Synonyme : <code>git stage</code>. <strong>Rien à voir</strong> avec <code>svn add</code>.</p>
+            <p><strong>Obligatoire</strong> pour versionner un <strong>nouveau</strong> fichier (<span lang="en">untracked</span>), contrairement à quand le fichier est déjà versionné.</p>
+          </section>
+
+          <section id="commits-diff-staged" data-duration="30s">
+            <h2>Voir le <span lang="en">stage</span></h2>
+
+            <p>Version diff</p>
+
+            <pre><code data-trim data-noescape class="bash">
+$ git diff --staged
+<span class="yellow">diff --git c/index.html i/index.html
+index 5237399..85e642f 100644
+--- c/index.html
++++ i/index.html
+@@ -1,5 +1,5 @@</span>
+ &lt;!doctype html&gt;
+<span class="red">-&lt;html&gt;</span>
+<span class="green">+&lt;html lang="fr"&gt;</span>
+
             </code></pre>
 
-            <img class="schema" src="assets/fixme.png">
+            <p>Version snapshot (tout le fichier) :</p>
+
+            <pre><code data-trim data-noescape class="bash">
+$ git show :0:pathspec
+&lt;!doctype html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Git ProTips&lt;/title&gt;
+…
+            </code></pre>
           </section>
-				</section> <!-- #FIXME -->
+
+          <section id="commits-diff-w" data-duration="15s">
+            <h2>Dépolluer le diff</h2>
+
+            <p>Les whitespaces, le plus souvent, OSEF.</p>
+
+            <pre><code data-trim data-noescape class="no-highlight">
+$ git diff
+…
+ &lt;!doctype html&gt;
+<span class="red">-&lt;html&gt;</span>
+<span class="green">+&lt;html lang="fr"&gt;</span>
+ &lt;head&gt;
+<span class="red">-  &lt;meta charset="utf-8"&gt;
+-  &lt;title&gt;Git ProTips&lt;/title&gt;</span>
+<span class="green">+  <u>  </u>&lt;meta charset="utf-8"&gt;
++  <u>  </u>&lt;title&gt;Git <u> </u>ProTips&lt;/title&gt;</span>
+…
+
+$ git diff <u>-w</u>
+…
+ &lt;!doctype html&gt;
+<span class="red">-&lt;html&gt;</span>
+<span class="green">+&lt;html lang="fr"&gt;</span>
+ &lt;head&gt;
+…
+            </code></pre>
+          </section>
+
+          <section id="commits-diff-words" data-duration="45s">
+            <h2>Affiner le diff</h2>
+
+            <p>Ligne à ligne, ça manque parfois de granularité…</p>
+
+            <pre><code data-trim data-noescape class="no-highlight">
+$ git diff <u>--word-diff-regex=.</u>
+…
+&lt;!doctype html&gt;
+&lt;html<span class="green">{+ lang="fr"+}</span>&gt;
+…
+
+$ git diff <u>--color-words=.</u>
+…
+&lt;!doctype html&gt;
+&lt;html<span class="green"> lang="fr"</span>&gt;
+…
+            </code></pre>
+
+<p>Une bonne fois pour toutes :</p>
+
+            <pre><code data-trim data-noescape class="no-highlight">
+$ git config --global <u>diff.wordRegex .</u>
+$ git diff <u>--word-diff</u>
+…
+&lt;!doctype html&gt;
+&lt;html<span class="green">{+ lang="fr"+}</span>&gt;
+…
+            </code></pre>
+          </section>
+
+          <section id="commits-add-patch" data-duration="1m30s">
+            <h2>Fragments de fichiers</h2>
+
+            <p>Qui a dit qu’on devait <span lang="en">stager</span> tout le fichier d’un coup ?</p>
+
+            <pre><code data-trim data-noescape class="no-highlight">
+$ git add <u>-p</u> index.html
+…
+ &lt;!doctype html&gt;
+<span class="red">-&lt;html&gt;</span>
+<span class="green">+&lt;html lang="fr"&gt;</span>
+ &lt;head&gt;
+…
+<span class="blue">Stage this hunk [y,n,q,a,d,/,j,J,g,e,?]?</span> <u>y</u>
+…
+   &lt;h1&gt;Git ProTips&lt;/h1&gt;
+<span class="green">+  &lt;footer&gt;© 2014 Ma Boîte&lt;/footer&gt;</span>
+…
+<span class="blue">Stage this hunk [y,n,q,a,d,/,K,g,e,?]? </span> <u>n</u>
+            </code></pre>
+
+            <p>Juste <strong>critique</strong> parce que dans la vraie vie, on a toujours 2–3 sujets distincts en cours dans un même fichier…</p>
+          </section>
+
+          <section id="commits-unstage" data-duration="15s">
+            <h2>Unstage</h2>
+
+            <p>Sortir un snapshot du <span lang="en">stage</span> : <code>git reset</code>.</p>
+
+            <pre><code data-trim data-noescape class="bash">
+$ git <u>reset index.html</u>
+Unstaged changes after reset:
+M index.html
+            </code></pre>
+
+            <p>Annuler tout le <span lang="en">stage</span> :</p>
+
+            <pre><code data-trim data-noescape class="bash">
+$ git <u>reset</u>
+Unstaged changes after reset:
+M index.html
+            </code></pre>
+          </section>
+
+          <section id="commits-reset-patch" data-duration="30s">
+            <h2>Unstage partiel</h2>
+
+            <p>C’est comme pour l’ajout : on peut n’<span lang="en">unstager</span> que certains fragments.</p>
+
+            <pre><code data-trim data-noescape class="no-highlight">
+$ git <u>reset -p index.html</u>
+…
+…
+ &lt;!doctype html&gt;
+<span class="red">-&lt;html&gt;</span>
+<span class="green">+&lt;html lang="fr"&gt;</span>
+ &lt;head&gt;
+…
+<span class="blue"><u>Unstage</u> this hunk [y,n,q,a,d,/,j,J,g,e,?]?</span> <u>n</u>
+…
+   &lt;h1&gt;Git ProTips&lt;/h1&gt;
+<span class="green">+  &lt;footer&gt;© 2014 Ma Boîte&lt;/footer&gt;</span>
+…
+<span class="blue"><u>Unstage</u> this hunk [y,n,q,a,d,/,K,g,e,?]? </span> <u>y</u>
+            </code></pre>
+          </section>
+
+          <section id="commits-add-all" data-duration="45s">
+            <h2>Renommages et suppressions</h2>
+
+            <p><code>git add .</code> ne suffit pas avant Git 2.0 : il ne prend en compte que le <span lang="en">working directory</span>, donc pas les suppressions.</p>
+
+            <pre><code data-trim data-noescape class="no-highlight">
+Changes not staged for commit:
+…
+  <span class="red"><u>deleted</u>:    index.html</span>
+
+<u>Untracked</u> files:
+…
+  <span class="red">home.html</span>
+            </code></pre>
+
+            <p class="breathing">Pour gérer les connus <strong>et</strong> les <span lang="en">untracked</span>, on utilise <code>-A</code> (<code>--all</code>) :</p>
+
+            <pre><code data-trim data-noescape class="bash">
+$ git add <u>-A</u> &amp;&amp; git status
+On branch master
+Changes to be committed:
+…
+  <span class="green"><u>renamed</u>:    index.html -> home.html</span>
+            </code></pre>
+          </section>
+
+          <section id="commits-amend" data-duration="2m">
+            <h2>Retoucher</h2>
+            <h3>le dernier commit</h3>
+
+            <p class="breathing"><code>git commit --amend</code> <strong>remplace</strong> par l’état courant.</p>
+
+            <p>Oublié de versionner une dépendance ?</p>
+
+            <pre><code data-trim data-noescape class="bash">
+$ git <u>add</u> vendor/scripts/underscore.min.js
+$ git commit <u>--amend --no-edit</u>
+            </code></pre>
+
+            <p>Versionné un fichier sensible ?</p>
+
+            <pre><code data-trim data-noescape class="bash">
+$ git <u>rm --cached</u> config/database.yml
+$ echo config/database.yml >> .gitignore &amp;&amp; git add .gitignore
+$ git commit --amend --no-edit
+            </code></pre>
+
+            <p>Foiré le message ?</p>
+
+            <pre><code data-trim data-noescape class="bash">
+$ git commit --amend -m 'Le message ni énervé ni bourré de fautes'
+            </code></pre>
+          </section>
+
+          <section id="commits-show" data-duration="45s">
+            <h2>Visualiser un commit, un snapshot</h2>
+
+            <p><code>git show [object]</code> permet d’afficher au mieux un commit (par défaut <code>HEAD</code>), une arbo, un snapshot (blob)…</p>
+
+            <pre><code data-trim data-noescape class="bash">
+$ <u>git show</u> # ou explicitement : git show HEAD
+<span class="yellow">commit 8a5a383</span>
+Author: Christophe Porteneuve &lt;tdd@tddsworld.com&gt;
+Date:   Sun Oct 26 15:04:17 2014 +0100
+
+    Premier index
+
+<span class"yellow">diff --git a/index.html b/index.html</span>
+…
+            </code></pre>
+
+            <p>Le contenu de <code>app/initialize.js</code> en branche <code>legacy</code> ?</p>
+
+            <pre><code data-trim data-noescape class="bash">
+$ git show <u>legacy:app/initialize.js</u>
+'use strict';
+…
+            </code></pre>
+          </section>
+
+          <section id="commits-stash-save" data-duration="1m30s">
+            <h2>Le stash… mais bien</h2>
+
+            <p>Histoire d’avoir <strong>les <span lang="en">untracked</span></strong> et <strong>un message utile</strong> :</p>
+
+            <pre><code data-trim data-noescape class="bash">
+(master <u>*+%</u>) $ <u>git stash save -u</u> 'migration BS3'
+Saved working directory and index state On master: migration BS3
+HEAD is now at 8a5a383 Trackers GA asynchrones
+(master <u>$</u>) $
+            </code></pre>
+
+            <p>Pour que votre prompt* vous rappelle que vous avez du stash, pensez à activer la variable d’environnement <code>GIT_PS1_SHOWSTASHSTATE</code>, qui y ajoutera un <code>$</code>.</p>
+
+            <footer>* oh oui, donne-moi un <a href="https://gist.github.com/tdd/473838#file-config-bash-pour-un-prompt-git-de-tueur-bash">prompt qui déboîte</a> !</footer>
+          </section>
+
+          <section id="commits-stash-pop" data-duration="1m30s">
+            <h2>Attention ça stashe</h2>
+
+            <p>Pour récupérer le stash, évitez <code>apply</code>, préférez un <code>pop</code> :</p>
+
+            <pre><code data-trim data-noescape class="bash">
+(master $) $ <u>git stash pop --index</u>
+…
+(master *+%) $
+            </code></pre>
+
+            <p class="breathing"><code>pop</code> tente l’<code>apply</code>, et s’il marche enchaîne avec <code>drop</code>.  Rien de pire que de laisser traîner un stash réintégré…</p>
+
+            <p>Même s’il stocke le <span lang="en">stage</span> par défaut, le stash <strong>ne le restaure pas par défaut</strong>, pour éviter des « fusions auto » dans le <span lang="en">stage</span>.  Pas très cohérent avec ce que fait par exemple <code>merge</code>, mais bon…  Donc tentez toujours d’abord <code>--index</code>.</p>
+          </section>
+				</section> <!-- #commits -->
 
 				<section data-state="theme-color-forest-yellow">
           <section id="fixme-2">

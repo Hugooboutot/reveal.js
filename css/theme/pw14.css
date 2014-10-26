@@ -661,9 +661,14 @@ b.right::after {
 }
 
 .reveal pre > code u, b.hl {
-  background: #fe9; padding: 0.1em 0.3em; border-radius: 0.5em;
+  background: #fe9; padding: 0.1em 0.3em 0.1em 0; border-radius: 0.5em;
   text-decoration: none;
 }
+
+.reveal pre > code .green  { color: #0b0; }
+.reveal pre > code .red    { color: red; }
+.reveal pre > code .yellow { color: #f80; }
+.reveal pre > code .blue   { color: #0091d4; }
 
 .theme-color-coral-blue h3 code {
   color: yellow;
