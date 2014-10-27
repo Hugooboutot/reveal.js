@@ -616,6 +616,11 @@ em span[lang], em strong[lang] { font-style: normal; }
   color: black;
 }
 
+.reveal section > ol + footer,
+.reveal section > ul + footer {
+  margin-top: 0;
+}
+
 .reveal section > footer {
   margin-top: 2em;
   font-size: 70%;
@@ -660,13 +665,41 @@ b.right::after {
   color: #090;
 }
 
+.reveal pre > code.smaller { font-size: 80%; line-height: 1.3em; }
+.reveal pre > code.barely-smaller { font-size: 95%; line-height: 1.3em; }
+
 .reveal pre > code u, b.hl {
-  background: #fe9; padding: 0.1em 0.3em; border-radius: 0.5em;
+  background: #fe9; padding: 0.1em 0.3em 0.1em 0; border-radius: 0.5em;
   text-decoration: none;
 }
 
-.theme-color-coral-blue h3 code {
+.reveal pre > code .green  { color: #0b0; }
+.reveal pre > code .red    { color: red; }
+.reveal pre > code .yellow { color: #f80; }
+.reveal pre > code .blue   { color: #0091d4; }
+
+.reveal pre > code.smaller .green  { color: #090; }
+.reveal pre > code.smaller .red    { color: #a00; }
+.reveal pre > code.smaller .yellow { color: #c50; }
+.reveal pre > code.smaller .blue   { color: #08c; }
+
+.theme-color-coral-blue h3 > code, .theme-color-forest-yellow p > code {
   color: yellow;
+}
+.theme-color-asphalt-orange .reveal a {
+  color: #f80;
+}
+
+table.pw-table { border-collapse: collapse; }
+table.pw-table thead th { border-bottom: 0.1em solid white; text-align: center; }
+table.pw-table tbody td:not(:last-child) { border-right: 0.05em solid rgba(255, 255, 255, 0.3); }
+table.pw-table tbody td { vertical-align: top; }
+table.pw-table ul { margin-left: 1.5em; }
+
+table.sides td { vertical-align: top; }
+
+.theme-color-silver-green .reveal footer {
+  color: #999;
 }
 
 #qrcode {
