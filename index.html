@@ -409,48 +409,127 @@ HEAD is now at 8a5a383 Trackers GA asynchrones
           </section>
 
           <section id="logs-lg" data-duration="1m30">
-            <h2>FIXME:Titre</h2>
+            <h2>Un format pertinent</h2>
 
-            <p>FIXME:lg</p>
+            <p>Le log par défaut est bien trop verbeux, sans graphe, etc.</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
+$ git config --global <u>alias.lg</u> "log <u>--graph</u> \
+  <u>--pretty=tformat</u>:'%Cred<u>%h</u>%Creset -%C(auto)<u>%d</u>%Creset <u>%s</u> \
+  %Cgreen(<u>%an</u> <u>%ar</u>)%Creset'"
             </code></pre>
+
+            <p>Le SHA abrégé, les décorations (tags, branches…), la 1ère ligne du message, l'auteur et la date d'origine (en relatif).</p>
+
+            <img src="assets/git-lg.png" alt="Exemple d‘affichage de git lg">
+
+            <footer>(rassurez-vous, c’est dans <a href="https://gist.github.com/tdd/470582">cette config</a>)</footer>
           </section>
 
           <section id="logs-limiting" data-duration="2m">
-            <h2>FIXME:Titre</h2>
+            <h2>Filtrer et limiter</h2>
 
-            <p>FIXME:limitation de compteur, --grep, --author, -- fichiers/dirs</p>
+            <p><code>--grep</code> sur les messages complets</p>
+            <p><code>--author</code> sur les noms/e-mails des auteurs</p>
+            <p><code>-- <i>pathspec…</i></code> sur les chemins (répertoires, fichiers)</p>
+            <p><code>-<i>n</i></code> limite le nombre de lignes <strong>après filtrage</strong></p>
 
             <pre><code data-trim data-noescape class="no-highlight">
+$ git lg --author=patter --grep '^Merge' -10 -- activerecord activemodel
             </code></pre>
+
+            <img src="assets/git-lg-filtering.png" alt="Filtrage simple de log">
           </section>
 
           <section id="logs-divergence" data-duration="1m">
-            <h2>FIXME:Titre</h2>
+            <h2>Loguer la divergence</h2>
 
-            <p>FIXME:A...B</p>
+            <p>Besoin de voir les commits uniques de 2 branches/tags ? (en gros, remonter juste à leur ancêtre commun).  Utilisez <code>A...B</code>.</p>
 
-            <pre><code data-trim data-noescape class="no-highlight">
-            </code></pre>
+            <table class="sides">
+              <tbody>
+                <tr>
+                  <td>
+                    <img src="assets/git-divergence-full.png" alt="Le graphe complet">
+                  </td>
+                  <td>
+                    <pre><code data-trim data-noescape class="no-highlight">
+        $ git lg <b class="wrong">master..bootstrap3-to-rebase</b>
+                    </code></pre>
+
+                    <img src="assets/git-divergence-none.png" alt="Le graphe mal listé">
+
+                    <pre><code data-trim data-noescape class="no-highlight">
+        $ git lg <b class="right">master...bootstrap3-to-rebase</b>
+                    </code></pre>
+
+                    <img src="assets/git-divergence-cut.png" alt="Le listing limité à la divergence">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </section>
 
           <section id="logs-diff-search" data-duration="1m30s">
-            <h2>FIXME:Titre</h2>
+            <h2>Trouver le coupable</h2>
 
-            <p>FIXME:-S, -G</p>
+            <p><code>git blame</code>, c’est comme le H de Hawaii : <strong>ça ne sert à rien</strong>.</p>
+
+            <p>Préférez chercher sur <strong>les contenus actifs des diffs</strong> : c’est plus pertinent <em>et</em> ça marche aussi pour des lignes virées !</p>
+
+            <p>Options <code>-S</code>* (insertions OU suppressions) et <code>-G</code> (tous diffs).</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">$ git lg <u>-S "Donec sed"</u> -1 <u>-p</u> index.html</span>
+...
+* 6d731f3 - Content tweaks (Christophe Porteneuve 1 year, 1 month ago)
+|
+| <span class="yellow">diff --git a/index.html b/index.html</span>
+| <span class="yellow">index fa0302e..eb12029 100644</span>
+| <span class="yellow">--- a/index.html</span>
+| <span class="yellow">+++ b/index.html</span>
+…
+| <span class="blue">@@ -60,18 +60,18 @@</span>
+…
+| &lt;h2&gt;Three-point rebasing&lt;/h2&gt;
+| <span class="red">- &lt;p&gt;<u>Donec sed</u> odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.&lt;/p&gt;</span>
+| <span class="green">+ &lt;p&gt;Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.&lt;/p&gt;</span>
+| &lt;p&gt;&lt;a class="btn" href="#"&gt;View details &raquo;&lt;/a&gt;&lt;/p&gt;
+…
             </code></pre>
+
+            <footer>* si <code>-S</code> avec une regex, ajoutez <code>--pickaxe-regexp</code></footer>
           </section>
 
           <section id="logs-line-filtering" data-duration="1m30s">
-            <h2>FIXME:Titre</h2>
+            <h2>fragments &amp; fonctions</h2>
 
-            <p>FIXME:-L</p>
+            <p>Depuis la 1.8.4 (avril 2013), on a un filtrage de fou sur le log : par fragment ed fichier, notamment par <strong>corps de fonction</strong>.  On utilise soit un intervalle (ex. <code>-L 1,100:index.html</code>) soit en fournissant une regex pour la fonction englobante :</p>
 
-            <pre><code data-trim data-noescape class="no-highlight">
+            <pre><code data-trim data-noescape class="no-highlight smaller">
+<span class="blue">$ git lg <u>-L :getCheckIns:</u>app/lib/persistence.js</span>
+* <span class="red">12164bc</span> - Refactoring gestion Check-In Details, et gestion corner-cases <span class="green">(Christophe Porteneuve 2 days ago)</span>
+|
+| <span class="yellow">diff --git a/spa-final/app/lib/persistence.js b/spa-final/app/lib/persistence.js</span>
+| <span class="yellow">--- a/spa-final/app/lib/persistence.js</span>
+| <span class="yellow">+++ b/spa-final/app/lib/persistence.js</span>
+| <span class="blue">@@ -81,4 +86,7 @@</span>
+|  function <u>getCheckIns</u>() {
+| <span class="red">-  return collection.toJSON();</span>
+| <span class="green">+  return collection.map(modelWithCid);</span>
+|  }
+|
+* <span class="red">d714350</span> - Initial import <span class="green">(Christophe Porteneuve 1 year ago)</span>
+
+  <span class="yellow">diff --git a/app/lib/persistence.js b/app/lib/persistence.js
+  --- /dev/null
+  +++ b/app/lib/persistence.js</span>
+  <span class="blue">@@ -0,0 +34,4 @@</span>
+  <span class="green">+function <u>getCheckIns</u>() {
+  +  return collection.toJSON();
+  +}</span>
             </code></pre>
+
           </section>
         </section> <!-- #logs -->
 
@@ -461,39 +540,87 @@ HEAD is now at 8a5a383 Trackers GA asynchrones
           </section>
 
           <section id="pushes-default" data-duration="30s">
-            <h2>FIXME:Titre</h2>
+            <h2>Faut pas pousser</h2>
+            <h3>les autres branches</h3>
 
-            <p>FIXME:par</p>
+            <p>Par défaut, sur un <code>git push</code> seul, Git va tenter :</p>
+            <p>Avant 2.0 : toutes les branches trackées* de même nom**</p>
+            <p>Depuis 2.0 : l’actuelle si trackée de même nom**</p>
+
+            <p class="breathing">Ce qu’on veut : l’actuelle, quel que soit le nom distant.</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
+$ git config --global <u>push.default upstream</u>
             </code></pre>
+
+            <footer>
+              * push.default = matching — de même nom = nom distant identique au local<br>
+              ** push.default = simple
+            </footer>
           </section>
 
           <section id="pushes-set-upstream" data-duration="1m30s">
-            <h2>FIXME:Titre</h2>
+            <h2>Push initial</h2>
+            <h3>Une bonne 1ère impression</h3>
 
-            <p>FIXME:par</p>
+            <p>La première fois que vous poussez une branche que vous voulez tracker ensuite, pensez à caler à la volée le tracking :</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">(stats-v3) $ git push <u>-u</u> origin stats</span>
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (5/5), 488 bytes | 0 bytes/s, done.
+Total 5 (delta 0), reused 0 (delta 0)
+To git@github.com:tdd/private-tests.git
+ * <u>[new branch]      stats -> stats</u>
+<b class="right">Branch stats set up to track remote branch stats from origin.</b>
             </code></pre>
           </section>
 
           <section id="pushes-rebase-i" data-duration="5m">
-            <h2>FIXME:Titre</h2>
+            <h2>Nettoyer avant push</h2>
+            <h3>Le bordel OK, mais chez toi</h3>
 
-            <p>FIXME:par</p>
+            <p>Réflexe pré-push : nettoyer ton historique local, lequel est <a href="http://www.git-attitude.fr/2014/05/04/bien-utiliser-git-merge-et-rebase/#nettoyer-son historique local avant envoi">forcément plus ou moins en bordel</a>.</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
+$ git rebase -i @{u}..
             </code></pre>
+
+            <p class="breathing">Le <strong>rebase interactif</strong> nous permet de mettre au propre nos travaux locaux avant de partager tout ça avec les copains.</p>
+            <p>Raison de plus pour <strong>ne pas faire de pushes trop souvent</strong>. On est pas en SVN, les copains !  On pond des commits souvent (10–30 &times/j), mais on push plus rarement (2–3 &times/j)</p>
+
+            <h4>Démo</h4>
           </section>
 
-          <section id="pushes-pull-rebase-preserve" data-duration="3m">
-            <h2>FIXME:Titre</h2>
+          <section id="pushes-pull-merge" data-duration="1m30">
+            <h2>Pull ≠ Merge !</h2>
+            <h3>C’est vrai, quoi, merde.</h3>
 
-            <p>FIXME:par</p>
+            <p>Par défaut, <code>git pull</code> finit par un <code>merge</code>. C’est <strong><a href="http://www.git-attitude.fr/2014/05/04/bien-utiliser-git-merge-et-rebase/#le-piège de git pull et du réflexe pull + push">super con</a></strong>.</p>
+
+            <p>Quand tu pull, tu ne fusionnes pas une branche tierce chez toi : tu récupères les mises à jour sur ta branche courante.</p>
+
+            <p>En plus, ça pourrit le graphe :</p>
+
+            <img src="assets/git-pull-merge-bleark.png" alt="Un graphe dégueulassé par le pull qui merge">
+          </section>
+
+          <section id="pushes-pull-rebase-preserve" data-duration="1m30">
+            <h2>Pull = Rebase</h2>
+
+            <p>Un <code>pull</code> devrait plutôt <strong>rejouer notre taf local sur la branche distante à jour</strong> : par définition, un <code>rebase</code>.</p>
+
+            <p>Il faut juste <a href="http://www.git-attitude.fr/2014/05/04/bien-utiliser-git-merge-et-rebase/#le-cas épineux du pull qui rebase un merge local">faire attention</a> à ne pas <span lang="en">inliner</span> par inadvertance un <code>merge</code> au sein du travail local.</p>
+
+            <p>Une bonne fois pour toutes :</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">$ git config --global <u>pull.rebase preserve</u></span>
             </code></pre>
+
+            <h4 class="breathing">Démo</h4>
           </section>
 				</section>
 
@@ -503,203 +630,313 @@ HEAD is now at 8a5a383 Trackers GA asynchrones
           </section>
 
           <section id="branches-checkout-b" data-duration="45s">
-            <h2>FIXME:Titre</h2>
+            <h2>Nouvelle branche</h2>
 
-            <p>FIXME:par</p>
+            <p>La plupart du temps, quand on crée une branche, c’est pour bosser dessus direct.</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
+<b class="wrong">(master) $ git branch feature
+(master) $ git checkout feature
+(feature) $</b>
             </code></pre>
 
-            <img src="assets/fixme.png" class="schema">
+            <pre><code data-trim data-noescape class="no-highlight">
+<b class="right">(master) $ git <u>checkout -b</u> feature
+(feature) $</b>
+            </code></pre>
+
+            <p>Notez que pour commencer à collaborer à une branche uniquement distante jusque-là, un <code>checkout</code> simple suffit.</p>
+
+            <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">(master) $ git branch -a</span>
+* <span class="green">master</span>
+  <span class="red">origin/master</span>
+  <span class="red">origin/topic</span>
+<span class="blue">(master) $ git checkout topic</span>
+Branch topic set up to track remote branch topic from origin.
+Switched to a new branch 'topic'
+<span class="blue">(topic) $</span>
+            </code></pre>
           </section>
 
           <section id="branches-vv-a" data-duration="45s">
-            <h2>FIXME:Titre</h2>
+            <h2>Mieux voir les branches</h2>
 
-            <p>FIXME:par</p>
+            <p>Deux options utiles pour <code>git branch</code> :</p>
+            <p><code>-a</code> liste les locales <em>et</em> les distantes</p>
+            <p><code>-vv</code> ajoute les 1ères lignes de commit et, pour les trackées, l'état du tracking</p>
 
-            <pre><code data-trim data-noescape class="no-highlight">
+            <pre><code data-trim data-noescape class="no-highlight barely-smaller">
+<span class="blue">(2014-octobre u+1) $ git branch -avv</span>
+* <span class="green">2014-octobre</span>                 abaca0f [<span class="blue">origin/2014-octobre: ahead 1</span>] Retrait vieilles demos
+  legacy                       41b5bf7 [<span class="blue">origin/legacy</span>] Script Bash de packaging + déploiement du fichier Zip de debrief (exécutable par Chris seul vu les droits SSH requis)
+  master                       0208acb [<span class="blue">origin/master</span>] Fix .groc.json
+  v2014                        521350a [<span class="blue">origin/v2014</span>: behind 2] Backport changement cible lien plugins Backbone vers backplug.io
+  v2015                        27b1791 [<span class="blue">origin/v2015</span>] MàJ docs annotés
+  <span class="red">remotes/origin/2014-octobre</span>  10ad1b1 MàJ code source annoté
+  <span class="red">remotes/origin/bs3</span>           49bc984 Tweaks en cours de session
+  <span class="red">remotes/origin/bs3-basis</span>     650f025 Tweak export connectivity
+…
             </code></pre>
-
-            <img src="assets/fixme.png" class="schema">
           </section>
 
           <section id="branches-inspection" data-duration="1m30">
-            <h2>FIXME:Titre</h2>
+            <h2>Qui contient quoi ?</h2>
 
-            <p>FIXME:par</p>
+            <p>Alors comme ça, le <code>73abc4f</code> est la source du bug, et tu veux savoir où il faudra propager le fix ?</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">(master) $ git branch -a <u>--contains 73abc4f</u></span>
+* <span class="green">master</span>
+  stats
+  <span class="red">origin/master
+  origin/3-2-stable
+  origin/stats</span>
             </code></pre>
 
-            <img src="assets/fixme.png" class="schema">
+            <p>« Bon, il reste quoi de fusionnable dans <code>master</code> ? »</p>
+
+            <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">(master) $ git branch -a <u>--no-merged</u></span>
+  stats
+  <span class="red">origin/fix/143
+  origin/fix/148
+  origin/stats
+  origin/max/experiment-web-audio</span>
+            </code></pre>
           </section>
 
           <section id="branches-merge" data-duration="3m">
-            <h2>FIXME:Titre</h2>
+            <h2>Fusions</h2>
 
-            <p>FIXME:par</p>
+            <p>On ne fusionne que pour rappatrier de <strong>façon visible</strong> (bosse dans le graphe) un <strong>périmètre fonctionnel identifié</strong> (bugfix, feature, story, etc.).</p>
+
+            <p>La branche est un descendant ? Empêchez le fast-forward :</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">(master) $ git merge <u>--no-ff</u> fix/143</span>
             </code></pre>
 
-            <img src="assets/fixme.png" class="schema">
+            <p>On veut un message détaillant les commits fusionnés ?</p>
+
+            <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">(master) $ git merge <u>--log</u> stats</span>
+            </code></pre>
+
+            <p>Ou pour du systématique :</p>
+
+            <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">(master) $ git config --global <u>merge.log true</u></span>
+            </code></pre>
+
           </section>
 
           <section id="branches-dash" data-duration="1m">
-            <h2>FIXME:Titre</h2>
+            <h2>Un tiret c’est tout</h2>
 
-            <p>FIXME:par</p>
+            <p>Très souvent, quand on <code>merge</code>, <code>rebase</code>, <code>cherry-pick</code> ou simplement <code>checkout</code>, c’est depuis/sur la branche précédente (celle où on était juste avant).</p>
+
+            <p class="breathing">Tout comme le <code>cd -</code> du shell, on peut filer <code>-</code> (tiret) comme argument : raccourci récent pour le plus classique <code>@{-1}</code>.</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">(master) $ git rebase master experiment
+(experiment) $ git checkout <u>-</u>
+(master) $</span>
             </code></pre>
 
-            <img src="assets/fixme.png" class="schema">
+            <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">(fix/148) $ git checkout 3-2-stable
+(3-2-stable) $ git merge <u>-</u>
+(3-2-stable) $ git checkout master
+(master) $ git cherry-pick <u>-</u>
+(master) $</span>
+            </code></pre>
           </section>
 
           <section id="branches-too-late" data-duration="1m30s">
-            <h2>FIXME:Titre</h2>
+            <h2>Branch-worthy</h2>
 
-            <p>FIXME:par</p>
+            <p>T’aurais juré que ça allait prendre 1 commit et 10 minutes…</p>
+            <p>…et voilà 3 commits et 2 heures que tu y es.  Et c’est pas fini !</p>
+            <p class="breathing"><q>« J’aurais dû faire une branche… »</q></p>
 
             <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">  (master) $ git <u>branch</u> fix/158
+  (master) $ git <u>reset</u> --soft <u>HEAD~3</u>
+(master +) $ git <u>checkout</u> fix/158
+ (fix/158) $</span>
             </code></pre>
 
-            <img src="assets/fixme.png" class="schema">
+            <img src="assets/git-branch-worthy.png" class="schema">
           </section>
 
           <section id="branches-cherry-picking" data-duration="3m">
-            <h2>FIXME:Titre</h2>
+            <h2>Cherry-picking</h2>
 
-            <p>FIXME:par</p>
+            <p>Récupérer un commit unique, sans son historique.</p>
+            <p>Parfait pour les fixes et tout ce qu’on trouve dans une branche de release, à réintégrer ailleurs (ex. <code>master</code>).</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">(master) $ git <u>cherry-pick</u> 3-2-stable</span>
             </code></pre>
 
-            <img src="assets/fixme.png" class="schema">
+            <p>On liste les commits candidats avec <code>git cherry</code> :</p>
+
+            <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">(master) $ git cherry -v HEAD topic</span>
+<u>+</u> 3abb73d7cc8d8655f8b99816fed56c6030c28551 /img/ -> /images/
+<u>-</u> ba05b8d03de5540181af34a10f1b07debb0ea5fc Stats JS
+<u>+</u> 363f53d53d78384f29dc68d900b04ac0b56d20f6 Nav stats
+            </code></pre>
+
+            <p>Ou avec <code>git log --cherry</code> (je préfère) :</p>
+
+            <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">(master) $ git lg --cherry HEAD...topic</span>
+<u>*</u> <span class="red">363f53d</span> - (<span class="green">topic</span>) Nav stats <span class="green">(Christophe Porteneuve 1 year, 1 month ago)</span>
+<u>=</u> <span class="red">ba05b8d</span> - Stats JS <span class="green">(Christophe Porteneuve 1 year, 1 month ago)</span>
+<u>*</u> <span class="red">3abb73d</span> - /img/ -> /images/ <span class="green">(Christophe Porteneuve 1 year, 1 month ago)</span>
+            </code></pre>
           </section>
 
           <section id="branches-conflict-method" data-duration="3m">
-            <h2>FIXME:Titre</h2>
+            <h2>Arbitrer un conflit</h2>
 
-            <p>FIXME:par</p>
+            <!-- Méthodo : status, éditeur, add, finalisation -->
+            <p>La plupart des conflits sont <strong>simples à arbitrer</strong>.</p>
+            <p>Il faut juste la bonne méthodo :</p>
 
-            <pre><code data-trim data-noescape class="no-highlight">
-            </code></pre>
+            <ol>
+              <li><code>git status</code> tout de suite (voir qui cloche)</li>
+              <li>Examen du 1er fichier conflictuel (éditeur ou <code>git mergetool</code>)</li>
+              <li>Arbitrage des conflits du fichier*</li>
+              <li><code>git add</code> pour marquer le fichier comme résolu</li>
+              <li>S’il reste des fichiers conflictuels, retour en (2).</li>
+              <li>Sinon, finalisation avec <code>git commit</code>.</li>
+            </ol>
 
-            <img src="assets/fixme.png" class="schema">
+            <footer>* C‘est ça qui est souvent simple mais peut parfois nécessiter plus d’infos</footer>
           </section>
 
           <section id="branches-conflictstyle" data-duration="45s">
-            <h2>FIXME:Titre</h2>
+            <h2>Aspect du conflit</h2>
 
-            <p>FIXME:par</p>
-
+            <p>Par défaut, style <code>merge</code> :</p>
             <pre><code data-trim data-noescape class="no-highlight">
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+SVN est un outil de gestion de source largement répandu
+et extrêmement pratique.
+=======
+SVN est un outil de gestion de source largement répandu
+malgré sa profonde stupidité et la plaie de son usage.
+>>>>>>> truth
             </code></pre>
 
-            <img src="assets/fixme.png" class="schema">
+            <p>Il est souvent pratique de voir la version pré-divergence :</p>
+
+            <pre><code data-trim data-noescape class="no-highlight">
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+SVN est un outil de gestion de source largement répandu
+et extrêmement pratique.
+<u>||||||| merged common ancestors
+SVN est un outil de gestion de source largement répandu.</u>
+=======
+SVN est un outil de gestion de source largement répandu
+malgré sa profonde stupidité et la plaie de son usage.
+>>>>>>> truth
+            </code></pre>
+
+            <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">$ git config --global <u>merge.conflictStyle diff3</u></span>
+            </code></pre>
           </section>
 
           <section id="branches-conflict-show" data-duration="1m">
-            <h2>FIXME:Titre</h2>
+            <h2>Voir les snapshots</h2>
 
-            <p>FIXME:par</p>
+            <p>Parfois le diff ne suffit pas, notamment quand le code en conflit fait référence à d’autres parties du code qui ont, elles, bien fusionné, noyant le contexte.</p>
+
+            <p>On peut alors ressortir les snapshots côté récipient :</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">(master *) $ git show <u>:2</u>:intro.md</span>
+<span class="comment"># ou : git show HEAD:intro.md
+# ou : git show master:intro.md</span>
             </code></pre>
 
-            <img src="assets/fixme.png" class="schema">
+            <p>Côté source du code fusionné :</p>
+
+            <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">(master *) $ git show <u>:3</u>:intro.md</span>
+<span class="comment"># ou : git show MERGE_HEAD:intro.md
+# ou : git show truth:intro.md</span>
+            </code></pre>
+
+            <p>Dans l’ancêtre commun (avant la divergence) :</p>
+
+            <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">(master *) $ git show <u>:1</u>:intro.md</span>
+            </code></pre>
           </section>
 
           <section id="branches-log-merge" data-duration="1m">
-            <h2>FIXME:Titre</h2>
+            <h2>Log de la divergence</h2>
 
-            <p>FIXME:par</p>
+            <!-- git log --merge -- fichier -->
+
+            <p>Très rarement, même les snapshots ne suffisent pas à comprendre le problème, et on veut retracer le cheminement du code depuis l’ancêtre commun jusqu’aux têtes de branches.</p>
+            <p>C’est faisable à tout moment avec la syntaxe <code>A...B</code> déjà vue, mais lors d’une fusion Git a déjà tout le contexte, il suffit de faire un <code>--merge</code> :</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">(master *) $ git lg <u>--merge</u> -p intro.md</span>
+* <span class="red">9d8dafd</span> - (<span class="green">truth</span>) Truth <span class="green">(Christophe Porteneuve 12 minutes ago)</span>
+<span class="comment">…et ici le diff…</span>
+* <span class="red">f068b20</span> - (<span class="blue">HEAD</span>, <span class="green">master</span>) Disinfo <span class="green">(Christophe Porteneuve 12 minutes ago)</span>
+<span class="comment">…et ici le diff…</span>
+<span class="blue">(master *) $</span>
             </code></pre>
-
-            <img src="assets/fixme.png" class="schema">
           </section>
 
           <section id="branches-merge-abort" data-duration="15s">
-            <h2>FIXME:Titre</h2>
+            <h2>Lâcher l’affaire ?</h2>
 
-            <p>FIXME:par</p>
+            <p>Si <strong>vraiment</strong> tu n’y arrives pas pour le moment (manque d’infos), annule la fusion proprement :</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">(master *) $ git merge <u>--abort</u></span>
+<span class="comment">Anciennement : git reset --merge</span>
+<span class="blue">(master) $</span>
             </code></pre>
 
-            <img src="assets/fixme.png" class="schema">
+            <p>Nettement plus propre et moins dangereux qu’un <code>git reset --hard</code>.  Préserve tes modifs locales pré-fusion.</p>
           </section>
 
           <section id="branches-rerere" data-duration="2m">
-            <h2>FIXME:Titre</h2>
+            <h2>Solve once</h2>
+            <h3>Merge anywhere</h3>
 
-            <p>FIXME:par</p>
+            <p>
+              <strong>rerere</strong> :
+              <span lang="en"><strong>re</strong>use
+              <strong>re</strong>corded
+              <strong>re</strong>solution</span>
+            </p>
 
-            <pre><code data-trim data-noescape class="no-highlight">
-            </code></pre>
+            <p>Prend deux empreintes complètes pour chaque conflit (dénuée du chemin, etc.) : une au conflit, une au commit.</p>
 
-            <img src="assets/fixme.png" class="schema">
-          </section>
+            <p class="breathing">Assiste les conflits ultérieurs sur le dépôt en ré-utilisant ces empreintes en cas de résolution antérieure.</p>
 
-          <section id="branches-why-rebase" data-duration="1m15s">
-            <h2>FIXME:Titre</h2>
+            <p>Activé par <code>rerere.enabled</code> à <code>true</code> ou la présence de <code>.git/rr-cache</code>. Auto-stage un fichier résolu si <code>rerere.autoupdate</code> et à <code>true</code>.</p>
 
-            <p>FIXME:par</p>
-
-            <pre><code data-trim data-noescape class="no-highlight">
-            </code></pre>
-
-            <img src="assets/fixme.png" class="schema">
-          </section>
-
-          <section id="branches-rebase-vs-merge" data-duration="45s">
-            <h2>FIXME:Titre</h2>
-
-            <p>FIXME:par</p>
-
-            <pre><code data-trim data-noescape class="no-highlight">
-            </code></pre>
-
-            <img src="assets/fixme.png" class="schema">
-          </section>
-
-          <section id="branches-rebase-cli" data-duration="45s">
-            <h2>FIXME:Titre</h2>
-
-            <p>FIXME:par</p>
-
-            <pre><code data-trim data-noescape class="no-highlight">
-            </code></pre>
-
-            <img src="assets/fixme.png" class="schema">
-          </section>
-
-          <section id="branches-rebase-three-point" data-duration="1m15s">
-            <h2>FIXME:Titre</h2>
-
-            <p>FIXME:par</p>
-
-            <pre><code data-trim data-noescape class="no-highlight">
-            </code></pre>
-
-            <img src="assets/fixme.png" class="schema">
+            <h4>Démo</h4>
           </section>
 				</section> <!-- #branches -->
-<!--
-				<section data-state="theme-color-silver-green">
-					<h2>silver-green</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta rem, similique optio nam recusandae, magni consequatur id omnis dolorum, reprehenderit repellat distinctio quisquam cumque accusantium atque vel animi neque porro.</p>
-				</section>
--->
+
         <section>
           <h2>Envie d’en savoir plus ?</h2>
 
           <p>
-            On fait des <strong>super formations de ouf</strong> sur<br/>
+            On fait des <strong>super formations de ouf</strong> sur
             <a href="http://www.git-attitude.fr/git-total/">Git</a>.
           </p>
         </section>
