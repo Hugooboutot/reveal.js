@@ -98,8 +98,8 @@ var christophe = {
 
             <p>Voyez le détail des nouveaux fichiers, en profondeur.</p>
 
-            <pre><code data-trim data-noescape class="bash">
-$ git status
+            <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">$ git status</span>
 …
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
@@ -107,9 +107,9 @@ Untracked files:
   <u>vendor/</u>
 …
             </code></pre>
-            <pre><code data-trim data-noescape class="bash">
-$ <b class="right">git config --global status.showUntrackedFiles all</b>
-$ git status
+            <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">$ </span><b class="right">git config --global status.showUntrackedFiles all</b>
+<span class="blue">$ git status</span>
 …
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
@@ -136,8 +136,8 @@ Untracked files:
 
             <p>Version diff</p>
 
-            <pre><code data-trim data-noescape class="bash">
-$ git diff --staged
+            <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">$ git diff <u>--staged</u></span>
 <span class="yellow">diff --git c/index.html i/index.html
 index 5237399..85e642f 100644
 --- c/index.html
@@ -151,8 +151,8 @@ index 5237399..85e642f 100644
 
             <p>Version snapshot (tout le fichier) :</p>
 
-            <pre><code data-trim data-noescape class="bash">
-$ git show :0:pathspec
+            <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">$ git show <u>:0:pathspec</u></span>
 &lt;!doctype html&gt;
 &lt;html lang="fr"&gt;
 &lt;head&gt;
@@ -168,7 +168,7 @@ $ git show :0:pathspec
             <p>Les whitespaces, le plus souvent, OSEF.</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
-$ git diff
+<span class="blue">$ git diff</span>
 …
  &lt;!doctype html&gt;
 <span class="red">-&lt;html&gt;</span>
@@ -180,7 +180,7 @@ $ git diff
 +  <u>  </u>&lt;title&gt;Git <u> </u>ProTips&lt;/title&gt;</span>
 …
 
-$ git diff <u>-w</u>
+<span class="blue">$ git diff <u>-w</u></span>
 …
  &lt;!doctype html&gt;
 <span class="red">-&lt;html&gt;</span>
@@ -196,13 +196,13 @@ $ git diff <u>-w</u>
             <p>Ligne à ligne, ça manque parfois de granularité…</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
-$ git diff <u>--word-diff-regex=.</u>
+<span class="blue">$ git diff <u>--word-diff-regex=.</u></span>
 …
 &lt;!doctype html&gt;
 &lt;html<span class="green">{+ lang="fr"+}</span>&gt;
 …
 
-$ git diff <u>--color-words=.</u>
+<span class="blue">$ git diff <u>--color-words=.</u></span>
 …
 &lt;!doctype html&gt;
 &lt;html<span class="green"> lang="fr"</span>&gt;
@@ -212,8 +212,8 @@ $ git diff <u>--color-words=.</u>
 <p>Une bonne fois pour toutes :</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
-$ git config --global <u>diff.wordRegex .</u>
-$ git diff <u>--word-diff</u>
+<span class="blue">$ git config --global <u>diff.wordRegex .</u>
+$ git diff <u>--word-diff</u></span>
 …
 &lt;!doctype html&gt;
 &lt;html<span class="green">{+ lang="fr"+}</span>&gt;
@@ -227,7 +227,7 @@ $ git diff <u>--word-diff</u>
             <p>Qui a dit qu’on devait <span lang="en">stager</span> tout le fichier d’un coup ?</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
-$ git add <u>-p</u> index.html
+<span class="blue">$ git add <u>-p</u> index.html</span>
 …
  &lt;!doctype html&gt;
 <span class="red">-&lt;html&gt;</span>
@@ -251,7 +251,7 @@ $ git add <u>-p</u> index.html
             <p>Sortir un snapshot du <span lang="en">stage</span> : <code>git reset</code>.</p>
 
             <pre><code data-trim data-noescape class="bash">
-$ git <u>reset index.html</u>
+<span class="blue">$ git <u>reset index.html</u></span>
 Unstaged changes after reset:
 M index.html
             </code></pre>
@@ -259,7 +259,7 @@ M index.html
             <p>Annuler tout le <span lang="en">stage</span> :</p>
 
             <pre><code data-trim data-noescape class="bash">
-$ git <u>reset</u>
+<span class="blue">$ git <u>reset</u></span>
 Unstaged changes after reset:
 M index.html
             </code></pre>
@@ -271,7 +271,7 @@ M index.html
             <p>C’est comme pour l’ajout : on peut n’<span lang="en">unstager</span> que certains fragments.</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
-$ git <u>reset -p index.html</u>
+<span class="blue">$ git <u>reset -p index.html</u></span>
 …
 …
  &lt;!doctype html&gt;
@@ -306,7 +306,7 @@ Changes not staged for commit:
             <p class="breathing">Pour gérer les connus <strong>et</strong> les <span lang="en">untracked</span>, on utilise <code>-A</code> (<code>--all</code>) :</p>
 
             <pre><code data-trim data-noescape class="bash">
-$ git add <u>-A</u> &amp;&amp; git status
+<span class="blue">$ git add <u>-A</u> &amp;&amp; git status</span>
 On branch master
 Changes to be committed:
 …
@@ -323,22 +323,22 @@ Changes to be committed:
             <p>Oublié de versionner une dépendance ?</p>
 
             <pre><code data-trim data-noescape class="bash">
-$ git <u>add</u> vendor/scripts/underscore.min.js
-$ git commit <u>--amend --no-edit</u>
+<span class="blue">$ git <u>add</u> vendor/scripts/underscore.min.js
+$ git commit <u>--amend --no-edit</u></span>
             </code></pre>
 
             <p>Versionné un fichier sensible ?</p>
 
             <pre><code data-trim data-noescape class="bash">
-$ git <u>rm --cached</u> config/database.yml
+<span class="blue">$ git <u>rm --cached</u> config/database.yml
 $ echo config/database.yml >> .gitignore &amp;&amp; git add .gitignore
-$ git commit --amend --no-edit
+$ git commit --amend --no-edit</span>
             </code></pre>
 
             <p>Foiré le message ?</p>
 
             <pre><code data-trim data-noescape class="bash">
-$ git commit --amend -m 'Le message ni énervé ni bourré de fautes'
+<span class="blue">$ git commit --amend -m 'Le message ni énervé ni bourré de fautes'</span>
             </code></pre>
           </section>
 
@@ -347,8 +347,8 @@ $ git commit --amend -m 'Le message ni énervé ni bourré de fautes'
 
             <p><code>git show [object]</code> permet d’afficher au mieux un commit (par défaut <code>HEAD</code>), une arbo, un snapshot (blob)…</p>
 
-            <pre><code data-trim data-noescape class="bash">
-$ <u>git show</u> # ou explicitement : git show HEAD
+            <pre><code data-trim data-noescape class="no-highlight">
+<span class="blue">$ <u>git show</u></span> <span class="comment"># ou explicitement : git show HEAD</span>
 <span class="yellow">commit 8a5a383</span>
 Author: Christophe Porteneuve &lt;tdd@tddsworld.com&gt;
 Date:   Sun Oct 26 15:04:17 2014 +0100
@@ -362,7 +362,7 @@ Date:   Sun Oct 26 15:04:17 2014 +0100
             <p>Le contenu de <code>app/initialize.js</code> en branche <code>legacy</code> ?</p>
 
             <pre><code data-trim data-noescape class="bash">
-$ git show <u>legacy:app/initialize.js</u>
+<span class="blue">$ git show <u>legacy:app/initialize.js</u></span>
 'use strict';
 …
             </code></pre>
@@ -374,10 +374,10 @@ $ git show <u>legacy:app/initialize.js</u>
             <p>Histoire d’avoir <strong>les <span lang="en">untracked</span></strong> et <strong>un message utile</strong> :</p>
 
             <pre><code data-trim data-noescape class="bash">
-(master <u>*+%</u>) $ <u>git stash save -u</u> 'migration BS3'
+<span class="blue">(master <u>*+%</u>) $ <u>git stash save -u</u> 'migration BS3'</span>
 Saved working directory and index state On master: migration BS3
 HEAD is now at 8a5a383 Trackers GA asynchrones
-(master <u>$</u>) $
+<span class="blue">(master <u>$</u>) $</span>
             </code></pre>
 
             <p>Pour que votre prompt* vous rappelle que vous avez du stash, pensez à activer la variable d’environnement <code>GIT_PS1_SHOWSTASHSTATE</code>, qui y ajoutera un <code>$</code>.</p>
@@ -391,9 +391,9 @@ HEAD is now at 8a5a383 Trackers GA asynchrones
             <p>Pour récupérer le stash, évitez <code>apply</code>, préférez un <code>pop</code> :</p>
 
             <pre><code data-trim data-noescape class="bash">
-(master $) $ <u>git stash pop --index</u>
+<span class="blue">(master $) $ <u>git stash pop --index</u></span>
 …
-(master *+%) $
+<span class="blue">(master *+%) $</span>
             </code></pre>
 
             <p class="breathing"><code>pop</code> tente l’<code>apply</code>, et s’il marche enchaîne avec <code>drop</code>.  Rien de pire que de laisser traîner un stash réintégré…</p>
