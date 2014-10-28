@@ -17,5 +17,10 @@ exports.config =
         # Allow -fr lang suffixes in mantisses
         .replace '-fr.', '.'
 
+  plugins:
+    browserSync:
+      codeSync: false
+      online: false
+
   watcher:
     usePolling: true

@@ -5,9 +5,10 @@
   "author": "Christophe Porteneuve <christophe@delicious-insights.com>",
   "license": "MIT",
   "scripts": {
-    "start": "brunch watch --server"
+    "start": "brunch watch"
   },
   "devDependencies": {
+    "browser-sync-brunch": "0.0.5",
     "brunch": "^1.7.18",
     "coffee-script-brunch": "^1.8.1",
     "fb-flo": "^0.3.1",
