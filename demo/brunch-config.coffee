@@ -22,6 +22,7 @@ exports.config =
       codeSync: false
       logLevel: 'silent'
       online: false
+      open: false
 
   watcher:
     usePolling: true

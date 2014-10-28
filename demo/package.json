@@ -5,7 +5,7 @@
   "author": "Christophe Porteneuve <christophe@delicious-insights.com>",
   "license": "MIT",
   "scripts": {
-    "start": "brunch watch"
+    "start": "brunch watch --server"
   },
   "devDependencies": {
     "browser-sync-brunch": "0.0.5",
