@@ -20,6 +20,7 @@ exports.config =
   plugins:
     browserSync:
       codeSync: false
+      logLevel: 'silent'
       online: false
 
   watcher:
