@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic);
+/*@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic);*/
 /*@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);*/
 @font-face {
   font-family: 'Open Sans';
@@ -24,7 +24,6 @@
   font-weight: 700;
   src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'), url(../fonts/OpenSans-BoldItalic.ttf) format('truetype');
 }
-
 
 /**
  * Sky theme for reveal.js.

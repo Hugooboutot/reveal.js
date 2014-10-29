@@ -64,6 +64,9 @@
   letter-spacing: 0.01em;
 }
 
+.reveal h1.barely-smaller { font-size: 3.27em; }
+
+
 /* SILVER GREEN */
 
 .theme-color-silver-green {
@@ -175,7 +178,7 @@
 .theme-color-blue-yellow .reveal h4,
 .theme-color-blue-yellow .reveal h5,
 .theme-color-blue-yellow .reveal h6 {
-  color: #ecec6a
+  color: #ecec6a;
 }
 
 .theme-color-blue-yellow .reveal p code,
@@ -624,7 +627,7 @@ em span[lang], em strong[lang] { font-style: normal; }
 .reveal section > footer {
   margin-top: 2em;
   font-size: 70%;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .reveal li + li { margin-top: 0.5em; }
@@ -698,10 +701,14 @@ table.pw-table ul { margin-left: 1.5em; }
 
 table.sides td { vertical-align: top; }
 
-.theme-color-silver-green .reveal footer {
-  color: #999;
+.theme-color-asphalt-orange .reveal footer {
+  color: rgba(255, 255, 255, 0.8);
 }
 
+/*.theme-color-silver-green .reveal footer {
+  color: #999;
+}
+*/
 #qrcode {
   border: none;
   border-radius: 1em;

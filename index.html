@@ -118,26 +118,31 @@ var christophe = {
           <section id="client-side-css" data-duration="2m">
             <h2>Injection CSS</h2>
 
-            <p>FIXME:par</p>
+            <p>Modifiable interactivement dans les outils développeur.</p>
+            <p>Modifiable aussi en tant que fichier source (sauf IE).</p>
+            <p>Pris en compte <strong>à la volée</strong>.</p>
           </section>
 
           <section id="client-side-js" data-duration="1m">
             <h2>Injection JS</h2>
 
-            <p>FIXME:par</p>
+            <p>Dans Chrome, on peut modifier le JS à la volée.</p>
+            <p class="breathing">V8 (la runtime JS) <strong>hot-swappe</strong> le code modifié dans l’exécution en cours (pas de rechargement de la page).</p>
+            <p>Hélas pas encore dispo sur Firefox et IE :-(</p>
           </section>
 
           <section id="client-side-transient" data-duration="30s">
             <h2>Souci 1 : transient</h2>
 
-            <p>FIXME:par</p>
+            <p>Reste dans la page en cours :<br>
+            <p><strong>disparaît au rafraîchissement</strong>.</p>
           </section>
 
           <section id="client-side-no-sourcemaps" data-duration="1m">
             <h2>Souci 2 : Source Maps</h2>
             <h4>« Modifier » les originaux ne sert à rien</h4>
 
-            <p>FIXME:par</p>
+            <p>Le navigateur ne peut pas reconstruire, côté client, le fichier final réellement exploité (CSS, JS) à partir des sources d’origine : les modifiers individuellement n’est pas reflété.</p>
           </section>
 				</section> <!-- #client-side -->
 
@@ -150,45 +155,117 @@ var christophe = {
           </section>
 
           <section id="brunch-what-for" data-duration="1m">
-            <h2>Brunch pour quoi faire ?</h2>
+            <h2>Pour quoi faire ?</h2>
 
-            <p>FIXME</p>
+            <p class="breathing"><strong><span lang="en">Application Assembly</span></strong></p>
+            <p><strong>Concaténation</strong> intelligente (dont enrobages <strong>modules</strong>)</p>
+            <p><strong>Préprocesseurs</strong>, <strong><span lang="en">transpiling</span></strong> et précompilation</p>
+            <p>Linting</p>
+            <p><strong>Minification</strong> haut de gamme</p>
+            <p>Tâches connexes (ex. manifeste AppCache, spriting &amp; optimisation images, génération de docs, digests…)</p>
           </section>
 
           <section id="brunch-other-tools" data-duration="1m">
             <h2>Autres outils</h2>
 
-            <p>FIXME</p>
+            <p><a href="">Grunt</a> (très répandu, basé fichiers)</p>
+            <p><a href="">Gulp</a> (idem, mais basé <span lang="en">pipeline</span>)</p>
+            <p><a href="">Broccoli</a> (moins répandu, basé <span lang="en">pipeline</span> aussi)</p>
+
+            <p class="breathing">Les 3 sont des exécuteurs de tâches <strong>génériques</strong>, qui nécessitent <strong>pas mal de code</strong> et sont <strong>lents</strong> (> 1s).</p>
+
+            <p>Brunch : (presque) « que » du build, config triviale, beaucoup plus rapide à réagir aux changements.</p>
+
+            <p>Bien répandu, stable, là depuis des années…</p>
           </section>
 
           <section id="brunch-config" data-duration="1m">
             <h2>Config basique</h2>
 
-            <p>FIXME</p>
+            <pre><code data-trim data-noescape class="coffeescript">
+exports.config =
+  files:
+    javascripts:
+      joinTo: 'app.js'
+    stylesheets:
+      joinTo: 'app.css'
+    templates:
+      joinTo: 'app.js'
+            </code></pre>
+
+            <p><code>brunch-config.coffee</code> ou <code>brunch-config.js</code></p>
+            <p>Indique au minimum les cibles de la « concaténation », par type de fichiers : scripts, feuilles de styles et templates.</p>
+            <p>Permet aussi plein de fonctions cool en plus (serveur statique, etc.)</p>
           </section>
 
           <section id="brunch-plugins" data-duration="2m">
             <h2>Plugins Brunch</h2>
+            <h4>Y'en a <a href="http://brunch.io/plugins.html">des tonnes</a></h4>
 
-            <p>FIXME</p>
+            <p>Il suffit de les installer (<code>npm install</code>) dans le projet pour que Brunch les utilise.  La plupart du temps, <strong>zéro config</strong>.</p>
+
+            <p class="breathing">Il reste évidemment <strong>possible</strong> de les configurer spécifiquement pour <strong>affiner</strong> leur comportement.</p>
+
+            <pre><code data-trim data-noescape class="coffescript">
+plugins:
+  appcache:
+    externalCacheEntries: [
+      '/socket.io/socket.io.js'
+    ]
+    network: ['*', 'http://*', 'https://*']
+  browserSync:
+    codeSync: false
+    logLevel: 'silent'
+    online: false
+    open: false
+            </code></pre>
           </section>
 
           <section id="brunch-build" data-duration="1m">
             <h2>Builds</h2>
 
-            <p>FIXME</p>
+            <p>Par défaut, Brunch builde pour le dev : pas de minifications / optimisations.  Plus rapide et plus pratique en dev (même si on a les Source Maps de toutes façons).</p>
+
+            <pre><code class="no-highlight">
+$ brunch build
+            </code></pre>
+
+            <p>On peut bien sûr demander un build de production, qui active les plugins éventuels associés.  Notamment <a href="https://github.com/brunch/clean-css-brunch">clean-css</a> et <a href="https://github.com/brunch/uglify-js-brunch">UglifyJS</a>.</p>
+
+            <pre><code class="no-highlight">
+$ brunch build --production
+            </code></pre>
           </section>
 
           <section id="brunch-watch" data-duration="1m">
             <h2>Watcher</h2>
 
-            <p>FIXME</p>
+            <p>Surveille l’ensemble des fichiers sources et reconstruit* les fichiers cibles du build.</p>
+
+            <pre class="breathing"><code data-trim data-noescape class="no-highlight">
+<span class="blue">$ brunch watch</span>
+26 Oct 12:07:22 - <span class="green">info</span>: compiled 24 files and 2 cached into 2 files,
+  copied 5 in 947ms
+26 Oct 12:07:38 - <span class="green">info</span>: compiled application.js and 22 cached files
+  into app.js in <u>246ms</u>
+26 Oct 12:07:42 - <span class="green">info</span>: compiled history.styl and 2 cached files into
+  app.css in <u>155ms</u>
+            </code></pre>
+
+            <footer>* intelligemment : cache partiel, etc.</footer>
           </section>
 
           <section id="our-sample-app" data-duration="2m">
             <h2>Notre appli d’exemple</h2>
 
-            <p>FIXME</p>
+            <p class="breathing">Petite <a href="http://fr.wikipedia.org/wiki/Application_web_monopage">SPA</a> simple, qui mélange plein de technos :</p>
+
+            <p>JS (ES3/ES5) et <a href="http://coffeescript.org/">CoffeeScript</a> pour les scripts</p>
+            <p><a href="http://sass-lang.com/">SASS</a> et <a href="http://learnboost.github.io/stylus/">Stylus</a> pour les styles</p>
+            <p><a href="http://jade-lang.com/">Jade</a> pour les templates</p>
+            <p><a href="http://wiki.commonjs.org/wiki/Modules/1.1">CommonJS</a> pour l’enrobage des modules (dont les libs classiques : jQuery, <a href="http://underscorejs.org/">Underscore</a>, <a href="http://momentjs.com/">Moment</a>, Bootstrap, <a href="http://backbonejs.com/">Backbone</a>…)</p>
+
+            <p class="breathing">Avec Brunch, <strong>super facile !</strong></p>
           </section>
         </section> <!-- #brunch -->
 
@@ -202,26 +279,18 @@ var christophe = {
             <h2>Workspaces</h2>
             <h4>avec Chrome DevTools</h4>
 
-            <p>FIXME:par</p>
-          </section>
+            <p>Permet de « mapper » des ressources (URL) à des fichiers sur le <span lang="en">filesystem</span> de ta machine (dont montages réseaux).</p>
 
-          <section id="on-disk-ff" data-duration="2m">
-            <h2>Dans Firefox</h2>
+            <p class="breathing">Du coup on peut éditer dans les DevTools mais <strong>sauver le fichier correspondant pour de vrai</strong>.</p>
 
-            <p>FIXME:par</p>
-          </section>
-
-          <section id="on-disk-ie" data-duration="3m">
-            <h2>Dans IE</h2>
-
-            <p>FIXME:par</p>
+            <h4>Démo</h4>
           </section>
 
           <section id="on-disk-no-sourcemaps" data-duration="1m">
             <h2>Souci : Source Maps</h2>
             <h4>Toujours pas, forcément…</h4>
 
-            <p>FIXME:par</p>
+            <p>Toujours le même problème côté client : le navigateur ne pouvant re-construire le build tout seul, il ne déploie pas la modif faite sur un des fichiers « source », seulement ceux sur le build.</p>
           </section>
         </section> <!-- #on-disk -->
 
@@ -231,71 +300,165 @@ var christophe = {
             <h3>les fichiers finaux pour notifier le navigateur</h3>
           </section>
 
-          <section id="watchers-traditional" data-duration="3m">
-            <h2>FIXME:Titre</h2>
+          <section id="watchers-livereload" data-duration="1m">
+            <h2>LiveReload</h2>
+            <h4>a presque inventé ce p’tit jeu</h4>
 
-            <p>FIXME:par</p>
+            <p>Basé sur les WebSockets, donc IE10+ et les autres.</p>
+            <p>Archi serveur/watcher + extension</p>
+            <p>Gère aujourd’hui plein d’autres trucs (transpiling, concaténation, etc.)</p>
+            <p class="breathing">
+              Outils desktop dans le même genre :
+              <a href="https://incident57.com/codekit/">CodeKit</a> (OSX),
+              <a href="http://hammerformac.com/">Hammer</a> (OSX),
+              <a href="http://alphapixels.com/prepros/">Prepros</a> (OSX / Windows).
+            </p>
+
+            <p><a href="http://livereload.com/">livereload.com</a></p>
+            <footer>* ou IE pre-9 mais avec extension + serveur spécifique</footer>
           </section>
 
-          <section id="watchers-traditional-not-on-ie" data-duration="30s">
-            <h2>FIXME:Titre</h2>
+          <section id="watchers-emmet-livestyle" data-duration="1m">
+            <h2>Emmet LiveStyle</h2>
 
-            <p>FIXME:par</p>
+            <p>Super approche, qui permet une synchro bidirectionnelle entre n'importe quelle page et des fichiers/buffers dans SublimeText.</p>
+
+            <p>Pas basé fichiers spécifiques, donc pas besoin même de trucs spéciaux dans la page.</p>
+
+            <p>Paquet Sublime Text + Extension Chrome.</p>
+
+            <p><a href="http://livestyle.emmet.io/">livestyle.emmet.io</a></p>
+
+            <h4>Démo</h4>
           </section>
 
-          <section id="watchers-traditional-no-js-injection" data-duration="1m">
-            <h2>FIXME:Titre</h2>
+          <section id="watchers-brackets" data-duration="1m">
+            <h2>Brackets Live Preview</h2>
 
-            <p>FIXME:par</p>
-          </section>
+            <p>Même principe que Emmet LiveStyle, mais spécifiquement pour l’éditeur Brackets et sa prévisualisation, basée Chrome.</p>
 
-          <section id="watchers-liveedit" data-duration="1m30s">
-            <h2>FIXME:Titre</h2>
-
-            <p>FIXME:par</p>
-          </section>
-
-          <section id="watchers-brackets" data-duration="1m30s">
-            <h2>FIXME:Titre</h2>
-
-            <p>FIXME:par</p>
+            <p><a href="http://brackets.io/">brackets.io</a></p>
           </section>
 
           <section id="watchers-browsersync" data-duration="3m">
-            <h2>FIXME:Titre</h2>
+            <h2>BrowserSync</h2>
 
-            <p>FIXME:par</p>
+            <p class="breathing">S’occupe avant tout de synchroniser l'interaction avec plein de navigateurs ouverts, mais fait aussi de l’injection CSS.</p>
+
+            <p>Aucune extension : <strong>tous navigateurs</strong> (IE5.5+).</p>
+            <p><strong>Indépendant</strong> de l'éditeur / EDI.</p>
+
+            <p class="breathing">On l’utilisera tout à l’heure.</p>
+
+            <p><a href="http://www.browsersync.io/">browsersync.io</a></p>
+          </section>
+
+          <section id="watchers-no-js-injection" data-duration="1m">
+            <h2>Et JS alors ?!</h2>
+
+            <p>Tous ces outils n’injectent pas JS, seulement CSS.</p>
+            <p>Quand on modifie du JS, ils <strong>rechargent la page</strong>.</p>
+            <p>« Ce qui est bien mais pas top »</p>
+
+            <p class="breathing">Comment faire pour avoir de l’injection JS, ce qui nécessite du <span lang="en">hot-swapping</span> dans la <span lang="en">runtime</span> JS du navigateur ?</p>
+          </section>
+
+          <section id="watchers-webstorm" data-duration="30s">
+            <h2>WebStorm / PHPStorm</h2>
+
+            <p>L’EDI peut injecter à la volée les modifications faites dans l'EDI (HTML, CSS, JS) dans son panneau de prévisualisation (Chrome seulement).</p>
+
+            <p>D’une manière générale, un EDI de fou.  Vaut très largement son coût de license, allez voir.</p>
+
+            <p><a href="https://www.jetbrains.com/phpstorm/webhelp/live-editing-of-html-css-and-javascript.html">En savoir plus</a></p>
           </section>
 
           <section id="watchers-fb-flo" data-duration="1m">
-            <h2>FIXME:Titre</h2>
+            <h2>fb-flo</h2>
 
-            <p>FIXME:par</p>
+            <p>Encore une extension Chrome… mais avec un serveur ouvert et indépendant de l’éditeur/EDI (comme BrowserSync).</p>
+
+            <p class="breathing">Injecte CSS <strong>et JS</strong> !</p>
+
+            <p>Ça ressemble au Saint-Graal (mais que sur Chrome).</p>
+
+            <p><a href="https://github.com/facebook/fb-flo">github.com/facebook/fb-flo</a></p>
           </section>
 
           <section id="watchers-fb-flo-server" data-duration="6m">
-            <h2>FIXME:Titre</h2>
+            <h2>Notre serveur fb-flo</h2>
 
-            <p>FIXME:par</p>
+            <pre><code data-trim data-noescape class="javascript">
+'use strict';
+
+var <u>flo = require('fb-flo')</u>,
+    fs = require('fs'),
+    path = require('path');
+
+var dir = path.resolve(__dirname, <u>'../public'</u>);
+var server = <u>flo(dir, { glob: ['**/*.js', '**/*.css'] }, resolver)</u>;
+
+server.once('ready', function() {
+  console.log('fb-flo server ready to rock!');
+});
+
+function resolver(filepath, callback) {
+  var fullPath = path.resolve(dir, filepath);
+  <u>callback</u>({
+    <u>resourceURL: filepath,
+    contents: fs.readFileSync(fullPath).toString()</u>,
+
+    update: function(window, resourceURL) {
+      console.log(resourceURL + " has just been updated with new content!");
+    }
+  });
+}
+            </code></pre>
+          </section>
+
+          <section id="on-disk-tincr" data-duration="1m">
+            <h2>Tincr</h2>
+
+            <p>Ajoute des possibilités de sauvegarde par rapport aux Workspaces (par exemple, persiste les modifs sans les panneaux Styles de l’onglet Éléments), et permet en théorie l’injection CSS <em>et</em> JS (j’ai pas vérifié).</p>
+
+            <p class="breathing">Nécessite quand même un poil de config manuelle pour chaque ressource concernée (mais pas grave).</p>
+
+            <a href="http://tin.cr/">tin.cr</a>
           </section>
 				</section> <!-- #watchers -->
 
         <section data-state="theme-color-silver-green">
           <section id="browsersync">
-            <h1>BrowserSync</h1>
+            <h1 class="barely-smaller">BrowserSync</h1>
             <h3>pour synchroniser les comportements</h3>
           </section>
 
-          <section id="browsersync-browsers" data-duration="2m">
-            <h2>FIXME:Titre</h2>
+          <section id="browsersync-features" data-duration="1m">
+            <h2>Ça fait plein de trucs</h2>
 
-            <p>FIXME:par</p>
+            <p><strong>Ghost Mode</strong> : synchro clics, scroll, manips formulaires…</p>
+            <p>Serveur statique</p>
+            <p>Proxy par-dessus backend existant</p>
+            <p>Tunnel (avec <a href="http://localtunnel.me/">localtunnel.me</a>) pour partager du local</p>
+            <p>URLs en <a href="http://xip.io/">xip.io</a> si pas de DNS local pratique</p>
+            <p>Injection CSS</p>
+
+            <p class="breathing">Basé sur Socket.IO (IE5.5+), injecte son code client</p>
+
+            <p><a href="http://www.browsersync.io/">browsersync.io</a></p>
           </section>
 
-          <section id="browsersync-phones" data-duration="2m">
-            <h2>FIXME:Titre</h2>
+          <section id="browsersync-ghost-mode" data-duration="3m">
+            <h2>Ghost Mode</h2>
 
-            <p>FIXME:par</p>
+            <p>Clics</p>
+            <p>Scroll</p>
+            <p>Formulaires : saisies, (dé)cochages, sélections, envois</p>
+            <p>Position de la souris</p>
+
+            <p class="breathing">Tout ça optionnel / configurable.</p>
+
+            <h4>Démo</h4>
           </section>
         </section> <!-- #browsersync -->
 
