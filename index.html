@@ -419,8 +419,6 @@ $ git config --global <u>alias.lg</u> "log <u>--graph</u> \
   %Cgreen(<u>%an</u> <u>%ar</u>)%Creset'"
             </code></pre>
 
-            <p>Le SHA abrégé, les décorations (tags, branches…), la 1ère ligne du message, l'auteur et la date d'origine (en relatif).</p>
-
             <img src="assets/git-lg.png" alt="Exemple d‘affichage de git lg">
 
             <footer>(rassurez-vous, c’est dans <a href="https://gist.github.com/tdd/470582">cette config</a>)</footer>
@@ -484,10 +482,7 @@ $ git lg --author=patter --grep '^Merge' -10 -- activerecord activemodel
 ...
 * 6d731f3 - Content tweaks (Christophe Porteneuve 1 year, 1 month ago)
 |
-| <span class="yellow">diff --git a/index.html b/index.html</span>
-| <span class="yellow">index fa0302e..eb12029 100644</span>
-| <span class="yellow">--- a/index.html</span>
-| <span class="yellow">+++ b/index.html</span>
+| <span class="yellow">diff --git a/index.html b/index.html…</span>
 …
 | <span class="blue">@@ -60,18 +60,18 @@</span>
 …
@@ -504,7 +499,7 @@ $ git lg --author=patter --grep '^Merge' -10 -- activerecord activemodel
           <section id="logs-line-filtering" data-duration="1m30s">
             <h2>fragments &amp; fonctions</h2>
 
-            <p>Depuis la 1.8.4 (avril 2013), on a un filtrage de fou sur le log : par fragment ed fichier, notamment par <strong>corps de fonction</strong>.  On utilise soit un intervalle (ex. <code>-L 1,100:index.html</code>) soit en fournissant une regex pour la fonction englobante :</p>
+            <p>Depuis la 1.8.4 (avril 2013), on a un filtrage de fou sur le log : par fragment de fichier, notamment par <strong>corps de fonction</strong>.  On utilise soit un intervalle (ex. <code>-L 1,100:index.html</code>) soit en fournissant une regex pour la fonction englobante :</p>
 
             <pre><code data-trim data-noescape class="no-highlight smaller">
 <span class="blue">$ git lg <u>-L :getCheckIns:</u>app/lib/persistence.js</span>
