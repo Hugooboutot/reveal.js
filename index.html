@@ -580,7 +580,8 @@ To git@github.com:tdd/private-tests.git
             <p>Réflexe pré-push : nettoyer ton historique local, lequel est <a href="http://www.git-attitude.fr/2014/05/04/bien-utiliser-git-merge-et-rebase/#nettoyer-son historique local avant envoi">forcément plus ou moins en bordel</a>.</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
-$ git rebase -i @{u}..
+$ git lg @{u}..
+$ git rebase -i @{u}
             </code></pre>
 
             <p class="breathing">Le <strong>rebase interactif</strong> nous permet de mettre au propre nos travaux locaux avant de partager tout ça avec les copains.</p>
