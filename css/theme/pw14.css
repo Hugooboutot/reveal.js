@@ -59,12 +59,13 @@
   src: local("Track Italic"), url("../fonts/Track Italic.otf");
 }
 
-.reveal h1, .reveal h2, .reveal h3, .reveal h2 + h4 {
+.reveal h1, .reveal h2, .reveal h3, .reveal h2 + h4, .reveal h3 + h4 {
   font-family: Track;
   letter-spacing: 0.01em;
 }
 
-.reveal h1.barely-smaller { font-size: 3.27em; }
+.reveal h1.barely-smaller { font-size: 2.87em; }
+.reveal h3.barely-smaller { font-size: 1.25em; }
 
 
 /* SILVER GREEN */
@@ -570,7 +571,7 @@
 
 .reveal .slides { width: 980px; }
 
-span[lang], strong[lang] { font-style: italic; }
+span[lang], strong[lang], b[lang] { font-style: italic; }
 em span[lang], em strong[lang] { font-style: normal; }
 
 .reveal h2 { font-size: 1.95em; }
@@ -622,6 +623,19 @@ em span[lang], em strong[lang] { font-style: normal; }
 .reveal section > ol + footer,
 .reveal section > ul + footer {
   margin-top: 0;
+}
+
+.reveal li[nowrap], .reveal ol[nowrap] > li {
+  white-space: nowrap;
+}
+
+.reveal .quiet {
+  opacity: 0.6;
+  font-size: 90%;
+}
+
+.reveal .slides section .fragment.visible.quiet {
+  opacity: 0.6;
 }
 
 .reveal section > footer {
@@ -700,6 +714,11 @@ table.pw-table tbody td { vertical-align: top; }
 table.pw-table ul { margin-left: 1.5em; }
 
 table.sides td { vertical-align: top; }
+
+.theme-color-forest-yellow .reveal footer {
+  color: white;
+  opacity: 0.6;
+}
 
 .theme-color-asphalt-orange .reveal footer {
   color: rgba(255, 255, 255, 0.8);

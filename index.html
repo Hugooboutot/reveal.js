@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Front-end Dev Avengers • Christophe Porteneuve @ BLEND Web Mix 2014</title>
+		<title>Wow, Much Web.  Very Tech. • Christophe Porteneuve @ Codeurs en Seine 2014</title>
 
-		<meta name="description" content="Une session à BLEND Web Mix 2014">
+		<meta name="description" content="Une session à Codeurs en Seine 2014">
 		<meta name="author" content="Christophe Porteneuve">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,10 +55,10 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Dev Avengers</h1>
-					<h3>pour le Front-End</h3>
+					<h1 class="barely-smaller">Wow, much Web.</h1>
+					<h3>Very Tech.</h3>
 					<p>
-						<small>Une présentation de <a href="http://tddsworld.com/">Christophe Porteneuve</a> à <a href="http://www.blendwebmix.com/">BLEND Web Mix 2014</a></small>
+						<small>Une présentation de <a href="http://tddsworld.com/">Christophe Porteneuve</a> à <a href="http://www.codeursenseine.com/2014/">Codeurs en Seine 2014</a></small>
 					</p>
 				</section>
 
@@ -67,11 +67,11 @@
 
 					<pre><code data-trim class="javascript">
 var christophe = {
-  age:        36.9863013698630136,
+  age:        37.06297056810403832
   city:       'Paris',
   company:    'Delicious Insights',
   trainings:  ['JS Total', 'Node.js', 'Git Total'],
-  jsSince:    1995,
+  webSince:   1995,
   claimsToFame: [
     'Prototype.js',
     'Ruby On Rails',
@@ -83,397 +83,754 @@ var christophe = {
           </code></pre>
 				</section>
 
-        <section id="abstract" data-duration="2m">
-          <h2>Le dev front</h2>
-          <h3>aujourd’hui</h3>
-
-          <img src="assets/dev-today.png" alt="Le cycle du dev front aujourd’hui" class="schema">
-        </section>
-
-        <section id="sourcemaps" data-duration"3m">
-          <h2>Préambule</h2>
-          <h3>Les Source Maps</h3>
-
-          <p>Fichiers produits par une <strong>phase de build</strong> (ex. transpiling, concaténation, minification…) permettant de <strong>faire le lien</strong>, au caractère près, entre l’unique contenu résultat et les contenus des <strong>fichiers originaux</strong>.</p>
-
-          <p>Référencé par un <strong>commentaire spécial</strong> dans le fichier final.</p>
-
-          <pre><code data-trim class="css">
-/*# sourceMappingURL=app.css.map*/
-          </code></pre>
-
-          <pre><code data-trim class="javascript">
-//# sourceMappingURL=app.js.map
-          </code></pre>
-
-          <p>Chargé et utilisé par nos navigateurs (Chrome, Firefox, IE) si les outils de dev sont actifs. <strong>Très utile au débogage.</strong></p>
-        </section>
-
 				<section data-state="theme-color-blue-yellow">
-					<section id="client-side">
-						<h1>Côté client</h1>
-            <h3>Juste dans le navigateur</h3>
+					<section id="eclosion">
+						<h1>1989–1994</h1>
+            <h2>L'Éclosion</h2>
 					</section>
 
-          <section id="client-side-css" data-duration="2m">
-            <h2>Injection CSS</h2>
+          <section id="y1989" data-duration="fixme">
+            <h1>1989</h1>
+            <h3>Conceptualisations la bête</h3>
 
-            <p>Modifiable interactivement dans les outils développeur.</p>
-            <p>Modifiable aussi en tant que fichier source (sauf IE).</p>
-            <p>Pris en compte <strong>à la volée</strong>.</p>
+            <ol>
+              <li class="quiet">IRC commence à remplacer MUT en début d’année</li>
+              <li>
+                13 mars 1989 :
+                Tim Berners-Lee,
+                au CERN
+                depuis 1984 pour l’acquisition et le traitement de données,
+                propose le web.  C’était il y a 25 ans !
+              </li>
+              <li class="quiet fragment">
+                9–10 novembre 1989 :
+                chute du Mur de Berlin
+              </li>
+              <li class="quiet fragment">
+                10 novembre 1989 :
+                je décide que je ferai informaticien \o/
+              </li>
+            </ol>
           </section>
 
-          <section id="client-side-js" data-duration="1m">
-            <h2>Injection JS</h2>
+          <section id="y1990" data-duration="fixme">
+            <h1>1990</h1>
+            <h3>Ça se précise, mais c’est privé</h3>
 
-            <p>Dans Chrome, on peut modifier le JS à la volée.</p>
-            <p class="breathing">V8 (la runtime JS) <strong>hot-swappe</strong> le code modifié dans l’exécution en cours (pas de rechargement de la page).</p>
-            <p>Hélas pas encore dispo sur Firefox et IE :-(</p>
+            <ol>
+              <li>Premier serveur web : <code>nxoc01.cern.ch</code></li>
+              <li class="fragment">
+                <a href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/Link.html">Première page web conservée</a>
+              </li>
+              <li class="fragment">Premier navigateur/éditeur web : « WorldWideWeb »<br/>
+                <span class="quiet">en Objective-C sur Next.  Textuel.</span></li>
+              <li class="fragment">URL, HTML et HTTP sont là</li>
+            </ol>
           </section>
 
-          <section id="client-side-transient" data-duration="30s">
-            <h2>Souci 1 : transient</h2>
+          <section id="y1991" data-duration="fixme">
+            <h1>1991</h1>
+            <h3>On est partis !</h3>
 
-            <p>Reste dans la page en cours :<br>
-            <p><strong>disparaît au rafraîchissement</strong>.</p>
+            <ol>
+              <li>
+                février 1991 :
+                Guido Van Rossum sort <b>Python 1.0</b>.<br/>
+                <p class="quiet">Emprunte son système de modules à Modula 3.  Il faudra attendre 2000 pour Python 1.6 et 2.0 (très inspiré de Haskell), et le décollage en règle du langage.</p>
+              </li>
+              <li class="fragment">
+                6 août 1991 :
+                annonce du <b>WWW</b> au public sur Usenet</li>
+              <li class="fragment">Premier serveur web hors Europe</li>
+            </ol>
           </section>
 
-          <section id="client-side-no-sourcemaps" data-duration="1m">
-            <h2>Souci 2 : Source Maps</h2>
-            <h4>« Modifier » les originaux ne sert à rien</h4>
+          <section id="y1992" data-duration="fixme">
+            <h1>1992</h1>
+            <h3 lang="en">Off the Reservation</h3>
 
-            <p>Le navigateur ne peut pas reconstruire, côté client, le fichier final réellement exploité (CSS, JS) à partir des sources d’origine : les modifiers individuellement n’est pas reflété.</p>
-          </section>
-				</section> <!-- #client-side -->
-
-        <section>
-          <section id="brunch">
-            <h2>Interlude</h2>
-            <h3>Brunch</h3>
-
-            <p><a href="http://brunch.io">brunch.io</a></p>
-          </section>
-
-          <section id="brunch-what-for" data-duration="1m">
-            <h2>Pour quoi faire ?</h2>
-
-            <p class="breathing"><strong><span lang="en">Application Assembly</span></strong></p>
-            <p><strong>Concaténation</strong> intelligente (dont enrobages <strong>modules</strong>)</p>
-            <p><strong>Préprocesseurs</strong>, <strong><span lang="en">transpiling</span></strong> et précompilation</p>
-            <p>Linting</p>
-            <p><strong>Minification</strong> haut de gamme</p>
-            <p>Tâches connexes (ex. manifeste AppCache, spriting &amp; optimisation images, génération de docs, digests…)</p>
+            <ol>
+              <li>26 sites « raisonnablement fiables » :-)</li>
+              <li class="fragment">
+                Nouveaux navigateurs, et
+                <b><a href="http://fr.wikipedia.org/wiki/NCSA_HTTPd">serveur NCSA HTTPd</a></b>,
+                qui a inventé le mécanisme de
+                <a href="http://fr.wikipedia.org/wiki/Common_Gateway_Interface">CGI</a>.<br/>
+                <span class="quiet">A servi de base pour <a href="http://fr.wikipedia.org/wiki/Apache_HTTP_Server">Apache</a>.</span>
+                <p class="fragment">
+                  Tu peux pas test : serveur créé par
+                  <b><a href="http://fr.wikipedia.org/wiki/Robert_McCool">Robert McCool</a></b> !
+                </p>
+              </li>
+              <li class="fragment">
+                Finalisation du format <b>MP3</b>, qui connaîtra le succès qu'on lui connaît à partir de 95.
+              </li>
+            </ol>
           </section>
 
-          <section id="brunch-other-tools" data-duration="1m">
-            <h2>Autres outils</h2>
+          <section id="y1993" data-duration="fixme">
+            <h1>1993</h1>
+            <h3>Année fondatrice</h3>
 
-            <p><a href="">Grunt</a> (très répandu, basé fichiers)</p>
-            <p><a href="">Gulp</a> (idem, mais basé <span lang="en">pipeline</span>)</p>
-            <p><a href="">Broccoli</a> (moins répandu, basé <span lang="en">pipeline</span> aussi)</p>
-
-            <p class="breathing">Les 3 sont des exécuteurs de tâches <strong>génériques</strong>, qui nécessitent <strong>pas mal de code</strong> et sont <strong>lents</strong> (> 1s).</p>
-
-            <p>Brunch : (presque) « que » du build, config triviale, beaucoup plus rapide à réagir aux changements.</p>
-
-            <p>Bien répandu, stable, là depuis des années…</p>
+            <ol>
+              <li>Passage de l'infra dans le domaine public</li>
+              <li class="fragment">130 sites en juin, 623 en décembre. Ça démarre !</li>
+              <li class="fragment">
+                Arrivée des browsers cultes :
+                <a href="http://fr.wikipedia.org/wiki/NCSA_Mosaic">NCSA Mosaic</a>
+                et
+                <a href="http://fr.wikipedia.org/wiki/Lynx_(navigateur)">Lynx</a>.
+                <p class="quiet">Le premier fait exploser la popularité du web, notamment en innovant avec l'ajout d'images et de formulaires.  J'ai moi-même démarré avec, à l'automne 95.</p>
+              </li>
+              <li class="fragment">Adobe sort <b>PDF</b> 1.0</li>
+              <li class="fragment">Fin 93, les média, et donc le grand public, <b>entendent enfin parler du web</b>.</li>
+            </ol>
           </section>
 
-          <section id="brunch-config" data-duration="1m">
-            <h2>Config basique</h2>
+          <section id="y1994" data-duration="fixme">
+            <h1>1994</h1>
+            <h3>L’année charnière</h3>
 
-            <pre><code data-trim data-noescape class="coffeescript">
-exports.config =
-  files:
-    javascripts:
-      joinTo: 'app.js'
-    stylesheets:
-      joinTo: 'app.css'
-    templates:
-      joinTo: 'app.js'
-            </code></pre>
-
-            <p><code>brunch-config.coffee</code> ou <code>brunch-config.js</code></p>
-            <p>Indique au minimum les cibles de la « concaténation », par type de fichiers : scripts, feuilles de styles et templates.</p>
-            <p>Permet aussi plein de fonctions cool en plus (serveur statique, etc.)</p>
+            <ol>
+              <li nowrap>2 738 sites en juin, <b>10 022</b> en décembre.</li>
+              <li class="fragment"><b>Yahoo!</b> débarque <span class="quiet">(deux étudiants)</span> et…</li>
+              <li class="fragment">…<b><a href="http://fr.wikipedia.org/wiki/Netscape_Navigator">Netscape Navigator</a></b> aussi.</li>
+              <li class="fragment">Le <b>W3C</b> est fondé en octobre</li>
+            </ol>
           </section>
-
-          <section id="brunch-plugins" data-duration="2m">
-            <h2>Plugins Brunch</h2>
-            <h4>Y'en a <a href="http://brunch.io/plugins.html">des tonnes</a></h4>
-
-            <p>Il suffit de les installer (<code>npm install</code>) dans le projet pour que Brunch les utilise.  La plupart du temps, <strong>zéro config</strong>.</p>
-
-            <p class="breathing">Il reste évidemment <strong>possible</strong> de les configurer spécifiquement pour <strong>affiner</strong> leur comportement.</p>
-
-            <pre><code data-trim data-noescape class="coffescript">
-plugins:
-  appcache:
-    externalCacheEntries: [
-      '/socket.io/socket.io.js'
-    ]
-    network: ['*', 'http://*', 'https://*']
-  browserSync:
-    codeSync: false
-    logLevel: 'silent'
-    online: false
-    open: false
-            </code></pre>
-          </section>
-
-          <section id="brunch-build" data-duration="1m">
-            <h2>Builds</h2>
-
-            <p>Par défaut, Brunch builde pour le dev : pas de minifications / optimisations.  Plus rapide et plus pratique en dev (même si on a les Source Maps de toutes façons).</p>
-
-            <pre><code class="no-highlight">
-$ brunch build
-            </code></pre>
-
-            <p>On peut bien sûr demander un build de production, qui active les plugins éventuels associés.  Notamment <a href="https://github.com/brunch/clean-css-brunch">clean-css</a> et <a href="https://github.com/brunch/uglify-js-brunch">UglifyJS</a>.</p>
-
-            <pre><code class="no-highlight">
-$ brunch build --production
-            </code></pre>
-          </section>
-
-          <section id="brunch-watch" data-duration="1m">
-            <h2>Watcher</h2>
-
-            <p>Surveille l’ensemble des fichiers sources et reconstruit* les fichiers cibles du build.</p>
-
-            <pre class="breathing"><code data-trim data-noescape class="no-highlight">
-<span class="blue">$ brunch watch</span>
-26 Oct 12:07:22 - <span class="green">info</span>: compiled 24 files and 2 cached into 2 files,
-  copied 5 in 947ms
-26 Oct 12:07:38 - <span class="green">info</span>: compiled application.js and 22 cached files
-  into app.js in <u>246ms</u>
-26 Oct 12:07:42 - <span class="green">info</span>: compiled history.styl and 2 cached files into
-  app.css in <u>155ms</u>
-            </code></pre>
-
-            <footer>* intelligemment : cache partiel, etc.</footer>
-          </section>
-
-          <section id="our-sample-app" data-duration="2m">
-            <h2>Notre appli d’exemple</h2>
-
-            <p class="breathing">Petite <a href="http://fr.wikipedia.org/wiki/Application_web_monopage">SPA</a> simple, qui mélange plein de technos :</p>
-
-            <p>JS (ES3/ES5) et <a href="http://coffeescript.org/">CoffeeScript</a> pour les scripts</p>
-            <p><a href="http://sass-lang.com/">SASS</a> et <a href="http://learnboost.github.io/stylus/">Stylus</a> pour les styles</p>
-            <p><a href="http://jade-lang.com/">Jade</a> pour les templates</p>
-            <p><a href="http://wiki.commonjs.org/wiki/Modules/1.1">CommonJS</a> pour l’enrobage des modules (dont les libs classiques : jQuery, <a href="http://underscorejs.org/">Underscore</a>, <a href="http://momentjs.com/">Moment</a>, Bootstrap, <a href="http://backbonejs.com/">Backbone</a>…)</p>
-
-            <p class="breathing">Avec Brunch, <strong>super facile !</strong></p>
-          </section>
-        </section> <!-- #brunch -->
+				</section> <!-- #eclosion -->
 
 				<section data-state="theme-color-forest-yellow">
-          <section id="on-disk">
-            <h1>Sur disque</h1>
-            <h3>pour persister</h3>
+          <section id="explosion">
+            <h1>1995–2000</h1>
+            <h2>L’explosion</h2>
           </section>
 
-          <section id="on-disk-workspaces" data-duration="2m">
-            <h2>Workspaces</h2>
-            <h4>avec Chrome DevTools</h4>
+          <section id="y1995" data-duration="fixme">
+            <h1>1995</h1>
+            <h3 lang="en">The War Is On (1/3)</h3>
 
-            <p>Permet de « mapper » des ressources (URL) à des fichiers sur le <span lang="en">filesystem</span> de ta machine (dont montages réseaux).</p>
-
-            <p class="breathing">Du coup on peut éditer dans les DevTools mais <strong>sauver le fichier correspondant pour de vrai</strong>.</p>
-
-            <h4>Démo</h4>
+            <ol>
+              <li>
+                MS <b>n'y croit pas</b> et veut son <span lang="en">walled garden</span> : crée <b>MSN</b>, mais finalement début de la <a href="http://fr.wikipedia.org/wiki/%C3%89volution_de_l%27usage_des_navigateurs_web">guerre des navigateurs</a><br/><span class="quiet">qui verra IE4 gagner en 1997</span>
+              </li>
+              <li class="fragment">
+                Arrivée de <b>IE1</b> et <b>IE2</b>
+                <span class="quiet">(deux la même année ! Truc de ouf !)</span>
+              </li>
+              <li class="fragment"><b>Apache</b> débarque</li>
+              <li class="fragment">
+                Premier gros moteur de recherche : <b>AltaVista</b>.
+                <span class="quiet">Si, si…</span>
+              </li>
+              <li class="fragment">Allaire, déjà éditeur de HomeSite, sort <b>ColdFusion</b><br/>
+                <span class="quiet">qui sera aussi racheté par Adobe.</span></li>
+            </ol>
           </section>
 
-          <section id="on-disk-no-sourcemaps" data-duration="1m">
-            <h2>Souci : Source Maps</h2>
-            <h4>Toujours pas, forcément…</h4>
+          <section id="y1995-2" data-duration="fixme">
+            <h1>1995</h1>
+            <h3 lang="en">The War Is On (2/3)</h3>
 
-            <p>Toujours le même problème côté client : le navigateur ne pouvant re-construire le build tout seul, il ne déploie pas la modif faite sur un des fichiers « source », seulement ceux sur le build.</p>
+            <ol>
+              <li>
+                avril 1995 : <b>RealAudio Player</b>, premier lecteur streaming.<br/>
+                <span class="quiet">Sacrée saloperie aussi, bourrée de malware (<span lang="en">#2 Worst Tech Products of All Time dans PC World 2006</span>)</span>
+              </li>
+              <li class="fragment">
+                <b>Explosion de technos dans Netscape Navigator 2</b> : frames <span class="quiet">(argh !)</span>, <b>Java</b> et <b>JavaScript</b>
+                <p class="quiet">Au fait, JS tournait aussi sur les produits serveurs de Netscape.</p>
+              </li>
+              <!--
+                * 10j en mai 95 : Mocha
+                * Sep 95 : NN2ß1 : "LiveScript"
+                * Dec 95 : NN2ß3 : "JavaScript"
+               -->
+              <li class="fragment"><b>PHP</b> sort timidement</li>
+              <li class="fragment"><b>Ruby</b> aussi <span class="quiet">(et reste cantonné au Japon jusqu'à l'arrivée du Pickaxe chez les Prag Prog puis de Ruby On Rails).</span></li>
+            </ol>
           </section>
-        </section> <!-- #on-disk -->
+
+          <section id="y1995-3" data-duration="fixme">
+            <h1>1995</h1>
+            <h3 lang="en">The War Is On (3/3)</h3>
+
+            <ol>
+              <li><b>HTML 2.0</b></li>
+              <li class="quiet">Création de <b>Freenode</b>, principal réseau IRC pour l'open-source, alors sous le nom irc.linpeople.org (nom définitif en 2002)</li>
+            </ol>
+          </section>
+
+          <section id="y1996" data-duration="fixme">
+            <h1>1996</h1>
+            <h3 class="barely-smaller">Ça commence à avoir de la gueule</h3>
+
+            <ol nowrap>
+              <li>Plus de 230 000 sites en juin</li>
+              <li class="fragment"><b>Netscape 2 et 3</b>, <b>IE3</b> (arrivée de JScript)…</li>
+              <li class="fragment">
+                IIS 3.0 introduit <b>ASP 1.0</b><span class="quiet">, pour fighter PHP ?</span>
+              </li>
+              <li class="fragment"><b>HTTP/1.0</b></li>
+              <li class="fragment"><b>CSS 1</b></li>
+              <li class="fragment">Macromedia rachète FutureWave, le renomme <b>Flash</b>,<br/>
+                <span class="quiet">et en avant Guingamp !</span></li>
+              <li class="fragment">Début de l'archivage par <a href="https://archive.org/">Internet Archive</a></li>
+              <!-- Fin novembre, ECMA commence à plancher sur un standard JS -->
+            </ol>
+          </section>
+
+          <section id="y1997" data-duration="fixme">
+            <h1>1997</h1>
+            <h3 class="barely-smaller">Fin de la guerre, début de la bulle</h3>
+
+            <ol>
+              <li>On passe la barre du million de sites</li>
+              <li class="fragment"><b>NN4</b> et <b>IE4</b>.  IE gagne la guerre.</li>
+              <li class="fragment"><b>HTML 3.2 et 4.0</b></li>
+              <li class="fragment">
+                novembre 1997 : <b>ES1</b>
+                <p class="quiet">ECMAScript, ECMA, ECMA-262, TC-39, standard ISO/IEC 16262</p>
+              </li>
+              <li class="fragment">Début de la <span lang="en">Dot-com Bubble</span>, aux US principalement.</li>
+            </ol>
+          </section>
+
+          <section id="y1998" data-duration="fixme">
+            <h1>1998</h1>
+            <h3>Ça a l’air de bien partir… (1/2)</h3>
+
+            <ol>
+              <li>AOL rachète Netscape, et les braves font scission pour monter <b>Mozilla</b></li>
+              <li class="fragment">
+                Rhino débute
+                <p class="quiet">(browser next-gen en Java : Javagator, évidemment abandonné). Servira de base à ServerJS / Narwahl, et fournit du JS dans la JVM.  Langage de script par défaut dans Java 6 (Sun Microsystems).</p></li>
+              <li class="fragment">Plus de 2 millions de sites</li>
+              <li class="fragment">Google vient tous nous péter la gueule</li>
+            </ol>
+          </section>
+
+          <section id="y1998-2" data-duration="fixme">
+            <h1>1998</h1>
+            <h3>…mais argh XML (2/2)</h3>
+
+            <ol>
+              <li>
+                juin 1998 :
+                <b>ES2</b> <span class="quiet">histoire de caler au standard ISO/IEC (ça ajoute quand même les fonctions d'ordre supérieur !)</span>
+              </li>
+              <li class="fragment">
+                <b>XML</b> 1.0, CSS 2, DOM, WAP <span class="quiet">(paie tes FBI)</span>
+              </li>
+              <li class="fragment">
+                <b>SOAP</b> est inventé* dans la foulée, et WSDL, UDDI, ebXML…
+                <p class="quiet">S (Simple) est d’un cynisme terrifiant. WS-* = <span lang="en">“WS Death Star”</span>
+                </p>
+              </li>
+                <!--
+                Ça deviendra une TR W3C en juin 2003, tuera l'écosystème des web services et sera remplacé par REST plus tard.  L'écosystème est collectivement basé WS-* (qu'on prononcera rapidement, par humour noir, *WS Death Star* au lieu de *WS Dash Star*).
+                 -->
+              <li class="fragment">
+                Première apparition du terme <b>NoSQL</b>, par Carlo Strozzi.
+                <p class="quiet">Restera dormant jusqu’en 2009.</p>
+              </li>
+            </ol>
+
+            <footer>* par Dave Winer, le bien nommé, qui a déjà donné lieu à la guerre de RSS</footer>
+          </section>
+
+          <section id="y1999" data-duration="fixme">
+            <h1>1999</h1>
+            <h3>IE innove (brièvement mais si)</h3>
+
+            <ol>
+              <li class="quiet">
+                mai 2000 : <b>Napster</b> popularise le P2P (qui date des 60s)
+                <p class="quiet">L'année d'après, FreeNet, Gnutella, LimeWire et eDonkey2000<br/>lui emboîteront le pas (Kazaa en 2001).</p>
+              </li>
+              <li>Plus de 7,4 millions de sites en août</li>
+              <li class="fragment">
+                <b>IE5</b>.x est un truc de fou !
+                <b>XHR</b>, <b>CSS Print</b>, <b>Web Fonts</b>…
+                <!-- Bundle Flash, d’où 100M d'installs. -->
+              </li>
+              <li class="fragment">
+                <b>HTML 4.01</b>, <b>HTTP/1.1</b> (et <b>REST</b>), <b>ES3</b>
+                <p class="quiet">(en décembre ; ajoute notamment la gestion des exceptions).  Début de 8 ans de gel sur ES, avec un ES4 invivable.</p>
+              </li>
+              <li class="fragment">Le web gèle désormais côté technologies</li>
+            </ol>
+          </section>
+
+          <section id="y2000" data-duration="fixme">
+            <h1>2000</h1>
+            <h3>La bulle éclate</h3>
+
+            <ol>
+              <li nowrap>
+                Aaaaah le buuug on va tous mourrriiiir !
+                <span class="quiet">(oui mais non)</span>
+              </li>
+              <li class="fragment">
+                Apogée de la <b lang="en">Dot-Com bubble</b>
+                <p class="quiet">(au Super Bowl XXXIV, 16 start-ups ont payé 2M$ chacune pour 30” de spot…).  Le début de la fin survient avec la fusion AOL / Time Warner, une des pires de tous les temps, qui a tué AOL en trois ans.  De mars 2000 à octobre 2002, la capitalisation boursière des dot-coms perd 5 000 000 000 000 US$.</p>
+                <!--
+                Plus de 50% des dot-coms auront fermé avant fin 2004.  On peut citer parmi les gros fails GeoCities (acquis par Yahoo pour 3,57MM, fermé 10 ans plus tard), Inktomi (25MM$ en mars 2000), Lycos (acquis pour 12.5MM$ en 2000, revendu pour 95.4M$ en 2004), Tiscali (action à 1197€ en mars 2000, à 40€ deux mois plus tard pour finir à 0,2€)…
+                 -->
+              </li>
+              <!-- On passe les 20M sites -->
+              <li class="fragment">
+                <b>XHTML 1.0</b> et <b>ActionScript</b> et <b>KHTML</b>
+                <!--
+                Au sein du projet KDE, via Konqueror 2. KHTML servira de base à WebKit en 2003.
+                -->
+              </li>
+              <li class="fragment">
+                16 octobre : <b>Python 2.0</b> débarque
+                <p class="quiet">et commence à gagner en popularité.</p>
+              </li>
+            </ol>
+          </section>
+        </section> <!-- #explosion -->
 
         <section data-state="theme-color-asphalt-orange">
-          <section id="watchers">
-            <h1>Surveiller</h1>
-            <h3>les fichiers finaux pour notifier le navigateur</h3>
+          <section id="slumber">
+            <h1>2001–2003</h1>
+            <h2>Ça glande sec</h2>
           </section>
 
-          <section id="watchers-livereload" data-duration="1m">
-            <h2>LiveReload</h2>
-            <h4>a presque inventé ce p’tit jeu</h4>
+          <section id="y2001" data-duration="fixme">
+            <h1>2001</h1>
+            <h3>IE6 et Wikipedia</h3>
 
-            <p>Basé sur les WebSockets, donc IE10+ et les autres.</p>
-            <p>Archi serveur/watcher + extension</p>
-            <p>Gère aujourd’hui plein d’autres trucs (transpiling, concaténation, etc.)</p>
-            <p class="breathing">
-              Outils desktop dans le même genre :
-              <a href="https://incident57.com/codekit/">CodeKit</a> (OSX),
-              <a href="http://hammerformac.com/">Hammer</a> (OSX),
-              <a href="http://alphapixels.com/prepros/">Prepros</a> (OSX / Windows).
-            </p>
-
-            <p><a href="http://livereload.com/">livereload.com</a></p>
-            <footer>* ou IE pre-9 mais avec extension + serveur spécifique</footer>
+            <ol>
+              <li>
+                janvier : Dries Buytaert croit en PHP et sort <b>Drupal</b>
+                <p class="quiet">dont le logo est manifestement une larme de développeur… En revanche, la communauté Drupal est réputée super sympa, peut-être parce que les tranchées, ça soude les gens.</p>
+              </li>
+              <li class="fragment"><b>IE6</b>, les gens ! <span class="quiet">(avec XP)</span></li>
+              <li class="fragment"><b>Wikipédia</b> vient changer nos vies</li>
+              <li class="fragment">Débuts de <b>Processing</b> <span class="quiet">par des anciens du MIT Media Lab</span></li>
+              <li class="fragment">
+                2 juillet : Bram Cohen nous pond <b>BitTorrent</b>.
+                <p class="quiet">La version finale arrivera 7 ans plus tard, en 2008.</p>
+              </li>
+            </ol>
           </section>
 
-          <section id="watchers-emmet-livestyle" data-duration="1m">
-            <h2>Emmet LiveStyle</h2>
+          <section id="y2002" data-duration="fixme">
+            <h1>2002</h1>
+            <h3>Ça scie du bois</h3>
 
-            <p>Super approche, qui permet une synchro bidirectionnelle entre n'importe quelle page et des fichiers/buffers dans SublimeText.</p>
-
-            <p>Pas basé fichiers spécifiques, donc pas besoin même de trucs spéciaux dans la page.</p>
-
-            <p>Paquet Sublime Text + Extension Chrome.</p>
-
-            <p><a href="http://livestyle.emmet.io/">livestyle.emmet.io</a></p>
-
-            <h4>Démo</h4>
+            <ol>
+              <li>
+                janvier : <b>ASP.NET</b> envoie sur les roses ASP 3.0
+                <p class="quiet">même si beaucoup de old-school continueront looongtemps :-/</p>
+              </li>
+              <li class="fragment quiet">18 février : ayé, <b>faut payer en €</b>, les gens.</li>
+              <li class="fragment quiet">
+                16 mars : ouverture du parc Walt Disney Studios
+              </li>
+              <li class="fragment">
+                mars : Flash 6 amène la <b>vidéo</b> sur le web
+              </li>
+              <li class="fragment quiet">
+                21 avril : le FN au second tour de la présidentielle
+              </li>
+              <li class="fragment">
+                5 juin : Mozilla 1.0 débarque, mais foutoir lourd
+              </li>
+              <li class="fragment quiet">
+                15 octobre : on assouplit les 35h
+              </li>
+            </ol>
           </section>
 
-          <section id="watchers-brackets" data-duration="1m">
-            <h2>Brackets Live Preview</h2>
+          <section id="y2003" data-duration="fixme">
+            <h1>2003</h1>
+            <h3>Ça scie grave du bois</h3>
 
-            <p>Même principe que Emmet LiveStyle, mais spécifiquement pour l’éditeur Brackets et sa prévisualisation, basée Chrome.</p>
-
-            <p><a href="http://brackets.io/">brackets.io</a></p>
+            <ol>
+              <li>
+                7 janvier : Apple sort <b>Safari</b>
+                <p class="quiet">Premier browser basé WebKit, lui-même issu de KHTML.</p>
+              </li>
+              <li class="fragment quiet">
+                27 juillet : Lance Armstrong gagne le Tour de France
+                <p class="quiet">mais se verra retirer le titre pour dopage en 2012</p>
+              </li>
+              <li class="fragment quiet">
+                11 août : au plus fort de la canicule, il fait 44°C à Paris
+              </li>
+              <li class="fragment">
+               octobre : 4 p’tits gars fondent <b>Android</b>.
+                <p class="quiet">Ils seront rachetés par Google 2 ans plus tard.</p>
+              </li>
+              <li class="fragment quiet">
+                24 octobre : dernier vol commercial du Concorde
+              </li>
+            </ol>
           </section>
-
-          <section id="watchers-browsersync" data-duration="3m">
-            <h2>BrowserSync</h2>
-
-            <p class="breathing">S’occupe avant tout de synchroniser l'interaction avec plein de navigateurs ouverts, mais fait aussi de l’injection CSS.</p>
-
-            <p>Aucune extension : <strong>tous navigateurs</strong> (IE5.5+).</p>
-            <p><strong>Indépendant</strong> de l'éditeur / EDI.</p>
-
-            <p class="breathing">On l’utilisera tout à l’heure.</p>
-
-            <p><a href="http://www.browsersync.io/">browsersync.io</a></p>
-          </section>
-
-          <section id="watchers-no-js-injection" data-duration="1m">
-            <h2>Et JS alors ?!</h2>
-
-            <p>Tous ces outils n’injectent pas JS, seulement CSS.</p>
-            <p>Quand on modifie du JS, ils <strong>rechargent la page</strong>.</p>
-            <p>« Ce qui est bien mais pas top »</p>
-
-            <p class="breathing">Comment faire pour avoir de l’injection JS, ce qui nécessite du <span lang="en">hot-swapping</span> dans la <span lang="en">runtime</span> JS du navigateur ?</p>
-          </section>
-
-          <section id="watchers-webstorm" data-duration="30s">
-            <h2>WebStorm / PHPStorm</h2>
-
-            <p>L’EDI peut injecter à la volée les modifications faites dans l'EDI (HTML, CSS, JS) dans son panneau de prévisualisation (Chrome seulement).</p>
-
-            <p>D’une manière générale, un EDI de fou.  Vaut très largement son coût de license, allez voir.</p>
-
-            <p><a href="https://www.jetbrains.com/phpstorm/webhelp/live-editing-of-html-css-and-javascript.html">En savoir plus</a></p>
-          </section>
-
-          <section id="watchers-fb-flo" data-duration="1m">
-            <h2>fb-flo</h2>
-
-            <p>Encore une extension Chrome… mais avec un serveur ouvert et indépendant de l’éditeur/EDI (comme BrowserSync).</p>
-
-            <p class="breathing">Injecte CSS <strong>et JS</strong> !</p>
-
-            <p>Ça ressemble au Saint-Graal (mais que sur Chrome).</p>
-
-            <p><a href="https://github.com/facebook/fb-flo">github.com/facebook/fb-flo</a></p>
-          </section>
-
-          <section id="watchers-fb-flo-server" data-duration="6m">
-            <h2>Notre serveur fb-flo</h2>
-
-            <pre><code data-trim data-noescape class="javascript">
-'use strict';
-
-var <u>flo = require('fb-flo')</u>,
-    fs = require('fs'),
-    path = require('path');
-
-var dir = path.resolve(__dirname, <u>'../public'</u>);
-var server = <u>flo(dir, { glob: ['**/*.js', '**/*.css'] }, resolver)</u>;
-
-server.once('ready', function() {
-  console.log('fb-flo server ready to rock!');
-});
-
-function resolver(filepath, callback) {
-  var fullPath = path.resolve(dir, filepath);
-  <u>callback</u>({
-    <u>resourceURL: filepath,
-    contents: fs.readFileSync(fullPath).toString()</u>,
-
-    update: function(window, resourceURL) {
-      console.log(resourceURL + " has just been updated with new content!");
-    }
-  });
-}
-            </code></pre>
-          </section>
-
-          <section id="on-disk-tincr" data-duration="1m">
-            <h2>Tincr</h2>
-
-            <p>Ajoute des possibilités de sauvegarde par rapport aux Workspaces (par exemple, persiste les modifs sans les panneaux Styles de l’onglet Éléments), et permet en théorie l’injection CSS <em>et</em> JS (j’ai pas vérifié).</p>
-
-            <p class="breathing">Nécessite quand même un poil de config manuelle pour chaque ressource concernée (mais pas grave).</p>
-
-            <a href="http://tin.cr/">tin.cr</a>
-          </section>
-				</section> <!-- #watchers -->
+        </section> <!-- #slumber -->
 
         <section data-state="theme-color-silver-green">
-          <section id="browsersync">
-            <h1 class="barely-smaller">BrowserSync</h1>
-            <h3>pour synchroniser les comportements</h3>
+          <section id="waking-up">
+            <h1>2004–2006</h1>
+            <h3>Dernier arrêt avant Mobile</h3>
           </section>
 
-          <section id="browsersync-features" data-duration="1m">
-            <h2>Ça fait plein de trucs</h2>
+          <section id="y2004" data-duration="fixme">
+            <h1>2004</h1>
+            <h3>Woh pétard</h3>
 
-            <p><strong>Ghost Mode</strong> : synchro clics, scroll, manips formulaires…</p>
-            <p>Serveur statique</p>
-            <p>Proxy par-dessus backend existant</p>
-            <p>Tunnel (avec <a href="http://localtunnel.me/">localtunnel.me</a>) pour partager du local</p>
-            <p>URLs en <a href="http://xip.io/">xip.io</a> si pas de DNS local pratique</p>
-            <p>Injection CSS</p>
-
-            <p class="breathing">Basé sur Socket.IO (IE5.5+), injecte son code client</p>
-
-            <p><a href="http://www.browsersync.io/">browsersync.io</a></p>
+            <ol>
+              <li>
+                4 février : <b>Facebook</b> sort.  <span class="quiet">Et merde.</span>
+              </li>
+              <li class="fragment" nowrap>
+                4 juin : Le <b>WHATWG</b> est créé <span class="quiet">face à un W3C sclérosé</span></li>
+              <li class="fragment">
+                juillet : <b>Ruby On Rails</b> (0.13).
+                <p class="quiet">Bombe atomique, <span lang="en">“killer app”</span> pour Ruby</p>
+              </li>
+              <li class="fragment">
+                9 novembre : <b>Firefox 1.0</b> <span class="quiet">réveille le web techno assoupi</span>
+              </li>
+              <li class="fragment">
+                Bases du <b>Responsive Web Design</b>
+                <p class="quiet">pas encore nommé ainsi, dans <a href="http://www.themaninblue.com/writing/perspective/2004/09/21/">un article de Cameron Adams</a>.<br/>Il faudra attendre 2010 pour que ça prenne son essort.</p>
+              </li>
+            </ol>
+            <!--
+            * On commence à frimer autour de la notion de Web 2.0
+            * Plus de 50M sites
+             -->
           </section>
 
-          <section id="browsersync-ghost-mode" data-duration="3m">
-            <h2>Ghost Mode</h2>
+          <section id="y2005" data-duration="fixme">
+            <h1>2005</h1>
+            <h3>Ajax &amp; Git (1/2)</h3>
 
-            <p>Clics</p>
-            <p>Scroll</p>
-            <p>Formulaires : saisies, (dé)cochages, sélections, envois</p>
-            <p>Position de la souris</p>
-
-            <p class="breathing">Tout ça optionnel / configurable.</p>
-
-            <h4>Démo</h4>
+            <ol>
+              <li>
+                18 février : Jesse James Garrett pond « <b>Ajax</b> »
+                <p class="quiet">Au final personne ne fera du XML avec, hein…</p>
+              </li>
+              <li class="fragment">
+                février : <b>Prototype.js</b>, première lib de ce type.
+                <p class="quiet"><b>script.aculo.us</b> le suivra en juin.</p>
+              </li>
+              <li class="fragment">
+                avril : <b>Git</b> débarque <span class="quiet">(la 1.0 en décembre).</span>
+                <p class="quiet">Mais il faudra attendre GitHub, en 2008, pour que ça décolle.</p>
+              </li>
+              <li class="fragment">
+                Adobe rachète Macromedia.  <b>Flex</b> monte.  Flash 8.
+                <p class="quiet">(sans doute la plus importante màj de l'histoire de Flash)</p>
+              </li>
+              <li class="fragment">
+                <b>Google rachète Android</b> <span class="quiet">et commence à plancher…</span>
+              </li>
+            </ol>
           </section>
-        </section> <!-- #browsersync -->
 
-				<section id="trainings" data-state="theme-color-mint-beige">
-					<h2>Envie d’en savoir plus ?</h2>
+          <section id="y2005-2" data-duration="fixme">
+            <h1>2005</h1>
+            <h3>Backend &amp; Arduino (2/2)</h3>
 
-          <p>
-            On fait des <strong>super formations de ouf</strong> sur<br/>
-            <a href="http://www.js-attitude.fr/js-total/">JS et le dev web front</a>,
-            <a href="http://www.js-attitude.fr/node-js/">Node.js</a> et
-            <a href="http://www.git-attitude.fr/git-total/">Git</a>.
-          </p>
-				</section>
+            <ol>
+              <li>
+                21 juillet : <b>Django</b> débarque <span class="quiet">avec son poney magique</span></p>
+              </li>
+              <li class="fragment">
+                Début du projet <b>Arduino</b> <span class="quiet">par des étudiants à Ivrea, Italie.</span>
+                <p class="quiet">Avec un EDI basé sur Processing.  La Arduino Uno deviendra rapidement une carte de référence pour le mouvement de démocratisation du hacking hardware et de la robotique.</p>
+              </li>
+              <li class="fragment">
+                22 octobre : Fabien Potencier décide d’en finir avec le PHP foutoir et sort <b>Symfony</b>.  <span class="quiet">Le grand fou :-)</span>
+              </li>
+              <li class="fragment">
+                13 décembre : <b>Rails 1.0</b> <span class="quiet">(début de l'accès open-source)</span>
+              </li>
+            </ol>
+          </section>
 
-				<section>
+          <section id="y2006" data-duration="fixme">
+            <h1>2006</h1>
+            <h3>jQuery, en gros</h3>
+
+            <ol>
+              <li>février : <b>YUI</b> 1.0</li>
+              <li class="fragment">
+                15 décembre : <b>SASS</b> et <b>HAML</b> 1.0
+                <p class="quiet">(si !  si tôt !  mais passait sous le radar…)</p>
+              </li>
+              <li class="fragment">
+                26 août : John Resig sort <b>jQuery</b> 1.0.
+                <p class="quiet">Inspiré par Prototype.js.  En 3 ans, il va dominer le marché des libs légères front.  On y trouve les bases de QUnit.</p>
+              </li>
+              <li class="fragment">
+                18 octobre : <b>IE7</b> découvre les onglets <span class="quiet">mais c’est tout…</span>
+              </li>
+              <li class="fragment">Premiers prototypes du <b>Raspberry Pi</b>.
+                <p class="quiet">Il faudra attendre 2012 pour les modèles commerciaux !</p>
+              </li>
+              <!-- On passe les 100M sites sur la fin de l’année -->
+            </ol>
+          </section>
+        </section> <!-- #waking-up -->
+
+        <section data-state="theme-color-blue-yellow">
+          <section id="seeds">
+            <h1>2007–2009</h1>
+            <h3>Les prémises du web moderne</h3>
+            <h4>multi-appareils et clients riches</h4>
+          </section>
+
+          <section id="y2007" data-duration="fixme">
+            <h1>2007</h1>
+            <h3>iPhone (surtout)</h3>
+
+            <ol>
+              <li>
+                9 janvier : <b>iPhone</b> <span class="quiet">Avant/Après brutal.</span>
+                <!-- Ça va juste flinguer toute notre conception d'internet et des mobiles, en inventant le premier vrai smartphone.  Et tu sais quoi ? Y'aura jamais Flash sur iOS !  Par ailleurs, la vision originale des apps était 100% web, y'avait pas encore l'AppStore. -->
+              </li>
+              <li class="fragment">
+                11 juin : Safari 3 pour Window.
+                <span class="quiet">FBI.</span>
+              </li>
+              <li class="fragment">
+                5 novembre : <b>Dōjō</b> Toolkit 1.0… et <b>Android 1.0</b>.
+                <p class="quiet">Il faudra 1 an pour le premier appareil commercial.</p>
+              </li>
+              <li class="fragment">
+                décembre : EJS, inspiré d’ERB.
+                <p class="quiet">Premier templating en JS, par Justin B. Meyer (JavaScriptMVC…)</p>
+              </li>
+              <li class="fragment">
+                décembre : <b>Rails 2.0</b> <span class="quiet">remet <b>REST</b> sous les projecteurs</span>
+              </li>
+              <li class="fragment">Le W3C reprend le taf HTML5 du WHATWG.
+                <p class="quiet">Il faudra 7 ans pour la TR, là où le WHATWG avait mis 3 ans…</p>
+              </li>
+            </ol>
+          </section>
+
+          <section id="y2008" data-duration="fixme">
+            <h1>2008</h1>
+            <h3>Chrome, GitHub, QUnit… (1/2)</h3>
+
+            <ol>
+              <li nowrap>
+                <b>Chrome</b> ses <b>DevTools</b> et <b>V8</b> débarquent. Vitesse !
+                <p class="quiet">V8 servira de base pour Node.js.</p>
+                <!-- Et oui, souvenez-vous, toutes ces pubs en 4x3 dans le métro…  Premier à isoler ses onglets dans des process séparés. -->
+              </li>
+              <li class="fragment"><b>ES5</b> démarre, sur les cendres d’ES4.</li>
+              <li class="fragment">
+                <b>QUnit</b> est extrait de jQuery.
+                <p class="quiet">Premier framework populaire de tests JS pour le browser.</p>
+              </li>
+              <li class="fragment">
+                mars : <b>Magento</b>, PHP e-commerce.
+                <span class="quiet">Même pas peur.</span>
+              </li>
+              <li>
+                10 avril : <b>GitHub</b> révolutionne la collaboration dev
+                <p class="quiet">et fait décoller Git.  J'étais inscrit le 25/03 :-p</p>
+              </li>
+            </ol>
+          </section>
+
+          <section id="y2008-2" data-duration="fixme">
+            <h1>2008</h1>
+            <h3>App Stores, Azure et MVC</h3>
+
+            <ol>
+              <li>11 juillet : Apple fait volte-face et lance l’<b>App Store</b>.
+                <p class="quiet">30% seulement de royalties, les devs mobiles voient la Vierge.</p>
+                <!-- Ça ne va pas durer, mais c'est quand même le début des *walled gardens* : App Store, Google Play Store, Nokia Ovi, etc. -->
+              </li>
+              <li class="fragment">
+                30 juillet : <b>JavaScriptMVC</b> 1.0 (Justin B. Meyer)
+              </li>
+              <li class="fragment">
+                octobre : MS annonce <b>Azure</b>.
+                <span class="quiet">Décollera vraiment en 2012.</span>
+                <!-- Ils sentent venir le vent du cloud et anticipent qu'un jour Windows et Office ne suffiront pas. Ça ne commencera vraiment à décoller qu'en 2012, avec l'ouverture aux sites web, à Python, Node, etc.  Servira notamment de backend élastique à des très gros MMOs, par exemple Titanfall. -->
+              </li>
+              <li class="fragment">
+                22 octobre : premier appareil Android commercial (<b>HTC Dream</b>) et <b>Android Market</b> <span class="quiet">(2012 : fusion dans Google Play).</span>
+              </li>
+              <li class="fragment">
+                3 décembre : <b>Python 3</b>
+                <span class="quiet">Schisme 2/3 qui perdure aujourd'hui.</span>
+              </li>
+            </ol>
+          </section>
+
+          <section id="y2009" data-duration="fixme">
+            <h1>2009</h1>
+            <h3>Très grosse année (1/3)</h3>
+
+            <ol>
+              <li>19 mars : <b>IE8</b> essaie de servir à quelque chose
+                <p class="quiet">avec CSS2.1 (passe Acid2) et 3 corrections au DOM. ES3 foireux.</p>
+              </li>
+              <li class="fragment">
+                mai : <b>NoSQL</b> refait surface
+                <p class="quiet">sous la plume d'Eric Evans.  CAP plutôt qu’ACID.
+                  Année de sortie pour MongoDB, Redis, Riak, Apache Cassandra…</p>
+              </li>
+              <li class="fragment">
+                juin : Palm <b>web0S</b> 1.0.  <span class="quiet">Blam.</span>
+              </li>
+              <li class="fragment">
+                juin : HADOPI promulguée.
+                <span class="quiet">Sarkozy préfère le Minitel.</span>
+                <!-- Pendant qu'on y dépense quelque 8M€/an en pure perte (aucune condamnation aboutie) et que les scandales s'accumulent, le streaming décolle en France, et contourne tranquillou le texte. -->
+              </li>
+              <li class="fragment">
+                30 juin : <b>Firefox 3.5</b>
+                <span class="quiet">TraceMonkey, premier JIT.</span>
+              </li>
+            </ol>
+          </section>
+
+          <section id="y2009-2" data-duration="fixme">
+            <h1>2009</h1>
+            <h3>Très grosse année (2/3)</h3>
+
+            <ol>
+              <li>
+                août : ServerJS (basé Rhino) → <b>CommonJS</b>
+                <!--
+                Kevin Dangoor, avec l'aide Kris Kowal.  Servira de base au système de modules de Node, qui le débordera rapidement (la runtime imaginée par Kevin et Kris, baptisée Narwahl, restait bloquante et peu orientée flux, etc.).
+                 -->
+              </li>
+              <li class="fragment" nowrap>
+                août : <b>Modernizr</b> \o/
+                <span class="quiet"><b>Le</b> script inliné dans ton <code>head</code>.</span>
+              </li>
+              <li class="fragment">Premières <b>JSConf</b> (US et EU)</li>
+              <li class="fragment">
+                octobre : <b>Mustache</b> <span class="quiet">(logic-less templating)</span>
+                <!--
+                (deviendra très populaire, et ouvrira la voie à Handlebars ; par Chris Wanswrath de GitHub pour la version Ruby, Jan Lenhardt pour la version JS)
+                 -->
+              </li>
+              <li class="fragment">
+                8 novembre : Sortie de <b>Node.js</b> à JSConf.EU.
+                <p class="quiet">300 geeks hardcore JS sur le cul.</p>
+              </li>
+              <li class="fragment">
+                novembre : <b>LABjs</b> 1.0 (Kyle Simpson)
+                <p class="quiet">Début des <span lang="en">scripts loaders</span></p>
+              </li>
+            </ol>
+          </section>
+
+          <section id="y2009-3" data-duration="fixme">
+            <h1>2009</h1>
+            <h3>Très grosse année (3/3)</h3>
+
+            <ol>
+              <li>
+                décembre : <b>ES5</b>
+                <p class="quiet">1ère version depuis 1999.  Enrichit considérablement la partie objet, notamment les définitions de propriétés et de prototypes.</p>
+              </li>
+              <li class="fragment">
+                décembre : <b>CoffeeScript</b>
+                <span class="quiet">influencera grave ES6.</span>
+              </li>
+              <li class="fragment">
+                Nitobi sort <b>PhoneGap</b>
+                <p class="quiet">HTML + CSS + JS → applis mobiles natives pour tout un tas de plates-formes, via une API JS unifiée. Rachat Adobe 10/2011.</p>
+              </li>
+              <li class="fragment">
+                Première implémentation open-source de <b>BitCoin</b>.
+                <p class="quiet">Début des cryptomonnaies numériques, émergence des <span lang="en">block chains</span> (au 25/11/14, un BTC vaut environ 300€).</p>
+              </li>
+            </ol>
+          </section>
+        </section> <!-- #seeds -->
+
+        <section data-state="theme-color-forest-yellow">
+          <section id="transformation">
+            <h1>2010–2012</h1>
+            <h2>La transformation</h2>
+          </section>
+
+          <section id="y2010" data-duration="fixme">
+            <h1>2010</h1>
+
+            <ol>
+              <li></li>
+              <li class="xfragment"></li>
+              <li class="xfragment"></li>
+              <li class="xfragment"></li>
+              <li class="xfragment"></li>
+            </ol>
+          </section>
+
+          <section id="y2010-2" data-duration="fixme">
+            <h1>2010</h1>
+
+            <ol>
+              <li></li>
+              <li class="xfragment"></li>
+              <li class="xfragment"></li>
+              <li class="xfragment"></li>
+              <li class="xfragment"></li>
+            </ol>
+          </section>
+
+          <section id="y2010-3" data-duration="fixme">
+            <h1>2010</h1>
+
+            <ol>
+              <li></li>
+              <li class="xfragment"></li>
+              <li class="xfragment"></li>
+              <li class="xfragment"></li>
+              <li class="xfragment"></li>
+            </ol>
+          </section>
+
+          <section id="y2010-4" data-duration="fixme">
+            <h1>2010</h1>
+
+            <ol>
+              <li></li>
+              <li class="xfragment"></li>
+              <li class="xfragment"></li>
+              <li class="xfragment"></li>
+              <li class="xfragment"></li>
+            </ol>
+          </section>
+        </section> <!-- #transformation -->
+
+        <section data-state="theme-color-asphalt-orange">
+          <section id="js-everywhere">
+            <h1>2013–2015</h1>
+            <h2>JS Partout</h2>
+            <h4>Le web est mobile et tout s’y connecte</h4>
+          </section>
+
+          <section id="fixme" data-duration="fixme">
+            <h2>FIXME</h2>
+
+            <p>FIXME</p>
+          </section>
+        </section> <!-- #js-everywhere -->
+
+        <section id="what-now">
+          <h2>Et ensuite ?</h2>
+          <p>FIXME</p>
+        </section> <!-- #what-now -->
+
+				<section id="thanks">
 					<h1>Merci !</h1>
           <h3>Et que le Web soit avec vous</h3>
           <br>
@@ -481,9 +838,7 @@ function resolver(filepath, callback) {
           <p><a href="https://twitter.com/porteneuve">@porteneuve</a></p>
 
           <p class="breathing">
-            Retrouvez les slides sur <a href="http://bit.ly/devavengers">bit.ly/devavengers</a>
-            <br>
-            …et un <a href="http://quick.as/6op4urjk">petit screencast</a> à l’arrache qui refait la démo.
+            Retrouvez les slides sur <a href="http://bit.ly/wowmuchweb">bit.ly/wowmuchweb</a>
           </p>
 				</section>
 			</div>
