@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Git ProTips • Christophe Porteneuve @ BLEND Web Mix 2014</title>
+		<title>Git ProTips • Christophe Porteneuve @ France HTML5 UG 26/11/2014</title>
 
-		<meta name="description" content="Une session à BLEND Web Mix 2014">
+		<meta name="description" content="Une présentation à France HTML5 UG 26/11/2014">
 		<meta name="author" content="Christophe Porteneuve">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -58,7 +58,7 @@
 					<h1>Git ProTips</h1>
 					<h3>Faire du Git plus vite et mieux</h3>
 					<p>
-						<small>Une présentation de <a href="http://tddsworld.com/">Christophe Porteneuve</a> à <a href="http://www.blendwebmix.com/">BLEND Web Mix 2014</a></small>
+						<small>Une présentation de <a href="http://tddsworld.com/">Christophe Porteneuve</a> à <a href="http://www.meetup.com/France-HTML5-User-Group/events/218759512/">France HTML5 UG 26/11/2014</a></small>
 					</p>
 				</section>
 
@@ -67,7 +67,7 @@
 
 					<pre><code data-noescape data-trim class="javascript">
 var christophe = {
-  age:        36.9863013698630136,
+  age:        37.06023271731690623,
   city:       'Paris',
   company:    'Delicious Insights',
   trainings:  ['Git Total', 'JS Total', 'Node.js'],
@@ -152,7 +152,7 @@ index 5237399..85e642f 100644
             <p>Version snapshot (tout le fichier) :</p>
 
             <pre><code data-trim data-noescape class="no-highlight">
-<span class="blue">$ git show <u>:0:pathspec</u></span>
+<span class="blue">$ git show <u>:0:index.html</u></span>
 &lt;!doctype html&gt;
 &lt;html lang="fr"&gt;
 &lt;head&gt;
@@ -303,7 +303,7 @@ Changes not staged for commit:
   <span class="red">home.html</span>
             </code></pre>
 
-            <p class="breathing">Pour gérer les connus <strong>et</strong> les <span lang="en">untracked</span>, on utilise <code>-A</code> (<code>--all</code>) :</p>
+            <p class="breathing">Pour gérer les connus <strong>et</strong> les <span lang="en">untracked</span>,<br/>on utilise <code>-A</code> (<code>--all</code>) :</p>
 
             <pre><code data-trim data-noescape class="bash">
 <span class="blue">$ git add <u>-A</u> &amp;&amp; git status</span>
@@ -581,7 +581,7 @@ To git@github.com:tdd/private-tests.git
 
             <pre><code data-trim data-noescape class="no-highlight">
 $ git lg @{u}..
-$ git rebase -i @{u}
+$ git rebase -i
             </code></pre>
 
             <p class="breathing">Le <strong>rebase interactif</strong> nous permet de mettre au propre nos travaux locaux avant de partager tout ça avec les copains.</p>
@@ -625,36 +625,6 @@ $ git rebase -i @{u}
             <h1>Des branches nickel</h1>
           </section>
 
-          <section id="branches-checkout-b" data-duration="45s">
-            <h2>Nouvelle branche</h2>
-
-            <p>La plupart du temps, quand on crée une branche, c’est pour bosser dessus direct.</p>
-
-            <pre><code data-trim data-noescape class="no-highlight">
-<b class="wrong">(master) $ git branch feature
-(master) $ git checkout feature
-(feature) $</b>
-            </code></pre>
-
-            <pre><code data-trim data-noescape class="no-highlight">
-<b class="right">(master) $ git <u>checkout -b</u> feature
-(feature) $</b>
-            </code></pre>
-
-            <p>Notez que pour commencer à collaborer à une branche uniquement distante jusque-là, un <code>checkout</code> simple suffit.</p>
-
-            <pre><code data-trim data-noescape class="no-highlight">
-<span class="blue">(master) $ git branch -a</span>
-* <span class="green">master</span>
-  <span class="red">origin/master</span>
-  <span class="red">origin/topic</span>
-<span class="blue">(master) $ git checkout topic</span>
-Branch topic set up to track remote branch topic from origin.
-Switched to a new branch 'topic'
-<span class="blue">(topic) $</span>
-            </code></pre>
-          </section>
-
           <section id="branches-vv-a" data-duration="45s">
             <h2>Mieux voir les branches</h2>
 
@@ -673,32 +643,6 @@ Switched to a new branch 'topic'
   <span class="red">remotes/origin/bs3</span>           49bc984 Tweaks en cours de session
   <span class="red">remotes/origin/bs3-basis</span>     650f025 Tweak export connectivity
 …
-            </code></pre>
-          </section>
-
-          <section id="branches-inspection" data-duration="1m30">
-            <h2>Qui contient quoi ?</h2>
-
-            <p>Alors comme ça, le <code>73abc4f</code> est la source du bug, et tu veux savoir où il faudra propager le fix ?</p>
-
-            <pre><code data-trim data-noescape class="no-highlight">
-<span class="blue">(master) $ git branch -a <u>--contains 73abc4f</u></span>
-* <span class="green">master</span>
-  stats
-  <span class="red">origin/master
-  origin/3-2-stable
-  origin/stats</span>
-            </code></pre>
-
-            <p>« Bon, il reste quoi de fusionnable dans <code>master</code> ? »</p>
-
-            <pre><code data-trim data-noescape class="no-highlight">
-<span class="blue">(master) $ git branch -a <u>--no-merged</u></span>
-  stats
-  <span class="red">origin/fix/143
-  origin/fix/148
-  origin/stats
-  origin/max/experiment-web-audio</span>
             </code></pre>
           </section>
 
@@ -725,45 +669,6 @@ Switched to a new branch 'topic'
 <span class="blue">(master) $ git config --global <u>merge.log true</u></span>
             </code></pre>
 
-          </section>
-
-          <section id="branches-dash" data-duration="1m">
-            <h2>Un tiret c’est tout</h2>
-
-            <p>Très souvent, quand on <code>merge</code>, <code>rebase</code>, <code>cherry-pick</code> ou simplement <code>checkout</code>, c’est depuis/sur la branche précédente (celle où on était juste avant).</p>
-
-            <p class="breathing">Tout comme le <code>cd -</code> du shell, on peut filer <code>-</code> (tiret) comme argument : raccourci récent pour le plus classique <code>@{-1}</code>.</p>
-
-            <pre><code data-trim data-noescape class="no-highlight">
-<span class="blue">(master) $ git rebase master experiment
-(experiment) $ git checkout <u>-</u>
-(master) $</span>
-            </code></pre>
-
-            <pre><code data-trim data-noescape class="no-highlight">
-<span class="blue">(fix/148) $ git checkout 3-2-stable
-(3-2-stable) $ git merge <u>-</u>
-(3-2-stable) $ git checkout master
-(master) $ git cherry-pick <u>-</u>
-(master) $</span>
-            </code></pre>
-          </section>
-
-          <section id="branches-too-late" data-duration="1m30s">
-            <h2>Branch-worthy</h2>
-
-            <p>T’aurais juré que ça allait prendre 1 commit et 10 minutes…</p>
-            <p>…et voilà 3 commits et 2 heures que tu y es.  Et c’est pas fini !</p>
-            <p class="breathing"><q>« J’aurais dû faire une branche… »</q></p>
-
-            <pre><code data-trim data-noescape class="no-highlight">
-<span class="blue">  (master) $ git <u>branch</u> fix/158
-  (master) $ git <u>reset</u> --soft <u>HEAD~3</u>
-(master +) $ git <u>checkout</u> fix/158
- (fix/158) $</span>
-            </code></pre>
-
-            <img src="assets/git-branch-worthy.png" class="schema">
           </section>
 
           <section id="branches-cherry-picking" data-duration="3m">
@@ -942,9 +847,13 @@ malgré sa profonde stupidité et la plaie de son usage.
           <h3>Et que Git soit avec vous</h3>
           <br>
 					<p>Christophe Porteneuve</p>
-          <p><a href="https://twitter.com/porteneuve">@porteneuve</a></p>
+          <p>
+            <a href="https://twitter.com/porteneuve">@porteneuve</a>
+            •
+            <a href="https://twitter.com/gitattitude">@gitattitude</a>
+          </p>
 
-          <p class="breathing">Retrouvez les slides sur <a href="http://bit.ly/gitprotips">bit.ly/gitprotips</a></p>
+          <p class="breathing">Retrouvez les slides sur <a href="http://bit.ly/html5git">bit.ly/html5git</a></p>
 				</section>
 			</div>
 		</div>
