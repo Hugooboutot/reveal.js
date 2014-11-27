@@ -700,7 +700,8 @@ b.right::after {
 .reveal pre > code.smaller .yellow { color: #c50; }
 .reveal pre > code.smaller .blue   { color: #08c; }
 
-.theme-color-coral-blue h3 > code, .theme-color-forest-yellow p > code {
+.theme-color-coral-blue h3 > code, .theme-color-forest-yellow p > code,
+.theme-color-forest-yellow li > code {
   color: yellow;
 }
 .theme-color-asphalt-orange .reveal a {
