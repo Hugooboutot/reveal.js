@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Front-end Dev Avengers • Christophe Porteneuve @ BLEND Web Mix 2014</title>
+		<title>Le développement web • Christophe Porteneuve @ M2CCI Université de Tours</title>
 
-		<meta name="description" content="Une session à BLEND Web Mix 2014">
+		<meta name="description" content="Une conférence aux M2CCI de Tours sur les problématiques du développement web">
 		<meta name="author" content="Christophe Porteneuve">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,10 +55,12 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Dev Avengers</h1>
-					<h3>pour le Front-End</h3>
+					<h1>Le dev web</h1>
+					<h3>pour ceux qui en font peu</h3>
 					<p>
-						<small>Une présentation de <a href="http://tddsworld.com/">Christophe Porteneuve</a> à <a href="http://www.blendwebmix.com/">BLEND Web Mix 2014</a></small>
+						<small>Une présentation de
+            <a href="http://tddsworld.com/">Christophe Porteneuve</a> au
+            <a href="http://www.cci.univ-tours.fr/">M2 CCI de l’Université de Tours</a></small>
 					</p>
 				</section>
 
@@ -67,400 +69,146 @@
 
 					<pre><code data-trim class="javascript">
 var christophe = {
-  age:        36.9863013698630136,
+  age:        37.2108145106091718,
   city:       'Paris',
   company:    'Delicious Insights',
-  trainings:  ['JS Total', 'Node.js', 'Git Total'],
   jsSince:    1995,
   claimsToFame: [
     'Prototype.js',
     'Ruby On Rails',
     'Bien Développer pour le Web 2.0',
     'Prototype and Script.aculo.us',
-    'Paris Web'
+    'Paris Web',
+    'JS Attitude',
+    'Git Attitude'
   ]
 };
           </code></pre>
 				</section>
 
-        <section id="abstract" data-duration="2m">
-          <h2>Le dev front</h2>
-          <h3>aujourd’hui</h3>
+        <section id="intro" data-duration="FIXME">
+          <h2>Découvrons-nous</h2>
+          <h3>en deux minutes</h3>
 
-          <img src="assets/dev-today.png" alt="Le cycle du dev front aujourd’hui" class="schema">
+          <p>Tranches d’âge</p>
+          <p class="fragment">Le M2 CCI : qui en entrée, ou en sortie ?</p>
+          <p class="fragment">Et moi, et moi, et moi…</p>
+          <p class="fragment">Du coup, gardez du recul :-)</p>
+
+          <aside class="notes" data-markdown>
+            * **Âges :** moins de 25, 26-30, 31+
+            * **Qui en entrée :**
+              * Historique études = info ou pas ?
+              * Rapport au dev = passion ou à-côté ?
+              * Qui fait du dev hobbyste depuis 3+ ans ?
+            * **Où en sortie :** CCI = souvent arrière-pensée, vise les SSII, comme en témoigne le programme. Pas du tout orienté passion ou état de l'art (environ 10 ans de retard sur celui-ci).  On en reparlera.
+            * **Moi je suis un gros passionné ;** je fais du dev depuis 1989 (25 ans) et j’ai toujours su que ça serait ma voie. J’ai fêté y’a une semaine mes 19 ans de carrière, exclusivement en R&D / CTO / avant-garde. Et jusqu’à présent, mon flair ne m’a jamais trompé.
+              * Grand écart avec le monde SSII, qui sont les « ouvriers spécialisés » de l’info. En moins productifs. Surtout les « SSII à la française ».
+            * **Ne prenez donc pas ombrage :** j’ai un ton naturellement forcé, trollesque pour bien marquer le trait et créer de l’animation, mais rien n’est intrinsèquement mauvais (ex. bosser en SSII a aussi des avantages qu’une start-up n’aura pas, par exemple).
+          </aside>
         </section>
 
-        <section id="sourcemaps" data-duration"3m">
-          <h2>Préambule</h2>
-          <h3>Les Source Maps</h3>
+        <section id="market" data-duration="FIXME">
+          <h2>Le marché</h2>
+          <h3>du dev web</h3>
 
-          <p>Fichiers produits par une <strong>phase de build</strong> (ex. transpiling, concaténation, minification…) permettant de <strong>faire le lien</strong>, au caractère près, entre l’unique contenu résultat et les contenus des <strong>fichiers originaux</strong>.</p>
+          <p>FIXME</p>
 
-          <p>Référencé par un <strong>commentaire spécial</strong> dans le fichier final.</p>
-
-          <pre><code data-trim class="css">
-/*# sourceMappingURL=app.css.map*/
-          </code></pre>
-
-          <pre><code data-trim class="javascript">
-//# sourceMappingURL=app.js.map
-          </code></pre>
-
-          <p>Chargé et utilisé par nos navigateurs (Chrome, Firefox, IE) si les outils de dev sont actifs. <strong>Très utile au débogage.</strong></p>
+          <aside class="notes">
+            depuis quand ?
+            part de marché actuelle (vs. desktop)
+            apps mobiles et web
+          </aside>
         </section>
 
 				<section data-state="theme-color-blue-yellow">
-					<section id="client-side">
-						<h1>Côté client</h1>
-            <h3>Juste dans le navigateur</h3>
+					<section id="technos">
+						<h1>Technos</h1>
+            <h3>Avec quoi fait-on du web ?</h3>
 					</section>
 
-          <section id="client-side-css" data-duration="2m">
-            <h2>Injection CSS</h2>
+          <section id="technos-backend" data-duration="FIXME">
+            <h2>Backend</h2>
 
-            <p>Modifiable interactivement dans les outils développeur.</p>
-            <p>Modifiable aussi en tant que fichier source (sauf IE).</p>
-            <p>Pris en compte <strong>à la volée</strong>.</p>
+            <h4 class="breathing">Traditionnels / Old-school</h4>
+
+            <p>PHP</p>
+            <p>Java EE</p>
+            <p>ASP.NET</p>
+
+            <h4 class="breathing">Les jeunes d’aujourd'hui</h4>
+
+            <p>Ruby et Rails</p>
+            <p>Python et Django</p>
+            <p>Node.js</p>
+
+            <aside class="notes" data-markdown>
+              * **PHP :** surtout du bidouillage. Perfs discutables. La FR adoooore.
+              * **Java EE (JSP, Servlets, EJB, Hibernate…) :** le royaume de la sur-architecture et des process qui étouffent. « Agile » (se méfier du A majuscule) l’oxymore. Surtout les SSII et prestas grands comptes. Pas là où on trouve les bons/passionnés.
+              * **ASP.NET :** C# est super et VS est un bon EDI, mais il est complètement idiot de s’enfermer dans un écosystème majoritairement propriétaire, dont les licences coûtent un bras, avec des serveurs qui sous-exploitent leur matériel et sont d’une stabilité discutable. Par ailleurs, l’écosystème ASP.NET est souvent à la traîne en termes de paradigmes… Et les machines Windows sont juste ultra-pénibles pour tout autre outil de dev que VS.
+              * **Rails** : FIXME
+              * **Django** : FIXME
+              * **Node** : FIXME
+            </aside>
           </section>
 
-          <section id="client-side-js" data-duration="1m">
-            <h2>Injection JS</h2>
+          <section id="technos-cms-ecommerce" data-duration="FIXME">
+            <h2>CMS et e-commerce</h2>
+            <h3>Les solutions toutes faites</h3>
 
-            <p>Dans Chrome, on peut modifier le JS à la volée.</p>
-            <p class="breathing">V8 (la runtime JS) <strong>hot-swappe</strong> le code modifié dans l’exécution en cours (pas de rechargement de la page).</p>
-            <p>Hélas pas encore dispo sur Firefox et IE :-(</p>
+            <p>Wordpress, Drupal et consorts</p>
+            <p>Magento, Prestashop…</p>
+
+            <aside class="notes" data-markdown>
+              FIXME
+            </aside>
           </section>
 
-          <section id="client-side-transient" data-duration="30s">
-            <h2>Souci 1 : transient</h2>
+          <section id="technos-fixme" data-duration="FIXME">
+            <h2>Fixme</h2>
 
-            <p>Reste dans la page en cours :<br>
-            <p><strong>disparaît au rafraîchissement</strong>.</p>
+            <p>FIXME</p>
           </section>
-
-          <section id="client-side-no-sourcemaps" data-duration="1m">
-            <h2>Souci 2 : Source Maps</h2>
-            <h4>« Modifier » les originaux ne sert à rien</h4>
-
-            <p>Le navigateur ne peut pas reconstruire, côté client, le fichier final réellement exploité (CSS, JS) à partir des sources d’origine : les modifiers individuellement n’est pas reflété.</p>
-          </section>
-				</section> <!-- #client-side -->
-
-        <section>
-          <section id="brunch">
-            <h2>Interlude</h2>
-            <h3>Brunch</h3>
-
-            <p><a href="http://brunch.io">brunch.io</a></p>
-          </section>
-
-          <section id="brunch-what-for" data-duration="1m">
-            <h2>Pour quoi faire ?</h2>
-
-            <p class="breathing"><strong><span lang="en">Application Assembly</span></strong></p>
-            <p><strong>Concaténation</strong> intelligente (dont enrobages <strong>modules</strong>)</p>
-            <p><strong>Préprocesseurs</strong>, <strong><span lang="en">transpiling</span></strong> et précompilation</p>
-            <p>Linting</p>
-            <p><strong>Minification</strong> haut de gamme</p>
-            <p>Tâches connexes (ex. manifeste AppCache, spriting &amp; optimisation images, génération de docs, digests…)</p>
-          </section>
-
-          <section id="brunch-other-tools" data-duration="1m">
-            <h2>Autres outils</h2>
-
-            <p><a href="">Grunt</a> (très répandu, basé fichiers)</p>
-            <p><a href="">Gulp</a> (idem, mais basé <span lang="en">pipeline</span>)</p>
-            <p><a href="">Broccoli</a> (moins répandu, basé <span lang="en">pipeline</span> aussi)</p>
-
-            <p class="breathing">Les 3 sont des exécuteurs de tâches <strong>génériques</strong>, qui nécessitent <strong>pas mal de code</strong> et sont <strong>lents</strong> (> 1s).</p>
-
-            <p>Brunch : (presque) « que » du build, config triviale, beaucoup plus rapide à réagir aux changements.</p>
-
-            <p>Bien répandu, stable, là depuis des années…</p>
-          </section>
-
-          <section id="brunch-config" data-duration="1m">
-            <h2>Config basique</h2>
-
-            <pre><code data-trim data-noescape class="coffeescript">
-exports.config =
-  files:
-    javascripts:
-      joinTo: 'app.js'
-    stylesheets:
-      joinTo: 'app.css'
-    templates:
-      joinTo: 'app.js'
-            </code></pre>
-
-            <p><code>brunch-config.coffee</code> ou <code>brunch-config.js</code></p>
-            <p>Indique au minimum les cibles de la « concaténation », par type de fichiers : scripts, feuilles de styles et templates.</p>
-            <p>Permet aussi plein de fonctions cool en plus (serveur statique, etc.)</p>
-          </section>
-
-          <section id="brunch-plugins" data-duration="2m">
-            <h2>Plugins Brunch</h2>
-            <h4>Y'en a <a href="http://brunch.io/plugins.html">des tonnes</a></h4>
-
-            <p>Il suffit de les installer (<code>npm install</code>) dans le projet pour que Brunch les utilise.  La plupart du temps, <strong>zéro config</strong>.</p>
-
-            <p class="breathing">Il reste évidemment <strong>possible</strong> de les configurer spécifiquement pour <strong>affiner</strong> leur comportement.</p>
-
-            <pre><code data-trim data-noescape class="coffescript">
-plugins:
-  appcache:
-    externalCacheEntries: [
-      '/socket.io/socket.io.js'
-    ]
-    network: ['*', 'http://*', 'https://*']
-  browserSync:
-    codeSync: false
-    logLevel: 'silent'
-    online: false
-    open: false
-            </code></pre>
-          </section>
-
-          <section id="brunch-build" data-duration="1m">
-            <h2>Builds</h2>
-
-            <p>Par défaut, Brunch builde pour le dev : pas de minifications / optimisations.  Plus rapide et plus pratique en dev (même si on a les Source Maps de toutes façons).</p>
-
-            <pre><code class="no-highlight">
-$ brunch build
-            </code></pre>
-
-            <p>On peut bien sûr demander un build de production, qui active les plugins éventuels associés.  Notamment <a href="https://github.com/brunch/clean-css-brunch">clean-css</a> et <a href="https://github.com/brunch/uglify-js-brunch">UglifyJS</a>.</p>
-
-            <pre><code class="no-highlight">
-$ brunch build --production
-            </code></pre>
-          </section>
-
-          <section id="brunch-watch" data-duration="1m">
-            <h2>Watcher</h2>
-
-            <p>Surveille l’ensemble des fichiers sources et reconstruit* les fichiers cibles du build.</p>
-
-            <pre class="breathing"><code data-trim data-noescape class="no-highlight">
-<span class="blue">$ brunch watch</span>
-26 Oct 12:07:22 - <span class="green">info</span>: compiled 24 files and 2 cached into 2 files,
-  copied 5 in 947ms
-26 Oct 12:07:38 - <span class="green">info</span>: compiled application.js and 22 cached files
-  into app.js in <u>246ms</u>
-26 Oct 12:07:42 - <span class="green">info</span>: compiled history.styl and 2 cached files into
-  app.css in <u>155ms</u>
-            </code></pre>
-
-            <footer>* intelligemment : cache partiel, etc.</footer>
-          </section>
-
-          <section id="our-sample-app" data-duration="2m">
-            <h2>Notre appli d’exemple</h2>
-
-            <p class="breathing">Petite <a href="http://fr.wikipedia.org/wiki/Application_web_monopage">SPA</a> simple, qui mélange plein de technos :</p>
-
-            <p>JS (ES3/ES5) et <a href="http://coffeescript.org/">CoffeeScript</a> pour les scripts</p>
-            <p><a href="http://sass-lang.com/">SASS</a> et <a href="http://learnboost.github.io/stylus/">Stylus</a> pour les styles</p>
-            <p><a href="http://jade-lang.com/">Jade</a> pour les templates</p>
-            <p><a href="http://wiki.commonjs.org/wiki/Modules/1.1">CommonJS</a> pour l’enrobage des modules (dont les libs classiques : jQuery, <a href="http://underscorejs.org/">Underscore</a>, <a href="http://momentjs.com/">Moment</a>, Bootstrap, <a href="http://backbonejs.com/">Backbone</a>…)</p>
-
-            <p class="breathing">Avec Brunch, <strong>super facile !</strong></p>
-          </section>
-        </section> <!-- #brunch -->
+				</section> <!-- #FIXME -->
 
 				<section data-state="theme-color-forest-yellow">
-          <section id="on-disk">
-            <h1>Sur disque</h1>
-            <h3>pour persister</h3>
+          <section id="FIXME">
+            <h1>Côté client</h1>
+            <h3>Juste dans le navigateur</h3>
           </section>
 
-          <section id="on-disk-workspaces" data-duration="2m">
-            <h2>Workspaces</h2>
-            <h4>avec Chrome DevTools</h4>
+          <section id="fixme-fixme" data-duration="FIXME">
+            <h2>Fixme</h2>
 
-            <p>Permet de « mapper » des ressources (URL) à des fichiers sur le <span lang="en">filesystem</span> de ta machine (dont montages réseaux).</p>
-
-            <p class="breathing">Du coup on peut éditer dans les DevTools mais <strong>sauver le fichier correspondant pour de vrai</strong>.</p>
-
-            <h4>Démo</h4>
+            <p>FIXME</p>
           </section>
-
-          <section id="on-disk-no-sourcemaps" data-duration="1m">
-            <h2>Souci : Source Maps</h2>
-            <h4>Toujours pas, forcément…</h4>
-
-            <p>Toujours le même problème côté client : le navigateur ne pouvant re-construire le build tout seul, il ne déploie pas la modif faite sur un des fichiers « source », seulement ceux sur le build.</p>
-          </section>
-        </section> <!-- #on-disk -->
+        </section> <!-- #FIXME -->
 
         <section data-state="theme-color-asphalt-orange">
-          <section id="watchers">
-            <h1>Surveiller</h1>
-            <h3>les fichiers finaux pour notifier le navigateur</h3>
+          <section id="FIXME">
+            <h1>Côté client</h1>
+            <h3>Juste dans le navigateur</h3>
           </section>
 
-          <section id="watchers-livereload" data-duration="1m">
-            <h2>LiveReload</h2>
-            <h4>a presque inventé ce p’tit jeu</h4>
+          <section id="fixme-fixme" data-duration="FIXME">
+            <h2>Fixme</h2>
 
-            <p>Basé sur les WebSockets, donc IE10+ et les autres.</p>
-            <p>Archi serveur/watcher + extension</p>
-            <p>Gère aujourd’hui plein d’autres trucs (transpiling, concaténation, etc.)</p>
-            <p class="breathing">
-              Outils desktop dans le même genre :
-              <a href="https://incident57.com/codekit/">CodeKit</a> (OSX),
-              <a href="http://hammerformac.com/">Hammer</a> (OSX),
-              <a href="http://alphapixels.com/prepros/">Prepros</a> (OSX / Windows).
-            </p>
-
-            <p><a href="http://livereload.com/">livereload.com</a></p>
-            <footer>* ou IE pre-9 mais avec extension + serveur spécifique</footer>
+            <p>FIXME</p>
           </section>
-
-          <section id="watchers-emmet-livestyle" data-duration="1m">
-            <h2>Emmet LiveStyle</h2>
-
-            <p>Super approche, qui permet une synchro bidirectionnelle entre n'importe quelle page et des fichiers/buffers dans SublimeText.</p>
-
-            <p>Pas basé fichiers spécifiques, donc pas besoin même de trucs spéciaux dans la page.</p>
-
-            <p>Paquet Sublime Text + Extension Chrome.</p>
-
-            <p><a href="http://livestyle.emmet.io/">livestyle.emmet.io</a></p>
-
-            <h4>Démo</h4>
-          </section>
-
-          <section id="watchers-brackets" data-duration="1m">
-            <h2>Brackets Live Preview</h2>
-
-            <p>Même principe que Emmet LiveStyle, mais spécifiquement pour l’éditeur Brackets et sa prévisualisation, basée Chrome.</p>
-
-            <p><a href="http://brackets.io/">brackets.io</a></p>
-          </section>
-
-          <section id="watchers-browsersync" data-duration="3m">
-            <h2>BrowserSync</h2>
-
-            <p class="breathing">S’occupe avant tout de synchroniser l'interaction avec plein de navigateurs ouverts, mais fait aussi de l’injection CSS.</p>
-
-            <p>Aucune extension : <strong>tous navigateurs</strong> (IE5.5+).</p>
-            <p><strong>Indépendant</strong> de l'éditeur / EDI.</p>
-
-            <p class="breathing">On l’utilisera tout à l’heure.</p>
-
-            <p><a href="http://www.browsersync.io/">browsersync.io</a></p>
-          </section>
-
-          <section id="watchers-no-js-injection" data-duration="1m">
-            <h2>Et JS alors ?!</h2>
-
-            <p>Tous ces outils n’injectent pas JS, seulement CSS.</p>
-            <p>Quand on modifie du JS, ils <strong>rechargent la page</strong>.</p>
-            <p>« Ce qui est bien mais pas top »</p>
-
-            <p class="breathing">Comment faire pour avoir de l’injection JS, ce qui nécessite du <span lang="en">hot-swapping</span> dans la <span lang="en">runtime</span> JS du navigateur ?</p>
-          </section>
-
-          <section id="watchers-webstorm" data-duration="30s">
-            <h2>WebStorm / PHPStorm</h2>
-
-            <p>L’EDI peut injecter à la volée les modifications faites dans l'EDI (HTML, CSS, JS) dans son panneau de prévisualisation (Chrome seulement).</p>
-
-            <p>D’une manière générale, un EDI de fou.  Vaut très largement son coût de license, allez voir.</p>
-
-            <p><a href="https://www.jetbrains.com/phpstorm/webhelp/live-editing-of-html-css-and-javascript.html">En savoir plus</a></p>
-          </section>
-
-          <section id="watchers-fb-flo" data-duration="1m">
-            <h2>fb-flo</h2>
-
-            <p>Encore une extension Chrome… mais avec un serveur ouvert et indépendant de l’éditeur/EDI (comme BrowserSync).</p>
-
-            <p class="breathing">Injecte CSS <strong>et JS</strong> !</p>
-
-            <p>Ça ressemble au Saint-Graal (mais que sur Chrome).</p>
-
-            <p><a href="https://github.com/facebook/fb-flo">github.com/facebook/fb-flo</a></p>
-          </section>
-
-          <section id="watchers-fb-flo-server" data-duration="6m">
-            <h2>Notre serveur fb-flo</h2>
-
-            <pre><code data-trim data-noescape class="javascript">
-'use strict';
-
-var <u>flo = require('fb-flo')</u>,
-    fs = require('fs'),
-    path = require('path');
-
-var dir = path.resolve(__dirname, <u>'../public'</u>);
-var server = <u>flo(dir, { glob: ['**/*.js', '**/*.css'] }, resolver)</u>;
-
-server.once('ready', function() {
-  console.log('fb-flo server ready to rock!');
-});
-
-function resolver(filepath, callback) {
-  var fullPath = path.resolve(dir, filepath);
-  <u>callback</u>({
-    <u>resourceURL: filepath,
-    contents: fs.readFileSync(fullPath).toString()</u>,
-
-    update: function(window, resourceURL) {
-      console.log(resourceURL + " has just been updated with new content!");
-    }
-  });
-}
-            </code></pre>
-          </section>
-
-          <section id="on-disk-tincr" data-duration="1m">
-            <h2>Tincr</h2>
-
-            <p>Ajoute des possibilités de sauvegarde par rapport aux Workspaces (par exemple, persiste les modifs sans les panneaux Styles de l’onglet Éléments), et permet en théorie l’injection CSS <em>et</em> JS (j’ai pas vérifié).</p>
-
-            <p class="breathing">Nécessite quand même un poil de config manuelle pour chaque ressource concernée (mais pas grave).</p>
-
-            <a href="http://tin.cr/">tin.cr</a>
-          </section>
-				</section> <!-- #watchers -->
+				</section> <!-- #FIXME -->
 
         <section data-state="theme-color-silver-green">
-          <section id="browsersync">
-            <h1 class="barely-smaller">BrowserSync</h1>
-            <h3>pour synchroniser les comportements</h3>
+          <section id="FIXME">
+            <h1>Côté client</h1>
+            <h3>Juste dans le navigateur</h3>
           </section>
 
-          <section id="browsersync-features" data-duration="1m">
-            <h2>Ça fait plein de trucs</h2>
+          <section id="fixme-fixme" data-duration="FIXME">
+            <h2>Fixme</h2>
 
-            <p><strong>Ghost Mode</strong> : synchro clics, scroll, manips formulaires…</p>
-            <p>Serveur statique</p>
-            <p>Proxy par-dessus backend existant</p>
-            <p>Tunnel (avec <a href="http://localtunnel.me/">localtunnel.me</a>) pour partager du local</p>
-            <p>URLs en <a href="http://xip.io/">xip.io</a> si pas de DNS local pratique</p>
-            <p>Injection CSS</p>
-
-            <p class="breathing">Basé sur Socket.IO (IE5.5+), injecte son code client</p>
-
-            <p><a href="http://www.browsersync.io/">browsersync.io</a></p>
+            <p>FIXME</p>
           </section>
-
-          <section id="browsersync-ghost-mode" data-duration="3m">
-            <h2>Ghost Mode</h2>
-
-            <p>Clics</p>
-            <p>Scroll</p>
-            <p>Formulaires : saisies, (dé)cochages, sélections, envois</p>
-            <p>Position de la souris</p>
-
-            <p class="breathing">Tout ça optionnel / configurable.</p>
-
-            <h4>Démo</h4>
-          </section>
-        </section> <!-- #browsersync -->
+        </section> <!-- #FIXME -->
 
 				<section id="trainings" data-state="theme-color-mint-beige">
 					<h2>Envie d’en savoir plus ?</h2>
@@ -481,9 +229,7 @@ function resolver(filepath, callback) {
           <p><a href="https://twitter.com/porteneuve">@porteneuve</a></p>
 
           <p class="breathing">
-            Retrouvez les slides sur <a href="http://bit.ly/devavengers">bit.ly/devavengers</a>
-            <br>
-            …et le <a href="https://www.youtube.com/watch?v=2Dl9ES6IC3c?utm_campaign=casts-devavengers">screencast HD détaillé</a> qui refait cette présentation.
+            Retrouvez les slides sur <a href="http://bit.ly/ledevweb">bit.ly/ledevweb</a>
           </p>
 				</section>
 			</div>
