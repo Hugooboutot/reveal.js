@@ -59,7 +59,7 @@
   src: local("Track Italic"), url("../fonts/Track Italic.otf");
 }
 
-.reveal h1, .reveal h2, .reveal h3, .reveal h2 + h4 {
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
   font-family: Track;
   letter-spacing: 0.01em;
 }
