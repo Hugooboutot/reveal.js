@@ -570,6 +570,10 @@
 
 .reveal .slides { width: 980px; }
 
+strong, b {
+  text-shadow: 0 0 3px yellow;
+}
+
 span[lang], strong[lang] { font-style: italic; }
 em span[lang], em strong[lang] { font-style: normal; }
 
@@ -624,10 +628,12 @@ em span[lang], em strong[lang] { font-style: normal; }
   margin-top: 0;
 }
 
-.reveal section > footer {
-  margin-top: 2em;
+.reveal section footer {
+  position: fixed;
+  left: 0; top: 100%; width: 100%;
+  /*bottom: 0;*/
   font-size: 70%;
-  color: rgba(0, 0, 0, 0.8);
+  opacity: 0.7;
 }
 
 .reveal li + li { margin-top: 0.5em; }
@@ -690,7 +696,7 @@ b.right::after {
   color: yellow;
 }
 .theme-color-asphalt-orange .reveal a {
-  color: #f80;
+  color: #ffc200;
 }
 
 table.pw-table { border-collapse: collapse; }
@@ -712,4 +718,13 @@ table.sides td { vertical-align: top; }
 #qrcode {
   border: none;
   border-radius: 1em;
+}
+
+.reveal .quiet {
+  opacity: 0.6;
+  font-size: 90%;
+}
+
+.unicorns {
+  background: rgb(53, 79, 106) url(/assets/dev-front-licorne.png) center center no-repeat;
 }

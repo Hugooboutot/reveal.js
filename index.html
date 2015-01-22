@@ -69,7 +69,7 @@
 
 					<pre><code data-trim class="javascript">
 var christophe = {
-  age:        37.2108145106091718,
+  age:        37.219028062970565,
   city:       'Paris',
   company:    'Delicious Insights',
   jsSince:    1995,
@@ -91,7 +91,7 @@ var christophe = {
           <h3>en deux minutes</h3>
 
           <p>Tranches d’âge</p>
-          <p class="fragment">Le M2 CCI : qui en entrée, ou en sortie ?</p>
+          <p class="fragment">Le M2 CCI : <strong>qui</strong> en entrée, <strong>où</strong> en sortie ?</p>
           <p class="fragment">Et moi, et moi, et moi…</p>
           <p class="fragment">Du coup, gardez du recul :-)</p>
 
@@ -112,12 +112,20 @@ var christophe = {
           <h2>Le marché</h2>
           <h3>du dev web</h3>
 
-          <p>FIXME</p>
+          <p>
+            Pratiquement plus de marché du dev desktop<br/>
+            <span class="quiet">(limité à du 100% métier pour l'industrie et le retail)</span>
+          </p>
+          <p class="fragment">Seuls quelques gros éditeurs continuent (MS, Adobe…)</p>
+          <p class="fragment"><strong>Tout se passe sur le web</strong> (sites, SaaS…)</p>
+          <p class="fragment">Énormément d'applis mobiles sont en fait des <strong>clients web</strong></p>
 
-          <aside class="notes">
-            depuis quand ?
-            part de marché actuelle (vs. desktop)
-            apps mobiles et web
+          <aside class="notes" data-markdown>
+            C'est fini, le temps de Delphi ou .NET hors ASP.NET.
+
+            Même le desktop est de plus en plus basé web (Node-Webkit et consorts) : Brackets, Atom, PopcornTime, Github App, etc.
+
+            Le soft packagé c'est un cauchemar en distribution, contrôle et upgrade.
           </aside>
         </section>
 
@@ -132,15 +140,15 @@ var christophe = {
 
             <h4 class="breathing">Traditionnels / Old-school</h4>
 
-            <p>PHP</p>
-            <p>Java EE</p>
-            <p>ASP.NET</p>
+            <p class="fragment">✘ PHP</p>
+            <p class="fragment">✘ Java EE</p>
+            <p class="fragment">✘ ASP.NET</p>
 
             <h4 class="breathing">Les jeunes d’aujourd'hui</h4>
 
-            <p>Ruby et Rails</p>
-            <p>Python et Django</p>
-            <p>Node.js</p>
+            <p class="fragment">✔︎ Ruby et <a href="http://rubyonrails.org/">Rails</a></p>
+            <p class="fragment">✔︎ Python et <a href="https://www.djangoproject.com/">Django</a></p>
+            <p class="fragment">✔︎ <a href="http://nodejs.org/">Node.js</a></p>
 
             <aside class="notes" data-markdown>
               * **PHP :** surtout du bidouillage. Perfs discutables. La FR adoooore.
@@ -156,59 +164,550 @@ var christophe = {
             <h2>CMS et e-commerce</h2>
             <h3>Les solutions toutes faites</h3>
 
-            <p>Wordpress, Drupal et consorts</p>
-            <p>Magento, Prestashop…</p>
+            <p>CMS : <strong>Wordpress</strong>, Drupal et les autres</p>
+            <p>e-Commerce : Magento, Prestashop…</p>
+
+            <aside class="notes" data-markdown>
+              Nombre de devs gagneront à s'appuyer sur un socle générique bien établi ; en revanche, il faut s'assurer que le périmètre du projet correspond bien au socle, et qu'on a la latitude de personnalisation nécessaire sans devoir être un super-expert.  La question de l'évolutivité hors des limites de base est importante aussi.
+
+              À fuir comme la peste : Typo3, eZ-Publish, etc.
+
+              Pour du blog pur, une tonne de choix qualitatifs aux philosophies variées, de Dotclear à Octopress.
+            </aside>
+          </section>
+
+          <section id="technos-front-1" data-duration="FIXME">
+            <h2>Front-end</h2>
+            <h4>Le socle fondamental</h4>
+
+            <p><strong>HTML</strong> (XHTML 1.0 ou HTML5)</p>
+            <p class="fragment">
+              <strong>CSS</strong> (2 ou 3)<br/>
+              <span class="fragment"><span class="quiet">dont Media Queries, Columns, Paged Media, Units, Transforms, Transitions, Animations, Shaders…</span></span>
+            </p>
+            <p class="fragment"><strong>JavaScript</strong> (ES3–6)</p>
+            <p class="fragment"><strong>DOM</strong> (niveaux 2–3)</p>
+
+            <aside class="notes" data-markdown>
+              HTML a débarqué en premier, hein…  La clé, c'est de faire attention à avoir un balisage sémantique.  Encore extrêmement mal utilisé par beaucoup de monde, qui n'a pas compris ça.
+
+              CSS est devenu extrêmement riche, en raison du multi-device (dont l'impression) mais aussi des possibilités graphiques extrêmement riches depuis quelques années.  Les incompatibilités entre les navigateurs rendent ça chaud, et puis la popularité des préprocesseurs joue aussi.
+
+              JS est sans doute de loin le plus incompris : tout le monde croit savoir en faire, et même pas 1% en fait bien (et je suis généreux).  De plus, évolue énormément depuis quelques années (dans le bon sens).  C'est aujourd'hui le langage n°1, celui qui a « gagné le web ».
+
+              Le DOM aussi est une spec tentaculaire (plus d'une douzaine de specs distinctes, à niveaux qui plus est).
+            </aside>
+          </section>
+
+          <section id="technos-front-2" data-duration="FIXME">
+            <h2>Front-end</h2>
+
+            <span></span><h4 class="breathing">« HTML5 »</h4>
+
+            <p>Beaucoup plus que du balisage…</p>
+            <p>
+              <span class="fragment">Détection online/offline,</span>
+              <span class="fragment">AppCache,</span>
+              <span class="fragment"><strong>Web Storage</strong>,</span>
+              <span class="fragment"><strong>Canvas</strong>,</span>
+              <span class="fragment">audio/vidéo,</span>
+              <span class="fragment"><strong>Géolocalisation</strong>,</span>
+              <span class="fragment"><strong>Web Forms</strong> (Input Types, Constraints Validation),</span>
+              <span class="fragment">Microdonnées…</span>
+            </p>
+
+            <h4>Et aussi…</h4>
+
+            <p>
+              <span class="fragment"><strong>Ajax</strong> (XHR, XHR2, CORS),</span>
+              <span class="fragment"><strong>ARIA</strong>,</span>
+              <span class="fragment"><strong>SVG</strong>,</span>
+              <span class="fragment">WebGL,</span>
+              <span class="fragment"><strong>Web Sockets</strong>,</span>
+              <span class="fragment">WebRTC,</span>
+              <span class="fragment">Web Workers,</span>
+              <span class="fragment"><strong>ServiceWorker</strong>,</span>
+              <span class="fragment">Audio API,</span>
+              <span class="fragment">Audio Data API,</span>
+              <span class="fragment"><strong>Web Components</strong> (HTML Imports + Templates + Shadow DOM + Custom Elements)…</span>
+            </p>
+
+            <aside class="notes" data-markdown>
+              Tellement, tellement de technos.  Il devient très difficile d'être bon dans tout.  Il ne suffit plus de se spécialiser "front", il faut carrément se spécialiser au sein du front si on veut être au top sur un ou des sujets.
+
+              On trouve ainsi des pros de l'accessibilité, d'autre de la gestion offline, d'autres de l'animation, d'autres des aspects réseau et performances…
+            </aside>
+          </section>
+
+          <section id="technos-browsers" data-duration="FIXME">
+            <h2>Les browsers</h2>
+            <h4>Ce terrain miné</h4>
+
+            <p><strong>L’enfer : IE 6–8</strong></p>
+            <p>Microsoft se rachète une conduite depuis IE9.  <strong>IE12 au top !</strong></p>
+            <p class="breathing"><strong>Firefox :</strong> moderne, rapide, <strong>JS au taquet…</strong>  Mozilla a une excellente réputation dans le web ouvert et le respect la <strong>vie privée</strong>.</p>
+            <p><strong>Chrome :</strong> moderne, rapide, <strong>Dev Tools au top et APIs <em>bleeding edge</em></strong>.  Vie privée discutable.</p>
+
+            <aside class="notes" data-markdown>
+              En pratique, presque tout le monde a droppé IE6 (notamment MS).  IE6 et XP sont EOL'd depuis longtemps.  Part de marché &lt; 0,5% la plupart du temps (mobile 40-70%).
+
+              IE7 reste encore un problème, et 10-20% des boîtes FR le prennent encore en charge.  Mais toute petite part de marché.
+
+              IE8 est encore pris en charge par beaucoup trop de monde.  C'est le point de butée pour les vieux parcs.  Dès qu'on est à IE9 on est souvent à IE11, en fait.  IE est « evergreen » maintenant, comme les autres.
+
+              Firefox, Chrome et désormais Opera n'ont rien à voir.  Mais IE12 les rattrape bien.
+
+              Mon browser de dev est Chrome (les DevTools sont super avancés, et beaucoup d'extensions utiles), suivi par FF (aspects uniques de leur DevTools) puis IE récent (pour tests de bon fonctionnement).
+            </aside>
+          </section>
+
+          <section id="technos-libs" data-duration="FIXME">
+            <h2>Aplanir</h2>
+            <h4>Les différences</h4>
+
+            <p class="breathing">JS et DOM : le sol n’arrête pas de bouger :-(</p>
+
+            <p class="fragment">2005–2009 : <strong>Prototype</strong>.js</p>
+            <p class="fragment">Depuis : <strong>jQuery</strong></p>
+
+            <h4 class="fragment">jQuery ≠ JavaScript !@#</h4>
+
+            <p class="fragment"><span class="quiet">Quant à YUI, Dojo, Mootools, Ext…  <strong>OSEF</strong>.</span></p>
+
+            <aside class="notes" data-markdown>
+              On ne parle plus tellement de Prototype, jQuery lui a pris la place, mais Prototype avait tout inventé :-)
+
+              Il est impératif de bien distinguer jQuery, qui est une lib pour aplanir les soucis cross-browser (surtout desktop) et faciliter Ajax + DOM, de JavaScript.  jQuery cherche à isoler de JS autant que possible, et la grande majorité des jQueristes (utilisateurs de jQuery) sont des brèles en JS.
+
+              Surtout, surtout, sur vos CV, évitez l'atroce « JavaScript (jQuery) ».  C'est un peu comme dire « Shakespeare (LOL) ».
+
+              Il y a eu pas mal d'autres libs (Mootools, ces p'tits salopiaux) et quelques frameworks (YUI, Dojo, Ext), dont certains perdurent encore.  Mais ils sont remplacés au fil de l'eau par des trucs plus modernes et sont ressortis du radar.
+            </aside>
+          </section>
+
+          <section id="technos-mobile-web" data-duration="FIXME">
+            <h2>Le web mobile</h2>
+
+            <p>Plus de <strong>50% du trafic web</strong> début 2015.</p>
+            <p class="fragment">Toutes les estimations voient ça finira par être ~90%.</p>
+            <div class="fragment">
+              <p class="breathing">
+                Les browsers mobiles sont excellents*<br/>
+                <span class="quiet">beaucoup WebKit, plus Fennec (Firefox Mobile) et IE Mobile</span>
+              </p>
+              <footer>* sauf le browser par défaut d’Android pre-Lollypop (« IE6 du mobile »)</footer>
+            </div>
+
+            <p class="fragment">Énorme marché des apps mobiles <strong>hybrides</strong> (99% web dans une coquille native vide), au travers notamment de
+              <a href="http://phonegap.com/">PhoneGap</a> et Titanium.
+            </p>
+
+            <p class="breathing fragment">Le futur est illustré par des projets comme <a href="https://www.mozilla.org/fr/firefox/os/">FirefoxOS</a>.</p>
+
+            <aside class="notes" data-markdown>
+              Côté technos, le web mobile est nettement plus à jour que le web desktop.  Chaque plate-forme a au moins un browser de tueurs à disposition, bien répandu.
+
+              On est plus limités par la puissance pure des smartphones et tablettes, leurs capacités RAM et GPU, leurs plafonds de cache, etc.
+
+              Les capacités « natives » (notifications, accès aux contacts, à la webcam, au micro, au vibreur…) ne deviennent que lentement accessibles en pur web (Device APIs) ; en attendant, on peut jouer la carte hybride pour rester massivement basé web et contourner ainsi les galères de validation sur les Stores.
+            </aside>
+          </section>
+
+          <section id="technos-useful-libs" data-duration="FIXME">
+            <h2>Libs incontournables</h2>
+            <h4>Pour ne pas réinventer la roue</h4>
+
+            <p><a href="http://underscorejs.org/"><strong>Underscore</strong></a> <span class="quiet">pour l’algo courante (ou Lo-Dash)</span></p>
+            <p><a href="http://momentjs.com/"><strong>Moment</strong></a> <span class="quiet">(pour toute manip date/heure)</span></p>
+            <p>Préprocesseurs CSS : LESS, SASS, <strong>Stylus</strong>…</p>
+            <p>Frameworks CSS : <a href="http://getbootstrap.com/"><strong>Bootstrap</strong></a>, Compass, <a href="http://semantic-ui.com/"><strong>SemanticUI</strong></a>…</p>
+
+            <aside class="notes" data-markdown>
+              Underscore est partie du corpus de méthodes algos de Prototype.js et l'a rapidement étendu, pour ajouter de la programmation fonctionnelle notamment.  C'est le complément indispensable à jQuery, qui a permis aux Prototypistes de migrer, notamment.  Dépendance n°1 dans l'univers JS.
+
+              Lo-Dash est parfois jugée plus « hype » mais n'est même pas plus rapide aujourd'hui (même si elle a parfois une API plus sympa).  Je préfère rester sur Underscore, personnellement.
+
+              Les dates en JS sont un clusterfuck (voir article JS Attitude), et Moment est au top.  Formate, parse, calcule des deltas fins, et tout type de manip date/heure imaginable, de façon fiable et internationalisée.  Au top !
+
+              Faire des CSS brutes, « à mains nues », n'a plus aucun intérêt.  Un préprocesseur est devenu indispensable pour gagner en productivité et en maintenabilité.  LESS à négliger, préférez SASS voire Stylus.
+
+              Il est également préférable de ne pas réinventer la roue côté layout et responsive, en s'appuyant sur un framework établi, propre, maintenu et bien répandu / battle-tested.  Bootstrap est extrêmement populaire, mais j'aime bien ce que fait SemanticUI ; on a aussi des trucs dédiés, genre Topcoat pour le mobile pur en perfs poussées.
+            </aside>
+          </section>
+
+          <section id="technos-webperf" data-duration="FIXME">
+            <h2>Webperf</h2>
+            <h4>Pour une poignée de millisecondes de moins</h4>
+
+            <p>
+              Vos pages doivent se charger <strong>très, très vite</strong><br/>
+              <span class="quiet">(et pas que sur votre Mac via fibre : sur smartphone via 3G/Edge)</span>
+            </p>
+
+            <p>L’immense majorité des sites sont <strong>mauvais</strong> en perfs.<br/>
+              <span class="quiet">Il faut savoir jouer avec plein de variables et d’optimisations : concaténation / spriting, compactage / subsetting, GZipping, cache &amp; CDN, DNS prefetching, trimming CSS, optis JS et DOM…</span>
+            </p>
+
+            <p>
+              Impact financier fort : outre les coûts de stockage / BP, le taux de conversion en e-commerce est fortement corrélé. On peut perdre <strong>des millions par an</strong> juste parce qu'on met <strong>100ms de trop</strong> en moyenne à charger…
+            </p>
+
+            <aside class="notes" data-markdown>
+              * Amazon a fait +1% de CA en gagnant 100ms de chargement.
+              * Bing a perdu 250K$/an en mettant 10ms  de plus à charger.
+              * Charger en 1s au lieu de 200ms fait -3,5% de CVR (Conversion Rate) et -2,1% de PM (Panier Moyen).
+              * Frontière du TTG (Time To Glass) : ~1s en desktop, ~4s en mobile.
+            </aside>
+          </section>
+
+          <section id="technos-skills" data-duration="FIXME">
+            <h2>Compétences</h2>
+            <h4>transversales</h4>
+
+            <p class="breathing">
+              <a href="http://git-scm.com/">Git</a> est le gestionnaire de sources de référence<br/>
+              <span class="quiet">Dommage que tellement de gens soient restés scotchés dans Subversion, ou sous-utilisent Git de façon terrifiante…</span>
+            </p>
+            <p>
+              Les <strong>outils de dev intégrés aux navigateurs</strong> deviennent de véritables EDIs, très pointus et performants :
+            </p>
+            <p><a href="https://developer.chrome.com/devtools">Chrome Dev Tools</a></p>
+            <p><a href="https://developer.mozilla.org/fr/docs/Outils">Firefox Dev Tools</a></p>
+            <p><a href="https://msdn.microsoft.com/fr-FR/library/ie/bg182326(v=vs.85)">IE F12 Developer Tools</a></p>
+            <p><a href="https://developer.apple.com/safari/tools/">Safari Web Development Tools</a></p>
+
+            <aside class="notes" data-markdown>
+              Git est devenu le gestionnaire de sources incontesté, mais est si puissant, au quotidien, qu'il va bien au-delà d'une simple gestion de versions, pour vraiment faire de la gestion de sources et de workflow de développement.  GitHub et ses concurrents (Bitbucket, GitLab, Stash…) offrent des outils et services de collaboration avancée sur le code.
+
+              Pour passer rapidement de noob à expert en Git, une excellente solution : la formation Git Total de Git Attitude ! ;-)
+
+              Il est indispensable d’utiliser intelligemment les devtools des navigateurs qu'on prend en charge, car ça nous fait gagner énormément de temps (parfois ça peut se mesurer en heures par jour, c'est immense).  D'autant qu'il existe énormément de ressources de qualité pour apprendre, en vidéo, tutos classiques ou interactifs, articles et formations…
+            </aside>
+          </section>
+
+          <section id="technos-core-principles" data-duration="FIXME">
+            <h2>Principes</h2>
+            <h4>fondamentaux du dev web</h4>
+
+            <p>Page web = HTML + CSS + JS (et DOM)</p>
+            <p>Web = <strong>plate-forme universelle</strong>.  JS = <strong>langage universel</strong>*</p>
+            <p class="breathing">
+              La frontière page / app / service se brouille, <strong>disparaît</strong>.
+              <span class="quiet">« Handovers » d'un périphérique à l'autre.</span>
+            </p>
+            <p><strong>Déploiement fluidifié</strong> par rapport au desktop.</p>
+            <p>Analyse temps réel des utilisateurs et de leurs comportements : opportunités d'itération rapide.</p>
+
+            <footer>* et non Java ou C#</footer>
+
+            <aside class="notes" data-markdown>
+              Derrière JS et DOM se cachent, on l'a vu, en fait énormément d'APIs et de possibilités.  Une page, ça va d'un formulaire de contact à Assassin's Creed: Pirates, en passant par Gmail, Facebook et Cloud9 !
+
+              JS est mono-thread, non-réentrant (mais workers) : pas de soucis de multi-threads, sémaphores et mutex, pas de perte de temps à attendre une I/O assis sur ses mains…  Au cœur de la performance de Node.js.
+
+              Web vs. desktop : pas d'installation, pas d'envoi de mises à jour, donc pas de piratage.  Modèles de type SaaS, par abonnement, revenus passifs / mécaniques souvent à croissance stable.
+
+              Pléthore de services d'analyse, temps réel ou non, et d'interaction avec les utilisateurs.  A/B testing.  Déploiement continu et <em>feature flags</em>.
+
+              Montée à l'échelle horizontale obtensible en respectant soigneusement une architecture de type 12 Factors.
+            </aside>
+          </section>
+				</section> <!-- #technos -->
+
+				<section data-state="theme-color-forest-yellow">
+          <section id="history">
+            <h1>Évolution</h1>
+            <h3>et grandes tendances</h3>
+          </section>
+
+          <section id="history-25years" data-duration="FIXME">
+            <h2>Le web a 25 ans</h2>
+
+            <p>Eh oui.  Eh oui…</p>
+            <p>Il s’est passé un milliard de trucs, vous n’imaginez pas.</p>
+            <p>
+              Aujourd’hui, une génération tech web = <strong>1 an, max 2</strong>.<br/>
+              <span class="quiet">Tout va très vite, mais des grands principes de fond demeurent, certaines bonnes pratiques sont assez pérennes.</span>
+            </p>
+            <p class="breathing">Je vous conseille <a href="delicious-insights.com/talks/ces14-wow-much-web/">ma présentation détaillée</a> faite à Codeurs en Seine fin 2014.</p>
+
+            <p>Revenons vite fait sur les grandes périodes et tendances récentes, et laissez-moi vous dire vers où on se dirige…</p>
+          </section>
+
+          <section id="history-2005-2010" data-duration="FIXME">
+            <h2>L’âge de raison</h2>
+            <h4>2005–2010</h4>
+
+            <p>À mort XML, SOAP et WS-*, <strong>vive JSON et REST !</strong></p>
+            <p class="fragment"><strong>Ajax</strong> et complexification / enrichissement de la couche client</p>
+            <p class="fragment">Google Maps, Gmail, Netvibes, Twitter, Facebook… De vraies applis dans le browser.</p>
+
+            <aside class="notes" data-markdown>
+              La peste née en 1998 qui voulait le tout-XML, WSDL, ebXML, SOAP, etc. et a fait crouler tant de système sous leur propre poids commence à avoir un sérieux coup de plomb dans l'aile.  Dès 2006, les gros acteurs (Amazon, eBay, Yahoo!…) lâchent ces saletés pour faire du REST du JSON, infiniment plus pratiques et souples.
+
+              Ajax décolle, mais sans le X : on fait transiter du HTML, du JSON et du JS.
+
+              Le monde commence à réaliser qu’il est possible de faire des trucs de dingue, avec des codebases considérables, en JS pur.
+            </aside>
+          </section>
+
+          <section id="history-2011–2014" data-duration="FIXME">
+            <h2>Tendances récentes</h2>
+            <h4>2011–2014</h4>
+
+            <p><strong>MVC client, SPA</strong> (Backbone, Ember, Angular…)</p>
+            <p class="fragment"><strong>Tests automatisés</strong> (Jasmine, Mocha, Karma, Sauce…)</p>
+            <p class="fragment"><strong>Modules</strong> formels (CommonJS, AMD)</p>
+            <p class="fragment"><strong>Chaînes de build</strong></p>
+            <p class="fragment"><strong>ES5</strong></p>
+            <p class="fragment">JS <strong>isomorphique</strong></p>
+            <p class="fragment breathing">
+              Le browser comme <strong>plate-forme</strong> <br/>
+              JS comme <strong>VM universelle</strong> (runtime)
+            </p>
+
+            <aside class="notes" data-markdown>
+              Pourquoi du MVC côté client ?  On revient au client riche, qui permet plus de réactivité, l'offline, le côté vraiment applicatif.  On développe des apps complètes dans le browser, le serveur devient un pur backend, une API.
+
+              Évitez Angular.  Sérieusement, FBI.  Le 2 va jeter le 1 par la fenêtre, sans pour autant réussir à convaincre le monde du dev front : trop de bons acteurs plus en phase déjà présents.
+
+              Backbone, ou son écosystème (Chaplin, Thorax, Ampersand…) restent de loin les solutions les plus répandues et les approches les plus pérennes.
+
+              L'écosystème de tests est ultra-riche et moderne, et les tests sont devenus une vraie religion dans le dev front, et apportent les avantages énormes habituels.
+
+              ES5 bien présent sur tous les browsers modernes (tous + IE9+), et ça aide.
+
+              JS isomorphique : la possibilité croissante de coder un seul JS qui marche aussi bien côté serveur (Node.js notamment) que côté client, donc partage de codebase, dette technique réduite, meilleure capitalisation des connaissances.
+
+              JS runtime : optis via asm.js, LLJS, Emscripten ; démo Citadel, UE4 et AC:Pirates 100% JS/WebGL…
+            </aside>
+          </section>
+
+          <section id="history-2015" data-duration="FIXME">
+            <h2>2015</h2>
+
+            <p class="fragment">
+              <strong>ES6+</strong>
+              <span class="quiet">(natif ou via Traceur / 6to5)</span><br/>
+              <span class="quiet">et du coup, modules ES6 natifs, probablement</span>
+            </p>
+            <p class="fragment">
+              <a href="http://webcomponents.org/"><strong>Web Components</strong></a>
+              <span class="quiet">(natif ou via Platform / X-Tag)</span>
+            </p>
+            <p class="fragment"><a href="http://offlinefirst.org/"><strong>Offline-first</strong></a></p>
+            <p class="fragment"><a href="http://nobackend.org/"><strong>noBackend</strong></a></p>
+            <p class="fragment">IoT / <a href="https://google.github.io/physical-web/"><strong>Physical Web</strong></a></p>
+
+            <aside class="notes" data-markdown>
+              À part les pauvrets coincés par IE8, tout le monde peut faire de l'ES5, donc de l'ES6 voire ES7 grâce aux transpileurs.  Et la mayonnaise commence à prendre, notamment grâce au JS isomorphique et à des projets type jspm.io.  La valeur ajoutée d’ES6 est suffisante pour causer la bascule.
+
+              Les Web Components permettent une modularisation, componentisation et réutilisation ultime des éléments de l’UI, c'est un peu le St-Graal.  Les polyfills permettent de jouer dès maintenant, et des libs de composants existent (notamment Polymer et Brick).  Base de Firefox OS et clairement l'avenir, tout le monde est d'accord là-dessus.
+
+              On vit dans un monde offline beaucoup plus qu'online, surtout pour le mobile qui devient dominant, et ça ne va pas s'arranger.  Il est impératif que les apps web soient offline-first (la plupart des applis mobiles ne l'étant même pas !), et pour cela elles capitalisent sur du stockage local (IndexedDB, PouchDB, localForage…) et des bases type NoSQL conçues pour la réplication multi-points.
+
+              Le backend est de plus en plus relégué au rang de serveur API et service de stockage, qu'on peut donc génériser, toute la valeur métier résidant dans l'appli côté client.  Commoditisation des serveurs génériques : hood.ie, Parse, Backendless, Firebase, Azure Mobile Services, Loopback…
+            </aside>
+          </section>
+        </section> <!-- #history -->
+
+        <section data-state="theme-color-asphalt-orange">
+          <section id="tooling-and-state">
+            <h1>Tooling &amp; veille</h1>
+            <h4>On n’est plus au Kansas, Dorothy</h4>
+          </section>
+
+          <section id="tooling" data-duration="FIXME">
+            <h2>Tooling</h2>
+            <h4>et chaînes de build</h4>
+
+            <p class="fragment">
+              <strong>Préprocesseurs :</strong>
+              LESS,
+              <a href="http://sass-lang.com/"><strong>SASS</strong></a>,
+              <a href="http://learnboost.github.io/stylus/"><strong>Stylus</strong></a>
+            </p>
+            <p class="fragment">
+              <strong>Transpilers :</strong>
+              CoffeeScript,
+              <a href="https://6to5.org/"><strong>6to5</strong></a>,
+              Traceur
+            </p>
+            <p class="fragment">
+              <strong>Builders :</strong>
+              Grunt, Gulp, Broccoli, Glou,
+              <a href="http://brunch.io/"><strong>Brunch</strong></a>
+            </p>
+            <p class="fragment">
+              <strong>Package managers :</strong>
+              <a href="https://www.npmjs.com/"><strong>npm</strong></a>,
+              Bower,
+              <a href="http://jspm.io/"><strong>jspm.io</strong></a>…
+            </p>
+            <p class="fragment">
+              <strong>Tests automatisés :</strong>
+              QUnit, Jasmine,
+              <a href="http://mochajs.org/"><strong>Mocha</strong></a>,
+              <a href="http://karma-runner.github.io/"><strong>Karma</strong></a>,
+              PhantomJS,
+              <a href="http://theintern.io/"><strong>Intern</strong></a>,
+              BrowserStack,
+              <a href="https://saucelabs.com/"><strong>Sauce</strong></a>…
+            </p>
+            <p class="fragment"><strong>Developer Tools</strong></p>
+            <p class="fragment">
+              <strong>Feedback live :</strong>
+              LiveReload,
+              <a href="http://www.browsersync.io/"><strong>BrowserSync</strong></a>,
+              Tincr,
+              <a href="https://facebook.github.io/fb-flo/"><strong>fb-flo</strong></a>…
+              <span class="quiet">(<a href="https://www.youtube.com/watch?v=2Dl9ES6IC3c">screencast</a>)</span>
+            </p>
+
+            <aside class="notes" data-markdown>
+              Beaucoup d’outils, mais souvent juste un ou deux vraiment valables par segment.  Par exemple, perso je prends surtout Stylus, 6to5, Brunch, npm, Mocha et Sauce, Chrome DevTools et fb-flo…
+
+              Ce qu’il faut retenir, c'est que des tas d'outils existent pour booster notre productivité.  Nous nous devons à nous-mêmes de les apprivoiser pour être au top.  Pareil pour notre éditeur / EDI, soit dit en passant.  Le nombre de gens qui sous-utilisent leur environnement d'édition est consternant.
+            </aside>
+          </section>
+
+          <section id="unicorns" data-state="unicorns" data-duration="FIXME">
+            <h2>Licornes</h2>
+
+            <p>
+              Énormément de besoins et contraintes :<br/>
+              compatibilité navigateurs, accessibilité, responsive / mobile, performance (dont mobile)…
+            </p>
+
+            <p class="breathing">
+              Beaucoup, <strong>beaucoup plus dur que le backend</strong><br/>
+              <span class="quiet">où tout est contrôlable, et plus stable.</span>
+            </p>
+
+            <p>
+              <strong>Les bon devs front sont des licornes</strong> : ils valent de <strong>l’or</strong>…<br/>
+              et ils ont un bel avenir ;-)
+            </p>
+
+            <footer>(et oubliez le distingo débile dev front / intégrateur, si franco-français, comme la découpe idiote programmeur / développeur…)</footer>
+          </section>
+				</section> <!-- #tooling-and-state -->
+
+        <section data-state="theme-color-silver-green">
+          <section id="discover-js">
+            <h1>JS 101</h1>
+            <h3>parce que quand même</h3>
+          </section>
+
+          <section id="js-vs-java" data-duration="FIXME">
+            <h2>JavaScript vs. Java</h2>
+
+            <p>FIXME: Comparaison point à point JS / Java, illustrant la force de JS (quelques design patterns, etc.)</p>
 
             <aside class="notes" data-markdown>
               FIXME
             </aside>
           </section>
 
-          <section id="technos-fixme" data-duration="FIXME">
+          <section id="js-types" data-duration="FIXME">
+            <h2>Types &amp; typage</h2>
+
+            <p>FIXME</p>
+
+            <aside class="notes" data-markdown>
+              FIXME
+            </aside>
+          </section>
+
+          <section id="js-1of" data-duration="FIXME">
+            <h2>Fonctions de 1er ordre</h2>
+
+            <p>FIXME</p>
+
+            <aside class="notes" data-markdown>
+              FIXME
+            </aside>
+          </section>
+
+          <section id="js-hof" data-duration="FIXME">
+            <h2>Fonctions d’ordre supérieur</h2>
+
+            <p>FIXME: callbacks, etc.</p>
+
+            <aside class="notes" data-markdown>
+              FIXME
+            </aside>
+          </section>
+
+          <section id="js-constructors" data-duration="FIXME">
+            <h2>Constructeurs</h2>
+
+            <p>FIXME</p>
+
+            <aside class="notes" data-markdown>
+              FIXME
+            </aside>
+          </section>
+
+          <section id="js-prototypes" data-duration="FIXME">
+            <h2>Prototypes</h2>
+
+            <p>FIXME</p>
+
+            <aside class="notes" data-markdown>
+              FIXME
+            </aside>
+          </section>
+
+          <section id="js-native-protos" data-duration="FIXME">
+            <h2>Prototypes natifs</h2>
+
+            <p>FIXME</p>
+
+            <aside class="notes" data-markdown>
+              FIXME
+            </aside>
+          </section>
+
+          <section id="js-patterns" data-duration="FIXME">
+            <h2>Design patterns</h2>
+            <h4>Nettement plus court</h4>
+
+            <p>FIXME</p>
+
+            <aside class="notes" data-markdown>
+              FIXME
+            </aside>
+          </section>
+
+          <section id="js-es6" data-duration="FIXME">
+            <h2>ES6</h2>
+            <h4>Quelques exemples</h4>
+
+            <p>FIXME: classes, destructs, arrow fx, proxies pour la métaprog…</p>
+
+            <aside class="notes" data-markdown>
+              FIXME
+            </aside>
+          </section>
+        </section> <!-- #js -->
+
+        <section data-state="theme-color-forest-yellow">
+          <section id="software-engineering">
+            <h1>Un bon ingé</h1>
+            <h3>qu’est-ce que c’est ?</h3>
+          </section>
+
+          <section id="se-fixme" data-duration="FIXME">
             <h2>Fixme</h2>
 
             <p>FIXME</p>
+
+            <aside class="notes" data-markdown>
+              FIXME
+            </aside>
           </section>
-				</section> <!-- #FIXME -->
-
-				<section data-state="theme-color-forest-yellow">
-          <section id="FIXME">
-            <h1>Côté client</h1>
-            <h3>Juste dans le navigateur</h3>
-          </section>
-
-          <section id="fixme-fixme" data-duration="FIXME">
-            <h2>Fixme</h2>
-
-            <p>FIXME</p>
-          </section>
-        </section> <!-- #FIXME -->
-
-        <section data-state="theme-color-asphalt-orange">
-          <section id="FIXME">
-            <h1>Côté client</h1>
-            <h3>Juste dans le navigateur</h3>
-          </section>
-
-          <section id="fixme-fixme" data-duration="FIXME">
-            <h2>Fixme</h2>
-
-            <p>FIXME</p>
-          </section>
-				</section> <!-- #FIXME -->
-
-        <section data-state="theme-color-silver-green">
-          <section id="FIXME">
-            <h1>Côté client</h1>
-            <h3>Juste dans le navigateur</h3>
-          </section>
-
-          <section id="fixme-fixme" data-duration="FIXME">
-            <h2>Fixme</h2>
-
-            <p>FIXME</p>
-          </section>
-        </section> <!-- #FIXME -->
+        </section>
 
 				<section id="trainings" data-state="theme-color-mint-beige">
 					<h2>Envie d’en savoir plus ?</h2>
@@ -234,6 +733,12 @@ var christophe = {
 				</section>
 			</div>
 		</div>
+
+
+    <!--
+    FIXMEs:
+      Démos des diverses technos (simpl.info?), notamment WebGL / Citadel, Canvas, Web Sockets, Web Audio, Animations (super site de tricks…), etc.
+     -->
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
