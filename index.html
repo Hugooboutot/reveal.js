@@ -602,67 +602,211 @@ var christophe = {
           <section id="js-vs-java" data-duration="FIXME">
             <h2>JavaScript vs. Java</h2>
 
-            <p>FIXME: Comparaison point à point JS / Java, illustrant la force de JS (quelques design patterns, etc.)</p>
+            <p>
+              <a href="http://www.js-attitude.fr/2012/09/17/javascript-n-a-rien-a-voir-avec-java/">Un nommage malheureux</a>
+              <span class="quiet">(alors qu’on fait pas plus différents)</span>
+            </p>
+
+            <table class="pw-table comparison small-font">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Java</th>
+                  <th>JavaScript</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>Typage</th>
+                  <td>Statique</td>
+                  <td>Dynamique</td>
+                </tr>
+                <tr>
+                  <th>Disponibilité</th>
+                  <td>Presque partout, à installer</td>
+                  <td>Partout, de base</td>
+                </tr>
+                <tr>
+                  <th>Développement</th>
+                  <td>Surtout propriétaire, lent depuis 2002</td>
+                  <td>Standard et libre, rapide depuis 2009</td>
+                </tr>
+                <tr>
+                  <th>Exécution</th>
+                  <td>Lourde, voire très lourde</td>
+                  <td>Légère, voire très légère</td>
+                </tr>
+                <tr>
+                  <th>Utilisation</th>
+                  <td>Back-end (applets mortes)</td>
+                  <td>Full stack</td>
+                </tr>
+                <tr>
+                  <th>Forces</th>
+                  <td>Blinde contre les mauvais devs, encourage l’architecture</td>
+                  <td>Dynamique, rapide, flexible, productif</td>
+                </tr>
+                <tr>
+                  <th>Faiblesses</th>
+                  <td>Bride les bons devs, sur-architecture tout</td>
+                  <td>Refactoring, complétion, etc.  Dur.</td>
+                </tr>
+                <tr>
+                  <th>Avenir</th>
+                  <td>10 ans fiables en SSII/finance, ensuite…</td>
+                  <td>A « gagné le web ».  Langage universel</td>
+                </tr>
+              </tbody>
+            </table>
 
             <aside class="notes" data-markdown>
-              FIXME
+              Bon, OK, c'est biaisé.  Mais pas tant que ça.  Les deux univers sont à ce stade totalement disjoints, leur seul point de rencontre, c'est le back-end qui met en concurrence du bon vieux Java EE (chroniquement sur-architecturé, gourmand en ressources et difficile à maintenir et faire évoleur) et du Node.js (qui est en train de révolutionner le back même au sein de très grands comptes traditionnellement 100% Java EE).
+
+              Ce qui est sûr, c'est qu'en voyant Node.js, le web front et les envies de changement d'Android d'un côté, et le no-backend de l'autre, on comprend bien que les jours de Java sont comptés…  Idem pour .NET, malgré l'ouverture récente de Roslyn et de la CLR…
+
+              Certes, il reste du taf à foison (vu qu'il faut 10 Javaistes pour faire le boulot d'un Nodeux) dans les SSII et grosses boîtes sclérosées, dont la banque, pour 5 à 10 ans sans problème.  Mais au-delà, rien.  Et pendant ce temps-là, vous n'aurez pas pu acquérir les savoirs qui vous seront nécessaires pour pivoter vers le marché qui aura tout dominé : le web-based, dont JS est la <em>lingua franca</em>…
             </aside>
           </section>
 
           <section id="js-types" data-duration="FIXME">
             <h2>Types &amp; typage</h2>
+            <h4>Dynamiquement type ≠ pas typé</h4>
 
-            <p>FIXME</p>
+            <p class="fragment">
+              Types de stockage :
+              <code>number</code>, <code>boolean</code>, <code>string</code>, <code>function</code>, <code>object</code>, <code>symbol</code>.  Et <code>undefined</code>.
+            </p>
 
-            <aside class="notes" data-markdown>
-              FIXME
-            </aside>
+            <p class="fragment">
+              « Types » (constructeurs) natifs :
+              <code>Number</code>, <code>Boolean</code>, <code>String</code>, <code>Function</code>, <code>Object</code>, <code>Array</code>, <code>Date</code>, <code>RegExp</code>, <code>Symbol</code>.
+            </p>
+
+            <p class="fragment">Litéraux</p>
+
+            <p class="fragment">Opérateurs <code>typeof</code> et <code>instanceof</code></p>
+
+            <p class="fragment">Comparaisons <code>==</code> vs. <code>===</code></p>
           </section>
 
           <section id="js-1of" data-duration="FIXME">
             <h2>Fonctions de 1er ordre</h2>
 
-            <p>FIXME</p>
+            <pre><code class="javascript" data-trim data-noescape>
+function foo() { … }
+var f = foo;
+
+var obj = { yo: foo };
+            </code></pre>
+
+            <img src="assets/1st-order.png" class="schema"/>
+
+            <pre class="fragment"><code class="javascript" data-trim data-noescape>
+var obj1 = {
+  run: function run() { … }
+};
+
+var obj2 = {
+  run: obj1.run
+};
+            </code></pre>
 
             <aside class="notes" data-markdown>
-              FIXME
+              Une fonction est une valeur comme les autres : elle peut être référencée sans être appelée (sans les parenthèses, donc).  Dans d'autres langages, on parlerait de pointeur sur fonction.  En Java, ce qui s'approche le plus de ça, ce sont les lambdas de Java 8, mais sinon on n'a rien.
+
+              Les fonctions sont toutes « libres » : elles n'appartiennent à aucun objet en particulier.  Le fait qu'un objet ait une propriété avec la fonction comme valeur *ressemble* à une méthode, et se comporte comme tel, mais c'est du confort : la fonction n'est pas intrinsèquement liée à l'objet.
             </aside>
           </section>
 
           <section id="js-hof" data-duration="FIXME">
             <h2>Fonctions d’ordre supérieur</h2>
 
-            <p>FIXME: callbacks, etc.</p>
+            <p>Des fonctions qui acceptent des fonctions</p>
 
-            <aside class="notes" data-markdown>
-              FIXME
-            </aside>
+            <pre><code class="javascript" data-trim data-noescape>
+setTimeout(<u>function() { console.log('Ayé !'); }</u>, 1000);
+
+$(document).on('click', <u>handleClick</u>);
+            </code></pre>
+
+            <p>Sans ça, pas de callbacks ! o_O</p>
+
+            <div class="fragment">
+              <p>Des fonctions qui renvoient des fonctions</p>
+
+              <pre><code class="javascript" data-trim data-noescape>
+function handleKeyDown(e) {
+  if (this.keyMap[e.keyCode]) { … }
+}
+
+<u>this.handleKeyDown =</u> handleKeyDown.bind(this);
+              </code></pre>
+            </div>
+
+            <p class="fragment">Idéal pour de l’AOP, et plein de <em>design patterns</em> : Singleton, Décorateur, Mémoïsation, etc.</p>
           </section>
 
           <section id="js-constructors" data-duration="FIXME">
             <h2>Constructeurs</h2>
 
-            <p>FIXME</p>
+            <pre><code class="javascript" data-trim data-noescape>
+<u>function</u> Person(first, last) {
+<span class="fragment" data-fragment-index="3">  if (!(this <u>instanceof</u> Person)) {
+    throw new Error('Et le new, eh, patate !');
+  }</span>
+  <u>this</u>.first = first;
+  this.last = last;
+}
 
-            <aside class="notes" data-markdown>
-              FIXME
-            </aside>
+var roiDeLaClasse = <u>new</u> Person('Georges', 'Abitbol');
+var superActeur = <u>new</u> Person('Clark', 'Gable');
+
+<span class="fragment" data-fragment-index="1">var boulet = Person('Vincent', 'Lagaf');</span>
+<span class="fragment" data-fragment-index="2">// => undefined
+first // => 'Vincent'
+last  // => 'Lagaf'</span>
+            </code></pre>
           </section>
 
           <section id="js-prototypes" data-duration="FIXME">
             <h2>Prototypes</h2>
 
-            <p>FIXME</p>
+            <pre><code class="javascript" data-trim data-noescape>
+<u>Person.prototype</u>.greet = function greet(whom) {
+  return "Salut " + whom + ", je m’appelle " + <u>this.</u>first + ".";
+};
 
-            <aside class="notes" data-markdown>
-              FIXME
-            </aside>
+<u>Person.prototype</u>.walk = function walk() { … };
+
+roiDeLaClasse.greet("les gars")
+// => "Salut les gars, je m’appelle Georges."
+            </code></pre>
+
+            <img src="assets/proto-basics.png" class="schema">
+
+            <p>En gros, Constructeurs + Prototypes ≈ « Classes »</p>
+            <p class="quiet">(en fait, nettement plus puissant…)</p>
           </section>
 
           <section id="js-native-protos" data-duration="FIXME">
             <h2>Prototypes natifs</h2>
 
-            <p>FIXME</p>
+            <pre><code class="javascript" data-trim data-noescape>
+Number.prototype.minutes = function minutesToMS() {
+  return <u>this</u> * 60 * 1000;
+};
+
+Number.prototype.ago = function msToDateAgo() {
+  return new Date(Date.now() <u>- this</u>);
+};
+
+new Date()          // => Fri Jan 23 2015 16:20:51 GMT+0100 (CET)
+3.5.minutes().ago() // => Fri Jan 23 2015 16:17:21 GMT+0100 (CET)
+            </code></pre>
+
+            <p>Mais attention : ce sont en quelque sorte des espaces de noms publics, partagés : ne pas faire n’importe quoi.</p>
+
+            <p>Idéal pour les <strong>shims</strong>, en revanche.</p>
 
             <aside class="notes" data-markdown>
               FIXME
@@ -673,22 +817,160 @@ var christophe = {
             <h2>Design patterns</h2>
             <h4>Nettement plus court</h4>
 
-            <p>FIXME</p>
+            <pre><code class="javascript" data-trim data-noescape>
+function memoize(fx) {
+  var called = false, result;
 
-            <aside class="notes" data-markdown>
-              FIXME
-            </aside>
+  return function() {
+    if (called) {
+      return result;
+    }
+    result = fx.apply(this, arguments);
+    called = true;
+    return result;
+  };
+}
+            </code></pre>
+
+            <pre class="fragment"><code class="javascript" data-trim data-noescape>
+var index = 0;
+function demo() { return ++index; }
+var memoDemo = memoize(demo);
+memoDemo(); // => 1
+memoDemo(); // => 1
+memoDemo(); // => 1
+            </code></pre>
+          </section>
+
+          <section id="js-patterns-2" data-duration="FIXME">
+            <h2>Design patterns</h2>
+            <h4>Nettement plus court</h4>
+
+            <pre><code class="javascript" data-trim data-noescape>
+function makeSpy(fx) {
+  var spy = function spy() {
+    var call = {
+      context: this, args: arguments, stamp: Date.now(),
+      result: fx.apply(this, arguments)
+    };
+    spy.calls.push(call);
+    return call.result;
+  };
+  spy.calls = [];
+  spy.displayName = "spy" + (fx.name || "");
+  return spy;
+}
+            </code></pre>
+
+            <pre class="fragment"><code class="javascript" data-trim data-noescape>
+var obj = {
+  greet: function greet(whom) { console.log('Hi', whom); return 42; }
+};
+obj.greet = makeSpy(obj.greet);
+obj.greet('John'); // => 42
+obj.greet.calls
+// => [{ context: (obj), args: ['John'], stamp: 14219478…, result: 42 }];
+            </code></pre>
           </section>
 
           <section id="js-es6" data-duration="FIXME">
             <h2>ES6</h2>
             <h4>Quelques exemples</h4>
 
-            <p>FIXME: classes, destructs, arrow fx, proxies pour la métaprog…</p>
+            <pre><code class="javascript" data-trim data-noescape>
+class Person {
+  constructor(first, last) {
+    this.first = first;
+    this.last = last;
+  }
 
-            <aside class="notes" data-markdown>
-              FIXME
-            </aside>
+  greet(whom = 'toi') => `Salut ${whom}, moi c’est ${this.first}.`
+}
+
+class Geek extends Person {
+  constructor(first, last, language) {
+    super(first, last);
+    this.language = language;
+  }
+}
+            </code></pre>
+          </section>
+
+          <section id="js-es6-2" data-duration="FIXME">
+            <h2>ES6</h2>
+            <h4>Quelques exemples</h4>
+
+            <pre><code class="javascript" data-trim data-noescape>
+let a = 42, b = 37;
+
+[a, b] = [b, a];
+
+function makeObject(first, last, arrKey = 'items', ...items) {
+  return { first, last, [arrKey]: items };
+}
+
+let { first, keys } = makeObject('John', 'Smith', 'keys', 1, 2, 3);
+            </code></pre>
+          </section>
+
+          <section id="js-es6-3" data-duration="FIXME">
+            <h2>ES6</h2>
+            <h4>Quelques exemples</h4>
+
+            <pre><code class="javascript" data-trim data-noescape>
+function createDefensiveObject(target) {
+  return new Proxy(target, {
+    get(target, property) {
+      if (property in target) {
+        return target[property];
+      }
+
+      throw new ReferenceError(`Property "${property}" does not exist.`);
+    }
+  });
+}
+            </code></pre>
+
+            <pre class="fragment"><code class="javascript" data-trim data-noescape>
+function Person(first, last) {
+  this.first = first;
+  this.last = last;
+  return createDefensiveObject(this);
+}
+
+var protector = new Person('Serge', 'Karamazoff');
+protector.age // => ReferenceError: Property "age" does not exist.
+            </code></pre>
+
+          </section>
+
+          <section id="js-learn" data-duration="FIXME">
+            <h2>Apprendre JS</h2>
+            <h4>avec des ressources de qualité</h4>
+
+            <p><a href="http://eloquentjavascript.net/">Eloquent JavaScript</a> est une <strong>énorme tuerie</strong> ; part de zéro.</p>
+
+            <p>
+              <a href="https://vimeo.com/113839414">JS + toi = &hearts;</a> fait le point sur les 3 grands piliers<br/>
+              <span class="quiet">(prototypes, <em>closures</em> et <em>binding</em>)</span>
+            </p>
+
+            <p>
+              Ateliers NodeSchool autonomes :<br/>
+              <a href="https://github.com/sethvincent/javascripting">Bases de JS</a>,
+              <a href="https://github.com/sporto/planetproto">Prototypes</a>,
+              <a href="https://github.com/domenic/count-to-6">ES6</a>…
+            </p>
+
+            <p><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide">Le guide</a> du Mozilla Developer Network, en français !</p>
+
+            <p>
+              <a href="http://speakingjs.com/es5/">Speaking JS</a> et la série
+              <a href="http://www.2ality.com/2014/08/es6-today.html">ES6</a>
+              d’Axel Rauschmayer explorent grave dans le détail…
+            </p>
+
+            <p>Et plein de <a href="http://www.js-attitude.fr/2014/11/05/veille-techno-utile/">ressources pour la veille</a></p>
           </section>
         </section> <!-- #js -->
 
@@ -699,7 +981,7 @@ var christophe = {
           </section>
 
           <section id="se-fixme" data-duration="FIXME">
-            <h2>Fixme</h2>
+            <h2>RESUME/FIXME</h2>
 
             <p>FIXME</p>
 
@@ -737,7 +1019,9 @@ var christophe = {
 
     <!--
     FIXMEs:
-      Démos des diverses technos (simpl.info?), notamment WebGL / Citadel, Canvas, Web Sockets, Web Audio, Animations (super site de tricks…), etc.
+      - Tester les codes ES6 (FF37, Chrome, 6to5, suivant les cas, à valider)
+      - data-duration's
+      - Démos des diverses technos (simpl.info?), notamment WebGL / Citadel, Canvas, Web Sockets, Web Audio, Animations (super site de tricks…), etc.
      -->
 
 		<script src="lib/js/head.min.js"></script>

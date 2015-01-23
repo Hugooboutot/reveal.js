@@ -699,8 +699,8 @@ b.right::after {
   color: #ffc200;
 }
 
-table.pw-table { border-collapse: collapse; }
-table.pw-table thead th { border-bottom: 0.1em solid white; text-align: center; }
+table.pw-table { border-collapse: collapse; margin-left: auto; margin-right: auto; }
+table.pw-table thead th { border-bottom: 0.1em solid black; text-align: center; }
 table.pw-table tbody td:not(:last-child) { border-right: 0.05em solid rgba(255, 255, 255, 0.3); }
 table.pw-table tbody td { vertical-align: top; }
 table.pw-table ul { margin-left: 1.5em; }
@@ -728,3 +728,11 @@ table.sides td { vertical-align: top; }
 .unicorns {
   background: rgb(53, 79, 106) url(/assets/dev-front-licorne.png) center center no-repeat;
 }
+
+table.comparison > tbody > tr > td { padding-left: 0.5em; }
+table.comparison > tbody > tr:nth-child(even) th,
+table.comparison > tbody > tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+table.small-font { font-size: 55%; }
