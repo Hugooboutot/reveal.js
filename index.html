@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Front-end Dev Avengers • Christophe Porteneuve @ BLEND Web Mix 2014</title>
+		<title>Front-end Dev Avengers • Christophe Porteneuve @ Meets&amp;Talks Codewire #1</title>
 
-		<meta name="description" content="Une session à BLEND Web Mix 2014">
+		<meta name="description" content="Une session à Meets&amp;Talks Codewire #1">
 		<meta name="author" content="Christophe Porteneuve">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -58,7 +58,7 @@
 					<h1>Dev Avengers</h1>
 					<h3>pour le Front-End</h3>
 					<p>
-						<small>Une présentation de <a href="http://tddsworld.com/">Christophe Porteneuve</a> à <a href="http://www.blendwebmix.com/">BLEND Web Mix 2014</a></small>
+						<small>Une présentation de <a href="http://tddsworld.com/">Christophe Porteneuve</a> à <a href="http://www.meetup.com/Codewire/events/219174110/">Meets&amp;Talks Codewire #1</a></small>
 					</p>
 				</section>
 
@@ -67,7 +67,7 @@
 
 					<pre><code data-trim class="javascript">
 var christophe = {
-  age:        36.9863013698630136,
+  age:        37.24914442162902,
   city:       'Paris',
   company:    'Delicious Insights',
   trainings:  ['JS Total', 'Node.js', 'Git Total'],
@@ -115,6 +115,12 @@ var christophe = {
             <h3>Juste dans le navigateur</h3>
 					</section>
 
+          <section id="client-side-diagram" data-duration="20s">
+            <h2>Côté client</h2>
+
+            <img src="assets/client-side.png" class="schema">
+          </section>
+
           <section id="client-side-css" data-duration="2m">
             <h2>Injection CSS</h2>
 
@@ -146,128 +152,11 @@ var christophe = {
           </section>
 				</section> <!-- #client-side -->
 
-        <section>
-          <section id="brunch">
-            <h2>Interlude</h2>
-            <h3>Brunch</h3>
+        <section id="brunch" data-duration="1m">
+          <h2>Notre build</h2>
 
-            <p><a href="http://brunch.io">brunch.io</a></p>
-          </section>
-
-          <section id="brunch-what-for" data-duration="1m">
-            <h2>Pour quoi faire ?</h2>
-
-            <p class="breathing"><strong><span lang="en">Application Assembly</span></strong></p>
-            <p><strong>Concaténation</strong> intelligente (dont enrobages <strong>modules</strong>)</p>
-            <p><strong>Préprocesseurs</strong>, <strong><span lang="en">transpiling</span></strong> et précompilation</p>
-            <p>Linting</p>
-            <p><strong>Minification</strong> haut de gamme</p>
-            <p>Tâches connexes (ex. manifeste AppCache, spriting &amp; optimisation images, génération de docs, digests…)</p>
-          </section>
-
-          <section id="brunch-other-tools" data-duration="1m">
-            <h2>Autres outils</h2>
-
-            <p><a href="">Grunt</a> (très répandu, basé fichiers)</p>
-            <p><a href="">Gulp</a> (idem, mais basé <span lang="en">pipeline</span>)</p>
-            <p><a href="">Broccoli</a> (moins répandu, basé <span lang="en">pipeline</span> aussi)</p>
-
-            <p class="breathing">Les 3 sont des exécuteurs de tâches <strong>génériques</strong>, qui nécessitent <strong>pas mal de code</strong> et sont <strong>lents</strong> (> 1s).</p>
-
-            <p>Brunch : (presque) « que » du build, config triviale, beaucoup plus rapide à réagir aux changements.</p>
-
-            <p>Bien répandu, stable, là depuis des années…</p>
-          </section>
-
-          <section id="brunch-config" data-duration="1m">
-            <h2>Config basique</h2>
-
-            <pre><code data-trim data-noescape class="coffeescript">
-exports.config =
-  files:
-    javascripts:
-      joinTo: 'app.js'
-    stylesheets:
-      joinTo: 'app.css'
-    templates:
-      joinTo: 'app.js'
-            </code></pre>
-
-            <p><code>brunch-config.coffee</code> ou <code>brunch-config.js</code></p>
-            <p>Indique au minimum les cibles de la « concaténation », par type de fichiers : scripts, feuilles de styles et templates.</p>
-            <p>Permet aussi plein de fonctions cool en plus (serveur statique, etc.)</p>
-          </section>
-
-          <section id="brunch-plugins" data-duration="2m">
-            <h2>Plugins Brunch</h2>
-            <h4>Y'en a <a href="http://brunch.io/plugins.html">des tonnes</a></h4>
-
-            <p>Il suffit de les installer (<code>npm install</code>) dans le projet pour que Brunch les utilise.  La plupart du temps, <strong>zéro config</strong>.</p>
-
-            <p class="breathing">Il reste évidemment <strong>possible</strong> de les configurer spécifiquement pour <strong>affiner</strong> leur comportement.</p>
-
-            <pre><code data-trim data-noescape class="coffescript">
-plugins:
-  appcache:
-    externalCacheEntries: [
-      '/socket.io/socket.io.js'
-    ]
-    network: ['*', 'http://*', 'https://*']
-  browserSync:
-    codeSync: false
-    logLevel: 'silent'
-    online: false
-    open: false
-            </code></pre>
-          </section>
-
-          <section id="brunch-build" data-duration="1m">
-            <h2>Builds</h2>
-
-            <p>Par défaut, Brunch builde pour le dev : pas de minifications / optimisations.  Plus rapide et plus pratique en dev (même si on a les Source Maps de toutes façons).</p>
-
-            <pre><code class="no-highlight">
-$ brunch build
-            </code></pre>
-
-            <p>On peut bien sûr demander un build de production, qui active les plugins éventuels associés.  Notamment <a href="https://github.com/brunch/clean-css-brunch">clean-css</a> et <a href="https://github.com/brunch/uglify-js-brunch">UglifyJS</a>.</p>
-
-            <pre><code class="no-highlight">
-$ brunch build --production
-            </code></pre>
-          </section>
-
-          <section id="brunch-watch" data-duration="1m">
-            <h2>Watcher</h2>
-
-            <p>Surveille l’ensemble des fichiers sources et reconstruit* les fichiers cibles du build.</p>
-
-            <pre class="breathing"><code data-trim data-noescape class="no-highlight">
-<span class="blue">$ brunch watch</span>
-26 Oct 12:07:22 - <span class="green">info</span>: compiled 24 files and 2 cached into 2 files,
-  copied 5 in 947ms
-26 Oct 12:07:38 - <span class="green">info</span>: compiled application.js and 22 cached files
-  into app.js in <u>246ms</u>
-26 Oct 12:07:42 - <span class="green">info</span>: compiled history.styl and 2 cached files into
-  app.css in <u>155ms</u>
-            </code></pre>
-
-            <footer>* intelligemment : cache partiel, etc.</footer>
-          </section>
-
-          <section id="our-sample-app" data-duration="2m">
-            <h2>Notre appli d’exemple</h2>
-
-            <p class="breathing">Petite <a href="http://fr.wikipedia.org/wiki/Application_web_monopage">SPA</a> simple, qui mélange plein de technos :</p>
-
-            <p>JS (ES3/ES5) et <a href="http://coffeescript.org/">CoffeeScript</a> pour les scripts</p>
-            <p><a href="http://sass-lang.com/">SASS</a> et <a href="http://learnboost.github.io/stylus/">Stylus</a> pour les styles</p>
-            <p><a href="http://jade-lang.com/">Jade</a> pour les templates</p>
-            <p><a href="http://wiki.commonjs.org/wiki/Modules/1.1">CommonJS</a> pour l’enrobage des modules (dont les libs classiques : jQuery, <a href="http://underscorejs.org/">Underscore</a>, <a href="http://momentjs.com/">Moment</a>, Bootstrap, <a href="http://backbonejs.com/">Backbone</a>…)</p>
-
-            <p class="breathing">Avec Brunch, <strong>super facile !</strong></p>
-          </section>
-        </section> <!-- #brunch -->
+          <img src="assets/brunch-build.png" class="schema">
+        </section>
 
 				<section data-state="theme-color-forest-yellow">
           <section id="on-disk">
@@ -282,8 +171,12 @@ $ brunch build --production
             <p>Permet de « mapper » des ressources (URL) à des fichiers sur le <span lang="en">filesystem</span> de ta machine (dont montages réseaux).</p>
 
             <p class="breathing">Du coup on peut éditer dans les DevTools mais <strong>sauver le fichier correspondant pour de vrai</strong>.</p>
+          </section>
 
-            <h4>Démo</h4>
+          <section id="on-disk-workspaces-diagram" data-duration="15s">
+            <h2>Workspaces</h2>
+
+            <img src="assets/workspaces.png" class="schema">
           </section>
 
           <section id="on-disk-no-sourcemaps" data-duration="1m">
@@ -300,44 +193,10 @@ $ brunch build --production
             <h3>les fichiers finaux pour notifier le navigateur</h3>
           </section>
 
-          <section id="watchers-livereload" data-duration="1m">
-            <h2>LiveReload</h2>
-            <h4>a presque inventé ce p’tit jeu</h4>
+          <section id="watchers-no-notif" data-duration="1m">
+            <h2>Reconstruire le build</h2>
 
-            <p>Basé sur les WebSockets, donc IE10+ et les autres.</p>
-            <p>Archi serveur/watcher + extension</p>
-            <p>Gère aujourd’hui plein d’autres trucs (transpiling, concaténation, etc.)</p>
-            <p class="breathing">
-              Outils desktop dans le même genre :
-              <a href="https://incident57.com/codekit/">CodeKit</a> (OSX),
-              <a href="http://hammerformac.com/">Hammer</a> (OSX),
-              <a href="http://alphapixels.com/prepros/">Prepros</a> (OSX / Windows).
-            </p>
-
-            <p><a href="http://livereload.com/">livereload.com</a></p>
-            <footer>* ou IE pre-9 mais avec extension + serveur spécifique</footer>
-          </section>
-
-          <section id="watchers-emmet-livestyle" data-duration="1m">
-            <h2>Emmet LiveStyle</h2>
-
-            <p>Super approche, qui permet une synchro bidirectionnelle entre n'importe quelle page et des fichiers/buffers dans SublimeText.</p>
-
-            <p>Pas basé fichiers spécifiques, donc pas besoin même de trucs spéciaux dans la page.</p>
-
-            <p>Paquet Sublime Text + Extension Chrome.</p>
-
-            <p><a href="http://livestyle.emmet.io/">livestyle.emmet.io</a></p>
-
-            <h4>Démo</h4>
-          </section>
-
-          <section id="watchers-brackets" data-duration="1m">
-            <h2>Brackets Live Preview</h2>
-
-            <p>Même principe que Emmet LiveStyle, mais spécifiquement pour l’éditeur Brackets et sa prévisualisation, basée Chrome.</p>
-
-            <p><a href="http://brackets.io/">brackets.io</a></p>
+            <img src="assets/watchers-rebuild.png" class="schema">
           </section>
 
           <section id="watchers-browsersync" data-duration="3m">
@@ -356,7 +215,7 @@ $ brunch build --production
           <section id="watchers-no-js-injection" data-duration="1m">
             <h2>Et JS alors ?!</h2>
 
-            <p>Tous ces outils n’injectent pas JS, seulement CSS.</p>
+            <p>La plupart des outils n’injectent pas JS, seulement CSS.</p>
             <p>Quand on modifie du JS, ils <strong>rechargent la page</strong>.</p>
             <p>« Ce qui est bien mais pas top »</p>
 
@@ -383,6 +242,12 @@ $ brunch build --production
             <p>Ça ressemble au Saint-Graal (mais que sur Chrome).</p>
 
             <p><a href="https://github.com/facebook/fb-flo">github.com/facebook/fb-flo</a></p>
+          </section>
+
+          <section id="watchers-fb-flo-diagram" data-duration="15s">
+            <h2>fb-flo</h2>
+
+            <img src="assets/fb-flo.png" class="schema">
           </section>
 
           <section id="watchers-fb-flo-server" data-duration="6m">
@@ -416,14 +281,10 @@ function resolver(filepath, callback) {
             </code></pre>
           </section>
 
-          <section id="on-disk-tincr" data-duration="1m">
-            <h2>Tincr</h2>
+          <section id="watchers-any-editor" data-duration="20s">
+            <h2>Quel que soit l’éditeur</h2>
 
-            <p>Ajoute des possibilités de sauvegarde par rapport aux Workspaces (par exemple, persiste les modifs sans les panneaux Styles de l’onglet Éléments), et permet en théorie l’injection CSS <em>et</em> JS (j’ai pas vérifié).</p>
-
-            <p class="breathing">Nécessite quand même un poil de config manuelle pour chaque ressource concernée (mais pas grave).</p>
-
-            <a href="http://tin.cr/">tin.cr</a>
+            <img src="assets/any-editor.png" class="schema">
           </section>
 				</section> <!-- #watchers -->
 
@@ -481,9 +342,9 @@ function resolver(filepath, callback) {
           <p><a href="https://twitter.com/porteneuve">@porteneuve</a></p>
 
           <p class="breathing">
-            Retrouvez les slides sur <a href="http://bit.ly/devavengers">bit.ly/devavengers</a>
+            Retrouvez des slides plus complets sur <a href="http://bit.ly/devavengers">bit.ly/devavengers</a>
             <br>
-            …et le <a href="https://www.youtube.com/watch?v=2Dl9ES6IC3c?utm_campaign=casts-devavengers">screencast HD détaillé</a> qui refait cette présentation.
+            …et le <a href="https://www.youtube.com/watch?v=2Dl9ES6IC3c?utm_campaign=casts-devavengers">screencast HD détaillé</a> qui leur correspond.
           </p>
 				</section>
 			</div>
